@@ -39,7 +39,21 @@ Why ModernLook-OSX do this? Because of currently no legal way to change the colo
 So back to the MLMainWindow. With MLMainWindow you have absolutely nothing. There is nothing visible on the screen. And this is great! You can control every piece of the window by yourself. You can make your own title and toolbar, you can create you own content. ModernLook-OSX provides some helper class to make the UI usable.
 
 ##MLWindowContent
-
+This component is the replacement of NSWindow's contentView. It draws as a colored, rounded rectangle. You can ....
+```objective-c
+- (void)drawRect: (NSRect)rect
+{
+	[NSGraphicsContext saveGraphicsState];
+	
+	NSRect bounds = [self bounds];
+	
+	NSBezierPath *borderPath = [NSBezierPath bezierPathWithRoundedRect: bounds xRadius: 5 yRadius: 5];
+	[self.backgroundColor set];
+	[borderPath fill];
+	
+	[NSGraphicsContext restoreGraphicsState];
+}
+```
 ##MLToolbar
 
 ##MLContentView
