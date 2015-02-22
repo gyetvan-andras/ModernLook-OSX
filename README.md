@@ -88,9 +88,10 @@ Very similar subclass os NSTextField. It just sets the default font, make the co
 
 ##MLComboField
 It is a component similar to NSComboBox, where you can specify the content of the dropdown. It involves three steps:
+
 1. add an NSTextField to your content in IB and set its custom class to MLComboField
-2. create a dropdown content provider object derived from MLComboFieldDelegate and override ```objective-c- (MLPopupContent*) createPopupContent;```
-3. create a view controller which is derived from MLPopupContent and override ```objective-c - (void) moveSelectionUp:(BOOL)up;``` and ```objective-c - (NSString*) moveSelectionTo:(NSString*)str;```
+2. create a dropdown content provider object derived from MLComboFieldDelegate and override ```- (MLPopupContent*) createPopupContent;```
+3. create a view controller which is derived from MLPopupContent and override ```- (void) moveSelectionUp:(BOOL)up;``` and ```- (NSString*) moveSelectionTo:(NSString*)str;```
 
 ##MLOutlineView
 
