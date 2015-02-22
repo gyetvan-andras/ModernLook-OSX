@@ -10,4 +10,5 @@
 #import "MLGlassView.h"
 
 @interface MLToolbar : MLGlassView
+@property (nonatomic) BOOL verticalButtons;
 @end

@@ -9,28 +9,100 @@
 #import "MLToolbar.h"
 #import "MLMainWindow.h"
 
+@interface MLToolbar ()
+@property (nonatomic, weak) NSButton *closeButton;
+@property (nonatomic, weak) NSButton *minimizeButton;
+@property (nonatomic, weak) NSButton *maximizeButton;
+
+@end
+
 @implementation MLToolbar
+
+- (instancetype)initWithFrame: (NSRect)frameRect
+{
+	self = [super initWithFrame: frameRect];
+	if (self != nil) {
+		NSRect b = self.bounds;
+		if(b.size.height > 20) {
+			self.verticalButtons = YES;
+		} else {
+			self.verticalButtons = YES;
+		}
+		[self commonInit];
+	}
+	
+	return self;
+}
+
+//- (instancetype)initWithCoder:(NSCoder *)coder {
+//	self = [super initWithCoder:coder];
+//	if(self) {
+//		[self commonInit];
+//	}
+//	return self;
+//}
+
+- (void) setVerticalButtons:(BOOL)verticalButtons {
+	_verticalButtons = verticalButtons;
+	NSRect b = self.bounds;
+	if(self.verticalButtons) {
+		CGFloat y = b.size.height;
+		
+		CGFloat bh = self.closeButton.bounds.size.height;
+		y = y - bh - 5;
+		
+		CGFloat x = 8;
+		[self.closeButton setFrameOrigin:NSMakePoint(x, y)];
+		[self.minimizeButton setFrameOrigin:NSMakePoint(x, y-bh-3)];
+		[self.maximizeButton setFrameOrigin:NSMakePoint(x, y-bh-3-bh-3)];
+	} else {
+		CGFloat y = b.size.height;
+		
+		CGFloat bh = self.closeButton.bounds.size.height;
+		CGFloat bw = self.closeButton.bounds.size.width;
+		
+		y = y - bh - 5;
+		
+		CGFloat x = 8;
+		[self.closeButton setFrameOrigin:NSMakePoint(x, y)];
+		[self.minimizeButton setFrameOrigin:NSMakePoint(x+2+bw, y)];
+		[self.maximizeButton setFrameOrigin:NSMakePoint(x+2+bw+2+bw, y)];
+	}
+}
 
 - (void) commonInit {
 	[super commonInit];
-	NSButton *closeButton = [NSWindow standardWindowButton:NSWindowCloseButton forStyleMask:NSTitledWindowMask];
-	NSButton *minimizeButton = [NSWindow standardWindowButton:NSWindowMiniaturizeButton forStyleMask:NSTitledWindowMask];
-	NSButton *maximizeButton = [NSWindow standardWindowButton:NSWindowZoomButton forStyleMask:NSTitledWindowMask];
+	self.closeButton = [NSWindow standardWindowButton:NSWindowCloseButton forStyleMask:NSTitledWindowMask];
+	self.minimizeButton = [NSWindow standardWindowButton:NSWindowMiniaturizeButton forStyleMask:NSTitledWindowMask];
+	self.maximizeButton = [NSWindow standardWindowButton:NSWindowZoomButton forStyleMask:NSTitledWindowMask];
 	
-	NSRect b = self.bounds;
-	CGFloat y = b.size.height;
-	
-	CGFloat bh = closeButton.bounds.size.height;
-	y = y - bh - 5;
-	
-	CGFloat x = 8;
-	[closeButton setFrameOrigin:NSMakePoint(x, y)];
-	[minimizeButton setFrameOrigin:NSMakePoint(x, y-bh-2)];
-	[maximizeButton setFrameOrigin:NSMakePoint(x, y-bh-2-bh-2)];
-	
-	[self addSubview:closeButton];
-	[self addSubview:minimizeButton];
-	[self addSubview:maximizeButton];
+//	NSRect b = self.bounds;
+//	if(self.verticalButtons) {
+//		CGFloat y = b.size.height;
+//		
+//		CGFloat bh = self.closeButton.bounds.size.height;
+//		y = y - bh - 5;
+//		
+//		CGFloat x = 8;
+//		[self.closeButton setFrameOrigin:NSMakePoint(x, y)];
+//		[self.minimizeButton setFrameOrigin:NSMakePoint(x, y-bh-3)];
+//		[self.maximizeButton setFrameOrigin:NSMakePoint(x, y-bh-3-bh-3)];
+//	} else {
+//		CGFloat y = b.size.height;
+//		
+//		CGFloat bh = self.closeButton.bounds.size.height;
+//		CGFloat bw = self.closeButton.bounds.size.width;
+//		
+//		y = y - bh - 5;
+//		
+//		CGFloat x = 8;
+//		[self.closeButton setFrameOrigin:NSMakePoint(x, y)];
+//		[self.minimizeButton setFrameOrigin:NSMakePoint(x+2+bw, y)];
+//		[self.maximizeButton setFrameOrigin:NSMakePoint(x+2+bw+2+bw, y)];
+//	}
+	[self addSubview:self.closeButton];
+	[self addSubview:self.minimizeButton];
+	[self addSubview:self.maximizeButton];
 }
 
 - (void)drawRect:(NSRect)dirtyRect {
@@ -46,7 +118,6 @@
 	[self.backgroundColor set];
 	[borderPath fill];
 
-	
 	[[NSColor blackColor] set];
 	NSBezierPath *bottomLine = [NSBezierPath bezierPath];
 	NSPoint p = bounds.origin;
@@ -55,14 +126,17 @@
 	[bottomLine lineToPoint:p];
 	[bottomLine stroke];
 
-	NSBezierPath *sepLine = [NSBezierPath bezierPath];
-	p = bounds.origin;
-	p.x += 29;
-	[sepLine moveToPoint:p];
-	p.y += bounds.size.height;
-	[sepLine lineToPoint:p];
-	sepLine.lineWidth = 0.4;
-	[sepLine stroke];
+	if(self.verticalButtons) {
+		NSBezierPath *sepLine = [NSBezierPath bezierPath];
+		p = bounds.origin;
+		p.x += 29;
+		[sepLine moveToPoint:p];
+		p.y += bounds.size.height;
+		[sepLine lineToPoint:p];
+		sepLine.lineWidth = 0.4;
+		[sepLine stroke];
+	}
+	
 	[NSGraphicsContext restoreGraphicsState];
 	
 	[super drawRect:dirtyRect];

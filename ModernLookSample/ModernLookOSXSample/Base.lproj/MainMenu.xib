@@ -285,6 +285,7 @@
                             <userDefinedRuntimeAttribute type="color" keyPath="backgroundColor">
                                 <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="verticalButtons" value="NO"/>
                         </userDefinedRuntimeAttributes>
                     </customView>
                     <customView translatesAutoresizingMaskIntoConstraints="NO" id="1xL-jy-LPb" customClass="MLContentView">
