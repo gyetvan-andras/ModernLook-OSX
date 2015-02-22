@@ -69,7 +69,7 @@ This component can be used for MLMainWindow's toolbar. This component has nothin
 You must use this component as your window content base class. The background color can be specified with backgroundColor property, which is transparent by default. 
 
 #Window setup
-You can design your window in IB and it is up to you how to layout stuffs. Generally you should add a toolbar and content view to the window, specifying the Custom Class property accordingly.
+You can design your window in IB and it is up to you how to layout stuffs. Generally you should add a toolbar and content view to the window, specifying their Custom Class properties accordingly.
 <p align="center">
 	<img src="doc/ml-ib.png" alt="Window Setup in IB">
 	<p align="center">
@@ -77,14 +77,14 @@ You can design your window in IB and it is up to you how to layout stuffs. Gener
 	</p>
 </p>
 
-Above you can see, that the toolbar portion of the window is a custom class of MLToolbar, the content view area is covered by an MLContentView.
+Above you can see, that the toolbar portion of the window is a custom class of MLToolbar and the content view area is covered by an MLContentView.
 
-You can add any other component to these view, however most of the native NS* components look will be a bit strange. I have added a few components to the ModernLook-OSX and I am working on to more.
+You can add any other component to these views, however most of the native NS* components will look a bit strange. I have added a few components to the ModernLook-OSX and I am working on to more.
 
 #Additional components
 
 ##MLTextField
-Very similar subclass os NSTextField. It just sets the default font, make the component transparent and draws a thin line beneath the component.
+Very simple subclass of NSTextField. It just sets the default font, make the component transparent and draws a thin line beneath the component.
 
 ##MLComboField
 It is a component similar to NSComboBox, where you can specify the content of the dropdown. It involves the following steps:
@@ -95,10 +95,10 @@ It is a component similar to NSComboBox, where you can specify the content of th
 4. add your dropdown content provider to IB and set it as delegate of the MLComboField.
 
 ##MLOutlineView
-This component is derived from NSOutlineView and it replaces the outline view header control to dd custom drawing to it.
+This component is derived from NSOutlineView and replaces the outline view header control to add custom drawing to it.
 
 ##MLTableView
-This component is derived from NSTableView and it replaces the outline view header control to dd custom drawing to it.
+This component is derived from NSTableView and replaces the outline view header control to add custom drawing to it.
 
 ##MLRadioGroupManager
 It is really not a component, just a manager to mimic Segmented Control and needs further improvements. Anyways, it works as follows: add an object with custom class as MLRadioGroupManager and an NSView to IB and place some NSButton into it. Configure the buttons style to square and type to switch. Assign the buttons' sent action to the MLRadioGroupManager. Also assign the buttons parent view to the MLRadioGroupManager as groupView. With this setup the MLRadioGroupManager will act like a radio button group, so only one button can be selected at a time. Yes, I know it is a bit confusing, but you should take a look at the sample application's toolbar.
@@ -111,11 +111,11 @@ The provided sample application is an imagined Budget app. It has 4 separate are
 3. Budget panel
 4. Prediction panel
 
-The application has a toolbar, where the user can switch between the application panels.
+The application has a toolbar, where the user can switch between the application panels, by using MLRadioGroupManager. All the panels are derived from MLContentView and they use MLOutlienView, MLTableView, MLComboField and MLTextField.
 
 #Known issues
 
-1. the window buttons on the toolbar behave strange. There is no images in them and they don't highlighted when the window is not selected, they just remain grayed out when the mouse hovered over.
+1. the window buttons on the toolbar behave strange. There are no images in them and they don't highlighted when the window is not selected, they just remain grayed out when the mouse hovered over.
 2. MLComboField dropdown remains on screen sometimes (switch to another windows, for example)
 3. MLTextField text selection covers the bottom thin line.
 
