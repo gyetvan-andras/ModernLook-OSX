@@ -63,10 +63,10 @@ This component can be used to create a window for your application.
 This component is used for MLMainWindow's contentView. It draws as a colored, rounded rectangle. You can specify it's color by overriding the backgroundColor property.
 
 ##MLToolbar
-This component can be used for MLMainWindow's toolbar. This component has nothing common with standard NSToolbar, it simple NSView which just draws the window buttons. The content of the toolbar can be designed in IB.
+This component can be used for MLMainWindow's toolbar. This component has nothing common with standard NSToolbar, it is a simple NSView which just draws the window buttons. The content of the toolbar can be designed in IB. The background color can be specified with backgroundColor property, which is transparent by default.
 
 ##MLContentView
-You must use this component as your window content base class. 
+You must use this component as your window content base class. The background color can be specified with backgroundColor property, which is transparent by default. 
 
 #Window setup
 You can design your window in IB and it is up to you how to layout stuffs. Generally you should add a toolbar and content view to the window, specifying the Custom Class property accordingly.
