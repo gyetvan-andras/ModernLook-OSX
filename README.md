@@ -87,17 +87,21 @@ You can add any other component to these view, however most of the native NS* co
 Very similar subclass os NSTextField. It just sets the default font, make the component transparent and draws a thin line beneath the component.
 
 ##MLComboField
-It is a component similar to NSComboBox, where you can specify the content of the dropdown. It involves three steps:
+It is a component similar to NSComboBox, where you can specify the content of the dropdown. It involves the following steps:
 
 1. add an NSTextField to your content in IB and set its custom class to MLComboField
 2. create a dropdown content provider object derived from MLComboFieldDelegate and override ```- (MLPopupContent*) createPopupContent;```
 3. create a view controller which is derived from MLPopupContent and override ```- (void) moveSelectionUp:(BOOL)up;``` and ```- (NSString*) moveSelectionTo:(NSString*)str;```
+4. add your dropdown content provider to IB and set it as delegate of the MLComboField.
 
 ##MLOutlineView
+This component is derived from NSOutlineView and it replaces the outline view header control to dd custom drawing to it.
 
 ##MLTableView
+This component is derived from NSTableView and it replaces the outline view header control to dd custom drawing to it.
 
 ##MLRadioGroupManager
+It is really not a component, just a manager to mimic Segmented Control and needs further improvements. Anyways, it works as follows: add an object with custom class as MLRadioGroupManager and an NSView to IB and place some NSButton into it. Configure the buttons style to square and type to switch. Assign the buttons' sent action to the MLRadioGroupManager. Also assign the buttons parent view to the MLRadioGroupManager as groupView. With this setup the MLRadioGroupManager will act like a radio button group, so only one button can be selected at a time. Yes, I know it is a bit confusing, but you should take a look at the sample application's toolbar.
 
 #Sample Application
 The provided sample application is an imagined Budget app. It has 4 separate area:

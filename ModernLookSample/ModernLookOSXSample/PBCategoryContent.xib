@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6254" systemVersion="14D72i" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6254"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="PBCategoryContent">
+            <connections>
+                <outlet property="budgetController" destination="rKQ-Gb-TXh" id="51Q-Ga-KPl"/>
+                <outlet property="categories" destination="ete-SV-qCc" id="pDD-6n-CXM"/>
+                <outlet property="tree" destination="ym8-6i-p9x" id="WmN-5T-BnU"/>
+                <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView id="Hz6-mo-xeY">
+            <rect key="frame" x="0.0" y="0.0" width="218" height="203"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <scrollView autohidesScrollers="YES" horizontalLineScroll="21" horizontalPageScroll="10" verticalLineScroll="21" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xxb-bv-Dfs">
+                    <rect key="frame" x="0.0" y="0.0" width="218" height="203"/>
+                    <clipView key="contentView" drawsBackground="NO" id="SBe-ze-gji">
+                        <rect key="frame" x="1" y="0.0" width="238" height="134"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <outlineView verticalHuggingPriority="750" columnAutoresizingStyle="lastColumnOnly" columnReordering="NO" columnResizing="NO" multipleSelection="NO" autosaveColumns="NO" rowHeight="19" indentationPerLevel="16" indentationMarkerFollowsCell="NO" outlineTableColumn="yiD-dZ-LrU" id="ym8-6i-p9x">
+                                <rect key="frame" x="0.0" y="0.0" width="209" height="21"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <size key="intercellSpacing" width="3" height="2"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
+                                <tableColumns>
+                                    <tableColumn editable="NO" width="206" minWidth="40" maxWidth="1000" id="yiD-dZ-LrU">
+                                        <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Categories">
+                                            <font key="font" metaFont="smallSystem"/>
+                                            <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
+                                        </tableHeaderCell>
+                                        <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" alignment="left" title="Text Cell" drawsBackground="YES" usesSingleLineMode="YES" id="7uD-y9-9rx">
+                                            <font key="font" size="13" name="HelveticaNeue-Light"/>
+                                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                        <sortDescriptor key="sortDescriptorPrototype" selector="compare:" sortKey="seq"/>
+                                        <tableColumnResizingMask key="resizingMask" resizeWithTable="YES"/>
+                                        <connections>
+                                            <binding destination="ete-SV-qCc" name="value" keyPath="arrangedObjects.name" id="ryc-go-fdA"/>
+                                        </connections>
+                                    </tableColumn>
+                                </tableColumns>
+                                <connections>
+                                    <outlet property="delegate" destination="-2" id="K6O-Px-77Y"/>
+                                </connections>
+                            </outlineView>
+                        </subviews>
+                        <nil key="backgroundColor"/>
+                    </clipView>
+                    <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="59H-cG-hun">
+                        <rect key="frame" x="1" y="119" width="223" height="15"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </scroller>
+                    <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="v5h-xV-Qey">
+                        <rect key="frame" x="224" y="17" width="15" height="102"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </scroller>
+                </scrollView>
+            </subviews>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="xxb-bv-Dfs" secondAttribute="bottom" id="XvT-mn-CJA"/>
+                <constraint firstAttribute="trailing" secondItem="xxb-bv-Dfs" secondAttribute="trailing" id="ajR-tj-YAK"/>
+                <constraint firstItem="xxb-bv-Dfs" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" id="kKE-67-A3r"/>
+                <constraint firstItem="xxb-bv-Dfs" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="uUF-ZZ-cFA"/>
+            </constraints>
+            <point key="canvasLocation" x="177" y="145.5"/>
+        </customView>
+        <treeController objectClassName="PBCategory" childrenKeyPath="subCategories" id="ete-SV-qCc" userLabel="Categories">
+            <connections>
+                <binding destination="rKQ-Gb-TXh" name="contentArray" keyPath="selection.categories" id="cYt-nl-deP"/>
+            </connections>
+        </treeController>
+        <objectController objectClassName="PBBudget" id="rKQ-Gb-TXh" userLabel="Budget">
+            <connections>
+                <binding destination="-2" name="contentObject" keyPath="budget" id="UhQ-1V-jQ0"/>
+            </connections>
+        </objectController>
+    </objects>
+</document>

@@ -1,0 +1,430 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		B39FBCA41A9A1E57000C4BB2 /* ModernLookOSX.h in Headers */ = {isa = PBXBuildFile; fileRef = B39FBCA31A9A1E57000C4BB2 /* ModernLookOSX.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B39FBD9B1A9A261A000C4BB2 /* MLMainWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = B39FBD781A9A261A000C4BB2 /* MLMainWindow.m */; };
+		B39FBD9C1A9A261A000C4BB2 /* MLOutlineView.m in Sources */ = {isa = PBXBuildFile; fileRef = B39FBD791A9A261A000C4BB2 /* MLOutlineView.m */; };
+		B39FBD9D1A9A261A000C4BB2 /* MLTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = B39FBD7A1A9A261A000C4BB2 /* MLTableView.m */; };
+		B39FBD9F1A9A261A000C4BB2 /* MLComboField.m in Sources */ = {isa = PBXBuildFile; fileRef = B39FBD7C1A9A261A000C4BB2 /* MLComboField.m */; };
+		B39FBDA01A9A261A000C4BB2 /* MLTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = B39FBD7D1A9A261A000C4BB2 /* MLTextField.m */; };
+		B39FBDA21A9A261A000C4BB2 /* MLTableHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B39FBD7F1A9A261A000C4BB2 /* MLTableHeaderCell.m */; };
+		B39FBDA51A9A261A000C4BB2 /* MLComboFieldDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B39FBD821A9A261A000C4BB2 /* MLComboFieldDelegate.m */; };
+		B39FBDAB1A9A261A000C4BB2 /* MLRadioGroupManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B39FBD881A9A261A000C4BB2 /* MLRadioGroupManager.m */; };
+		B39FBDAD1A9A261A000C4BB2 /* MLGlassView.m in Sources */ = {isa = PBXBuildFile; fileRef = B39FBD8A1A9A261A000C4BB2 /* MLGlassView.m */; };
+		B39FBDAE1A9A261A000C4BB2 /* MLGlassView.h in Headers */ = {isa = PBXBuildFile; fileRef = B39FBD8B1A9A261A000C4BB2 /* MLGlassView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B39FBDAF1A9A261A000C4BB2 /* MLToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = B39FBD8C1A9A261A000C4BB2 /* MLToolbar.m */; };
+		B39FBDB01A9A261A000C4BB2 /* MLContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = B39FBD8D1A9A261A000C4BB2 /* MLContentView.m */; };
+		B39FBDB11A9A261A000C4BB2 /* MLContentView.h in Headers */ = {isa = PBXBuildFile; fileRef = B39FBD8E1A9A261A000C4BB2 /* MLContentView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B39FBDB21A9A261A000C4BB2 /* MLWindowContent.m in Sources */ = {isa = PBXBuildFile; fileRef = B39FBD8F1A9A261A000C4BB2 /* MLWindowContent.m */; };
+		B39FBDB31A9A261A000C4BB2 /* MLWindowContent.h in Headers */ = {isa = PBXBuildFile; fileRef = B39FBD901A9A261A000C4BB2 /* MLWindowContent.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B39FBDB41A9A261A000C4BB2 /* MLToolbar.h in Headers */ = {isa = PBXBuildFile; fileRef = B39FBD911A9A261A000C4BB2 /* MLToolbar.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B39FBDB51A9A261A000C4BB2 /* MLPopupWindowManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B39FBD921A9A261A000C4BB2 /* MLPopupWindowManager.m */; };
+		B39FBDB61A9A261A000C4BB2 /* MLPopupContent.m in Sources */ = {isa = PBXBuildFile; fileRef = B39FBD931A9A261A000C4BB2 /* MLPopupContent.m */; };
+		B39FBDB71A9A261A000C4BB2 /* MLMainWindow.h in Headers */ = {isa = PBXBuildFile; fileRef = B39FBD941A9A261A000C4BB2 /* MLMainWindow.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B39FBDBA1A9A261A000C4BB2 /* MLPopupWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = B39FBD971A9A261A000C4BB2 /* MLPopupWindow.m */; };
+		B39FBDF11A9A35E8000C4BB2 /* MLOutlineView.h in Headers */ = {isa = PBXBuildFile; fileRef = B39FBD811A9A261A000C4BB2 /* MLOutlineView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B39FBDF21A9A35E8000C4BB2 /* MLTableView.h in Headers */ = {isa = PBXBuildFile; fileRef = B39FBD7B1A9A261A000C4BB2 /* MLTableView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B39FBDF31A9A35E8000C4BB2 /* MLTableHeaderCell.h in Headers */ = {isa = PBXBuildFile; fileRef = B39FBD801A9A261A000C4BB2 /* MLTableHeaderCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B39FBDF41A9A35E8000C4BB2 /* MLComboField.h in Headers */ = {isa = PBXBuildFile; fileRef = B39FBD831A9A261A000C4BB2 /* MLComboField.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B39FBDF51A9A35E8000C4BB2 /* MLComboFieldDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = B39FBD861A9A261A000C4BB2 /* MLComboFieldDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B39FBDF61A9A35E8000C4BB2 /* MLTextField.h in Headers */ = {isa = PBXBuildFile; fileRef = B39FBD841A9A261A000C4BB2 /* MLTextField.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B39FBDF71A9A35E8000C4BB2 /* MLRadioGroupManager.h in Headers */ = {isa = PBXBuildFile; fileRef = B39FBD891A9A261A000C4BB2 /* MLRadioGroupManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B39FBDF81A9A35E8000C4BB2 /* MLPopupContent.h in Headers */ = {isa = PBXBuildFile; fileRef = B39FBD951A9A261A000C4BB2 /* MLPopupContent.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B39FBDF91A9A35E8000C4BB2 /* MLPopupWindow.h in Headers */ = {isa = PBXBuildFile; fileRef = B39FBD9A1A9A261A000C4BB2 /* MLPopupWindow.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B39FBDFA1A9A35E9000C4BB2 /* MLPopupWindowManager.h in Headers */ = {isa = PBXBuildFile; fileRef = B39FBD991A9A261A000C4BB2 /* MLPopupWindowManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		B39FBC9E1A9A1E57000C4BB2 /* ModernLookOSX.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ModernLookOSX.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B39FBCA21A9A1E57000C4BB2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B39FBCA31A9A1E57000C4BB2 /* ModernLookOSX.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ModernLookOSX.h; sourceTree = "<group>"; };
+		B39FBD781A9A261A000C4BB2 /* MLMainWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MLMainWindow.m; path = ModernLookOSX/MLMainWindow.m; sourceTree = SOURCE_ROOT; };
+		B39FBD791A9A261A000C4BB2 /* MLOutlineView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MLOutlineView.m; path = ModernLookOSX/MLOutlineView.m; sourceTree = SOURCE_ROOT; };
+		B39FBD7A1A9A261A000C4BB2 /* MLTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MLTableView.m; path = ModernLookOSX/MLTableView.m; sourceTree = SOURCE_ROOT; };
+		B39FBD7B1A9A261A000C4BB2 /* MLTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MLTableView.h; path = ModernLookOSX/MLTableView.h; sourceTree = SOURCE_ROOT; };
+		B39FBD7C1A9A261A000C4BB2 /* MLComboField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MLComboField.m; path = ModernLookOSX/MLComboField.m; sourceTree = SOURCE_ROOT; };
+		B39FBD7D1A9A261A000C4BB2 /* MLTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MLTextField.m; path = ModernLookOSX/MLTextField.m; sourceTree = SOURCE_ROOT; };
+		B39FBD7F1A9A261A000C4BB2 /* MLTableHeaderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MLTableHeaderCell.m; path = ModernLookOSX/MLTableHeaderCell.m; sourceTree = SOURCE_ROOT; };
+		B39FBD801A9A261A000C4BB2 /* MLTableHeaderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MLTableHeaderCell.h; path = ModernLookOSX/MLTableHeaderCell.h; sourceTree = SOURCE_ROOT; };
+		B39FBD811A9A261A000C4BB2 /* MLOutlineView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MLOutlineView.h; path = ModernLookOSX/MLOutlineView.h; sourceTree = SOURCE_ROOT; };
+		B39FBD821A9A261A000C4BB2 /* MLComboFieldDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MLComboFieldDelegate.m; path = ModernLookOSX/MLComboFieldDelegate.m; sourceTree = SOURCE_ROOT; };
+		B39FBD831A9A261A000C4BB2 /* MLComboField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MLComboField.h; path = ModernLookOSX/MLComboField.h; sourceTree = SOURCE_ROOT; };
+		B39FBD841A9A261A000C4BB2 /* MLTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MLTextField.h; path = ModernLookOSX/MLTextField.h; sourceTree = SOURCE_ROOT; };
+		B39FBD861A9A261A000C4BB2 /* MLComboFieldDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MLComboFieldDelegate.h; path = ModernLookOSX/MLComboFieldDelegate.h; sourceTree = SOURCE_ROOT; };
+		B39FBD881A9A261A000C4BB2 /* MLRadioGroupManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MLRadioGroupManager.m; path = ModernLookOSX/MLRadioGroupManager.m; sourceTree = SOURCE_ROOT; };
+		B39FBD891A9A261A000C4BB2 /* MLRadioGroupManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MLRadioGroupManager.h; path = ModernLookOSX/MLRadioGroupManager.h; sourceTree = SOURCE_ROOT; };
+		B39FBD8A1A9A261A000C4BB2 /* MLGlassView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MLGlassView.m; path = ModernLookOSX/MLGlassView.m; sourceTree = SOURCE_ROOT; };
+		B39FBD8B1A9A261A000C4BB2 /* MLGlassView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MLGlassView.h; path = ModernLookOSX/MLGlassView.h; sourceTree = SOURCE_ROOT; };
+		B39FBD8C1A9A261A000C4BB2 /* MLToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MLToolbar.m; path = ModernLookOSX/MLToolbar.m; sourceTree = SOURCE_ROOT; };
+		B39FBD8D1A9A261A000C4BB2 /* MLContentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MLContentView.m; path = ModernLookOSX/MLContentView.m; sourceTree = SOURCE_ROOT; };
+		B39FBD8E1A9A261A000C4BB2 /* MLContentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MLContentView.h; path = ModernLookOSX/MLContentView.h; sourceTree = SOURCE_ROOT; };
+		B39FBD8F1A9A261A000C4BB2 /* MLWindowContent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MLWindowContent.m; path = ModernLookOSX/MLWindowContent.m; sourceTree = SOURCE_ROOT; };
+		B39FBD901A9A261A000C4BB2 /* MLWindowContent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MLWindowContent.h; path = ModernLookOSX/MLWindowContent.h; sourceTree = SOURCE_ROOT; };
+		B39FBD911A9A261A000C4BB2 /* MLToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MLToolbar.h; path = ModernLookOSX/MLToolbar.h; sourceTree = SOURCE_ROOT; };
+		B39FBD921A9A261A000C4BB2 /* MLPopupWindowManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MLPopupWindowManager.m; path = ModernLookOSX/MLPopupWindowManager.m; sourceTree = SOURCE_ROOT; };
+		B39FBD931A9A261A000C4BB2 /* MLPopupContent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MLPopupContent.m; path = ModernLookOSX/MLPopupContent.m; sourceTree = SOURCE_ROOT; };
+		B39FBD941A9A261A000C4BB2 /* MLMainWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MLMainWindow.h; path = ModernLookOSX/MLMainWindow.h; sourceTree = SOURCE_ROOT; };
+		B39FBD951A9A261A000C4BB2 /* MLPopupContent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MLPopupContent.h; path = ModernLookOSX/MLPopupContent.h; sourceTree = SOURCE_ROOT; };
+		B39FBD971A9A261A000C4BB2 /* MLPopupWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MLPopupWindow.m; path = ModernLookOSX/MLPopupWindow.m; sourceTree = SOURCE_ROOT; };
+		B39FBD991A9A261A000C4BB2 /* MLPopupWindowManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MLPopupWindowManager.h; path = ModernLookOSX/MLPopupWindowManager.h; sourceTree = SOURCE_ROOT; };
+		B39FBD9A1A9A261A000C4BB2 /* MLPopupWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MLPopupWindow.h; path = ModernLookOSX/MLPopupWindow.h; sourceTree = SOURCE_ROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B39FBC9A1A9A1E57000C4BB2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		B39FBC941A9A1E57000C4BB2 = {
+			isa = PBXGroup;
+			children = (
+				B39FBCC61A9A1FC1000C4BB2 /* Modern Look */,
+				B39FBCA01A9A1E57000C4BB2 /* ModernLookOSX */,
+				B39FBC9F1A9A1E57000C4BB2 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		B39FBC9F1A9A1E57000C4BB2 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B39FBC9E1A9A1E57000C4BB2 /* ModernLookOSX.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B39FBCA01A9A1E57000C4BB2 /* ModernLookOSX */ = {
+			isa = PBXGroup;
+			children = (
+				B39FBCA31A9A1E57000C4BB2 /* ModernLookOSX.h */,
+				B39FBCA11A9A1E57000C4BB2 /* Supporting Files */,
+			);
+			path = ModernLookOSX;
+			sourceTree = "<group>";
+		};
+		B39FBCA11A9A1E57000C4BB2 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				B39FBCA21A9A1E57000C4BB2 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B39FBCC61A9A1FC1000C4BB2 /* Modern Look */ = {
+			isa = PBXGroup;
+			children = (
+				B39FBDBF1A9A272C000C4BB2 /* Components */,
+				B39FBDBE1A9A2710000C4BB2 /* Popup */,
+				B39FBD941A9A261A000C4BB2 /* MLMainWindow.h */,
+				B39FBD781A9A261A000C4BB2 /* MLMainWindow.m */,
+				B39FBD8B1A9A261A000C4BB2 /* MLGlassView.h */,
+				B39FBD8A1A9A261A000C4BB2 /* MLGlassView.m */,
+				B39FBD911A9A261A000C4BB2 /* MLToolbar.h */,
+				B39FBD8C1A9A261A000C4BB2 /* MLToolbar.m */,
+				B39FBD8E1A9A261A000C4BB2 /* MLContentView.h */,
+				B39FBD8D1A9A261A000C4BB2 /* MLContentView.m */,
+				B39FBD901A9A261A000C4BB2 /* MLWindowContent.h */,
+				B39FBD8F1A9A261A000C4BB2 /* MLWindowContent.m */,
+			);
+			name = "Modern Look";
+			path = "ModernLookOSX/Modern Look";
+			sourceTree = "<group>";
+		};
+		B39FBDBE1A9A2710000C4BB2 /* Popup */ = {
+			isa = PBXGroup;
+			children = (
+				B39FBD831A9A261A000C4BB2 /* MLComboField.h */,
+				B39FBD7C1A9A261A000C4BB2 /* MLComboField.m */,
+				B39FBD861A9A261A000C4BB2 /* MLComboFieldDelegate.h */,
+				B39FBD821A9A261A000C4BB2 /* MLComboFieldDelegate.m */,
+				B39FBD951A9A261A000C4BB2 /* MLPopupContent.h */,
+				B39FBD931A9A261A000C4BB2 /* MLPopupContent.m */,
+				B39FBD9A1A9A261A000C4BB2 /* MLPopupWindow.h */,
+				B39FBD971A9A261A000C4BB2 /* MLPopupWindow.m */,
+				B39FBD991A9A261A000C4BB2 /* MLPopupWindowManager.h */,
+				B39FBD921A9A261A000C4BB2 /* MLPopupWindowManager.m */,
+			);
+			name = Popup;
+			sourceTree = "<group>";
+		};
+		B39FBDBF1A9A272C000C4BB2 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				B39FBD811A9A261A000C4BB2 /* MLOutlineView.h */,
+				B39FBD791A9A261A000C4BB2 /* MLOutlineView.m */,
+				B39FBD7B1A9A261A000C4BB2 /* MLTableView.h */,
+				B39FBD7A1A9A261A000C4BB2 /* MLTableView.m */,
+				B39FBD801A9A261A000C4BB2 /* MLTableHeaderCell.h */,
+				B39FBD7F1A9A261A000C4BB2 /* MLTableHeaderCell.m */,
+				B39FBD841A9A261A000C4BB2 /* MLTextField.h */,
+				B39FBD7D1A9A261A000C4BB2 /* MLTextField.m */,
+				B39FBD891A9A261A000C4BB2 /* MLRadioGroupManager.h */,
+				B39FBD881A9A261A000C4BB2 /* MLRadioGroupManager.m */,
+			);
+			name = Components;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		B39FBC9B1A9A1E57000C4BB2 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B39FBDB31A9A261A000C4BB2 /* MLWindowContent.h in Headers */,
+				B39FBDAE1A9A261A000C4BB2 /* MLGlassView.h in Headers */,
+				B39FBDB11A9A261A000C4BB2 /* MLContentView.h in Headers */,
+				B39FBCA41A9A1E57000C4BB2 /* ModernLookOSX.h in Headers */,
+				B39FBDB41A9A261A000C4BB2 /* MLToolbar.h in Headers */,
+				B39FBDB71A9A261A000C4BB2 /* MLMainWindow.h in Headers */,
+				B39FBDF11A9A35E8000C4BB2 /* MLOutlineView.h in Headers */,
+				B39FBDF21A9A35E8000C4BB2 /* MLTableView.h in Headers */,
+				B39FBDF31A9A35E8000C4BB2 /* MLTableHeaderCell.h in Headers */,
+				B39FBDF41A9A35E8000C4BB2 /* MLComboField.h in Headers */,
+				B39FBDF51A9A35E8000C4BB2 /* MLComboFieldDelegate.h in Headers */,
+				B39FBDF61A9A35E8000C4BB2 /* MLTextField.h in Headers */,
+				B39FBDF71A9A35E8000C4BB2 /* MLRadioGroupManager.h in Headers */,
+				B39FBDF81A9A35E8000C4BB2 /* MLPopupContent.h in Headers */,
+				B39FBDF91A9A35E8000C4BB2 /* MLPopupWindow.h in Headers */,
+				B39FBDFA1A9A35E9000C4BB2 /* MLPopupWindowManager.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		B39FBC9D1A9A1E57000C4BB2 /* ModernLookOSX */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B39FBCB41A9A1E57000C4BB2 /* Build configuration list for PBXNativeTarget "ModernLookOSX" */;
+			buildPhases = (
+				B39FBC991A9A1E57000C4BB2 /* Sources */,
+				B39FBC9A1A9A1E57000C4BB2 /* Frameworks */,
+				B39FBC9B1A9A1E57000C4BB2 /* Headers */,
+				B39FBC9C1A9A1E57000C4BB2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ModernLookOSX;
+			productName = ModernLookOSX;
+			productReference = B39FBC9E1A9A1E57000C4BB2 /* ModernLookOSX.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B39FBC951A9A1E57000C4BB2 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0610;
+				ORGANIZATIONNAME = DroidZONE;
+				TargetAttributes = {
+					B39FBC9D1A9A1E57000C4BB2 = {
+						CreatedOnToolsVersion = 6.1.1;
+					};
+				};
+			};
+			buildConfigurationList = B39FBC981A9A1E57000C4BB2 /* Build configuration list for PBXProject "ModernLookOSX" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = B39FBC941A9A1E57000C4BB2;
+			productRefGroup = B39FBC9F1A9A1E57000C4BB2 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B39FBC9D1A9A1E57000C4BB2 /* ModernLookOSX */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		B39FBC9C1A9A1E57000C4BB2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B39FBC991A9A1E57000C4BB2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B39FBDA01A9A261A000C4BB2 /* MLTextField.m in Sources */,
+				B39FBDB51A9A261A000C4BB2 /* MLPopupWindowManager.m in Sources */,
+				B39FBDAB1A9A261A000C4BB2 /* MLRadioGroupManager.m in Sources */,
+				B39FBDAF1A9A261A000C4BB2 /* MLToolbar.m in Sources */,
+				B39FBD9B1A9A261A000C4BB2 /* MLMainWindow.m in Sources */,
+				B39FBD9C1A9A261A000C4BB2 /* MLOutlineView.m in Sources */,
+				B39FBDB21A9A261A000C4BB2 /* MLWindowContent.m in Sources */,
+				B39FBDBA1A9A261A000C4BB2 /* MLPopupWindow.m in Sources */,
+				B39FBDA21A9A261A000C4BB2 /* MLTableHeaderCell.m in Sources */,
+				B39FBD9D1A9A261A000C4BB2 /* MLTableView.m in Sources */,
+				B39FBDAD1A9A261A000C4BB2 /* MLGlassView.m in Sources */,
+				B39FBD9F1A9A261A000C4BB2 /* MLComboField.m in Sources */,
+				B39FBDB01A9A261A000C4BB2 /* MLContentView.m in Sources */,
+				B39FBDB61A9A261A000C4BB2 /* MLPopupContent.m in Sources */,
+				B39FBDA51A9A261A000C4BB2 /* MLComboFieldDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		B39FBCB21A9A1E57000C4BB2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		B39FBCB31A9A1E57000C4BB2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		B39FBCB51A9A1E57000C4BB2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = ModernLookOSX/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		B39FBCB61A9A1E57000C4BB2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = ModernLookOSX/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B39FBC981A9A1E57000C4BB2 /* Build configuration list for PBXProject "ModernLookOSX" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B39FBCB21A9A1E57000C4BB2 /* Debug */,
+				B39FBCB31A9A1E57000C4BB2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B39FBCB41A9A1E57000C4BB2 /* Build configuration list for PBXNativeTarget "ModernLookOSX" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B39FBCB51A9A1E57000C4BB2 /* Debug */,
+				B39FBCB61A9A1E57000C4BB2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = B39FBC951A9A1E57000C4BB2 /* Project object */;
+}
