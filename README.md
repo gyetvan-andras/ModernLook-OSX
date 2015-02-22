@@ -22,24 +22,57 @@ For example, there is the MLTextField component which is derived from NSTextFiel
 <img src="doc/mltextfield.png" alt="MLTextField" style="width:189;height:44">
 
 
-#Usage
-
-##MLMainWindow
+#Main components
 
 ModernLook-OSX contains several components to let you create exciting applications, however not all the OSX UI covered yet. I plan to add more component to the package, so stay tuned!
 
-The implementation of a ModernLook-OSX application begins at MLMainWindow. MLMainWindow is derived from NSWindow and modifies it with the following settings:
-
-- turns off the title bar
-- makes the window transparent
-- makes the window movable by dragging its content
-
-Why ModernLook-OSX do this? Because of currently no legal way to change the color of the title and toolbar of an application (at least I did not find it). There are some hacks around, but those are based on undocumented API calls, so the application would never be accepted to became App Store compatible by Apple. Yes, of course you can try to play with set the appearance of a window, for example, to NSAppearanceNameVibrantDark, but it is just pain on neck.
-
-So back to the MLMainWindow. With MLMainWindow you have absolutely nothing. There is nothing visible on the screen. And this is great! You can control every piece of the window by yourself. You can make your own title and toolbar, you can create you own content. ModernLook-OSX provides some helper class to make the UI usable.
+##MLMainWindow
+This component can be used to create a window for your application.
 
 ##MLWindowContent
-This component is the replacement of NSWindow's contentView. It draws as a colored, rounded rectangle. You can ....
+This component is used for MLMainWindow's contentView. It draws as a colored, rounded rectangle. You can specify it's color by overriding the backgroundColor property.
+
+##MLToolbar
+This component can be used for MLMainWindow's toolbar. This component has nothing common with standard NSToolbar, it simple NSView which just draws the window buttons. The content of the toolbar can be designed in IB.
+
+##MLContentView
+You must use this component as your window content base class. 
+
+#Window setup
+You can design your window in IB and it is up to you how to layout stuffs. Generally you should add a toolbar and content view to the window, specifying the Custom Class property accordingly.
+<p align="center">
+	<img src="doc/ml-ib.png" alt="Window Setup in IB">
+	<p align="center">
+		<em>Window Setup in IB</em>
+	</p>
+</p>
+
+Above you can see, that the toolbar portion of the window is a class of MLToolbar, the content view area is covered by an MLContentView.
+
+You can add any other component to these view
+#Additional component
+
+##MLTextField
+
+##MLComboField
+
+##MLOutlineView
+
+##MLTableView
+
+##MLRadioGroupManager
+
+#Sample Application
+The provided sample application is an imagined Budget app. It has 4 separate area:
+
+1. Settings panel
+2. Accounts panel
+3. Budget panel
+4. Prediction panel
+
+The application has a toolbar, where the user can switch between the application panels.
+
+ 
 ```objective-c
 - (void)drawRect: (NSRect)rect
 {
@@ -47,14 +80,10 @@ This component is the replacement of NSWindow's contentView. It draws as a color
 	
 	NSRect bounds = [self bounds];
 	
-	NSBezierPath *borderPath = [NSBezierPath bezierPathWithRoundedRect: bounds xRadius: 5 yRadius: 5];
+	NSBezierPath *borderPath = [NSBezierPath bezierPathWithRoundedRect: bounds xRadius: ML_MAIN_WINDOW_ROUNDED_RECT_RADIUS yRadius: ML_MAIN_WINDOW_ROUNDED_RECT_RADIUS];
 	[self.backgroundColor set];
 	[borderPath fill];
 	
 	[NSGraphicsContext restoreGraphicsState];
 }
 ```
-##MLToolbar
-
-##MLContentView
-
