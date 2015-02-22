@@ -15,6 +15,8 @@ ModernLook-OSX requires OSX 10.10 to work properly. I have tested the components
 #Description
 
 ModernLook-OSX is the amalgamation of different ideas found all around the net (especially on [stackoverflow.com](http://stackoverflow.com) ) discussing about how to achieve the look of application rewritten by Apple for Yosemite.
+
+So there is nothing revolutionary, however I hope somebody could find it useful.
  
 Most of the components are derived from NS* native components and add special UI code to fit into the general ModernLook. 
 For example, there is the MLTextField component which is derived from NSTextField. The new component initializes the NSTextField with hardcoded values (font, colors, etc.) and overrides the original painting code to add a thin line beneath the component.
@@ -48,7 +50,7 @@ Here is the code of the MLTextField class.
 	[super drawRect:dirtyRect];
 }
 ```
-You can easily change it to meet your needs, for example draw the line with to text foreground color, instead of static black (I plan to add this to the component).
+You can easily change it to meet your needs, for example draw the line with foreground color, instead of hardcoded black (I plan to add this to the component soon).
 
 #Main components
 
@@ -75,14 +77,20 @@ You can design your window in IB and it is up to you how to layout stuffs. Gener
 	</p>
 </p>
 
-Above you can see, that the toolbar portion of the window is a class of MLToolbar, the content view area is covered by an MLContentView.
+Above you can see, that the toolbar portion of the window is a custom class of MLToolbar, the content view area is covered by an MLContentView.
 
-You can add any other component to these view
+You can add any other component to these view, however most of the native NS* components look will be a bit strange. I have added a few components to the ModernLook-OSX and I am working on to more.
+
 #Additional components
 
 ##MLTextField
+Very similar subclass os NSTextField. It just sets the default font, make the component transparent and draws a thin line beneath the component.
 
 ##MLComboField
+It is a component similar to NSComboBox, where you can specify the content of the dropdown. It involves three steps:
+1. add an NSTextField to your content in IB and set its custom class to MLComboField
+2. create a dropdown content provider object derived from MLComboFieldDelegate and override ```objective-c- (MLPopupContent*) createPopupContent;```
+3. create a view controller which is derived from MLPopupContent and override ```objective-c - (void) moveSelectionUp:(BOOL)up;``` and ```objective-c - (NSString*) moveSelectionTo:(NSString*)str;```
 
 ##MLOutlineView
 
@@ -99,5 +107,8 @@ The provided sample application is an imagined Budget app. It has 4 separate are
 4. Prediction panel
 
 The application has a toolbar, where the user can switch between the application panels.
+
+#Known issues
+
 
  
