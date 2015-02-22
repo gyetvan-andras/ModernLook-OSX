@@ -21,6 +21,34 @@ For example, there is the MLTextField component which is derived from NSTextFiel
 
 <img src="doc/mltextfield.png" alt="MLTextField" style="width:189;height:44">
 
+Here is the code of the MLTextField class.
+```objective-c
+- (void) commonInit {
+	self.font = [NSFont fontWithName:@"Helvetica Neue Light" size:16.0];
+	self.bordered = false;
+	self.backgroundColor = [NSColor clearColor];
+	self.focusRingType = NSFocusRingTypeNone;
+}
+
+- (void)drawRect:(NSRect)dirtyRect {
+	[NSGraphicsContext saveGraphicsState];
+	
+	NSRect bounds = [self bounds];
+	[[NSColor blackColor] set];
+	
+	NSBezierPath *bottomLine = [NSBezierPath bezierPath];
+	NSPoint p = NSZeroPoint;//bounds.origin;
+	p.y = bounds.size.height;
+	[bottomLine moveToPoint:p];
+	p.x += bounds.size.width;
+	[bottomLine lineToPoint:p];
+	[bottomLine stroke];
+	
+	[NSGraphicsContext restoreGraphicsState];
+	[super drawRect:dirtyRect];
+}
+```
+You can easily change it to meet your needs, for example draw the line with to text foreground color, instead of static black (I plan to add this to the component).
 
 #Main components
 
@@ -50,7 +78,7 @@ You can design your window in IB and it is up to you how to layout stuffs. Gener
 Above you can see, that the toolbar portion of the window is a class of MLToolbar, the content view area is covered by an MLContentView.
 
 You can add any other component to these view
-#Additional component
+#Additional components
 
 ##MLTextField
 
@@ -73,17 +101,3 @@ The provided sample application is an imagined Budget app. It has 4 separate are
 The application has a toolbar, where the user can switch between the application panels.
 
  
-```objective-c
-- (void)drawRect: (NSRect)rect
-{
-	[NSGraphicsContext saveGraphicsState];
-	
-	NSRect bounds = [self bounds];
-	
-	NSBezierPath *borderPath = [NSBezierPath bezierPathWithRoundedRect: bounds xRadius: ML_MAIN_WINDOW_ROUNDED_RECT_RADIUS yRadius: ML_MAIN_WINDOW_ROUNDED_RECT_RADIUS];
-	[self.backgroundColor set];
-	[borderPath fill];
-	
-	[NSGraphicsContext restoreGraphicsState];
-}
-```
