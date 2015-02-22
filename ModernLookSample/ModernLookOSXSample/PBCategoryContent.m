@@ -14,6 +14,7 @@
 @property (strong) IBOutlet NSTreeController *categories;
 @property (weak) IBOutlet NSOutlineView *tree;
 @property (nonatomic) BOOL disableSelectionNotification;
+- (void) makeSelectionVisible;
 @end
 
 @implementation PBCategoryContent
@@ -31,10 +32,10 @@
 	[self.tree expandItem:nil expandChildren:YES];
 	self.tree.delegate = self;
 }
-- (void)viewDidLoad {
-//    [super viewDidLoad];
-//	[self.tree expandItem:nil expandChildren:YES];
-//	self.tree.delegate = self;
+
+- (void) makeSelectionVisible {
+	NSRect selRect = [self.tree rectOfRow:self.tree.selectedRow];
+	[self.tree scrollRectToVisible:selRect];
 }
 
 - (void) moveSelectionUp:(BOOL)up {
@@ -43,6 +44,7 @@
 	else i += 1;
 	NSIndexSet *indexSet = [NSIndexSet indexSetWithIndex:i];
 	[self.tree selectRowIndexes:indexSet byExtendingSelection:NO];
+	[self makeSelectionVisible];
 }
 
 - (void)outlineViewSelectionDidChange:(NSNotification *)notification {
@@ -70,7 +72,6 @@
 }
 
 - (NSString*) moveSelectionTo:(NSString*)str {
-//	NSInteger i = self.tree.selectedRow;
 	self.disableSelectionNotification = YES;
 	NSMutableArray* indexes = [NSMutableArray array];
 	if([self childByName:str children:self.budget.categories indexes:indexes]) {
@@ -90,6 +91,7 @@
 		return s;
 	}
 	self.disableSelectionNotification = NO;
+	[self makeSelectionVisible];
 	return nil;//i != self.tree.selectedRow;
 }
 
