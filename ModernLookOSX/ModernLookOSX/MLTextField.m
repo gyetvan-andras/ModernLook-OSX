@@ -17,7 +17,12 @@
 - (id) initWithCoder:(NSCoder *)coder {
 	self = [super initWithCoder:coder];
 	if(self) {
+		NSFont* fnt = self.font;
+		NSFont* regular = [NSFont systemFontOfSize:0];
+		BOOL restoreFont = NO;
+		if(regular != self.font) restoreFont = YES;
 		[self commonInit];
+		if(restoreFont) self.font = fnt;
 	}
 	return self;
 }
@@ -41,7 +46,8 @@
 	[NSGraphicsContext saveGraphicsState];
 	
 	NSRect bounds = [self bounds];
-	[[NSColor blackColor] set];
+	[self.textColor set];
+//	[[NSColor blackColor] set];
 	
 	NSBezierPath *bottomLine = [NSBezierPath bezierPath];
 	NSPoint p = NSZeroPoint;//bounds.origin;

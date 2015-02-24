@@ -10,5 +10,5 @@
 #import "MLGlassView.h"
 
 @interface MLWindowContent : MLGlassView
-//@property (nonatomic, strong) NSColor* backgroundColor;
+
 @end

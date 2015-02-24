@@ -9,9 +9,10 @@
 #import "MLWindowContent.h"
 #import "MLMainWindow.h"
 
+@interface MLWindowContent ()
+@end
+
 @implementation MLWindowContent
-
-
 - (void)drawRect: (NSRect)rect
 {
 	[NSGraphicsContext saveGraphicsState];

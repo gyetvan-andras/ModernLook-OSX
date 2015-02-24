@@ -19,7 +19,6 @@
 		[self setMovableByWindowBackground:TRUE];
 		[self setStyleMask:NSBorderlessWindowMask|NSResizableWindowMask];
 		[self setHasShadow:YES];
-		[self setAppearance:[NSAppearance appearanceNamed:NSAppearanceNameVibrantDark]];
 	}
 	
 	return self;
