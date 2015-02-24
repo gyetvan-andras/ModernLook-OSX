@@ -13,6 +13,7 @@
 @property (nonatomic, strong) MLPopupWindow* popupWindow;
 - (void) windowDidResize:(NSNotification *)note;
 - (void) windowDidResignKey:(NSNotification *)note;
+- (void) applicationDidResignActive:(NSNotification *)note;
 - (void) layoutPopupWindow;
 @end
 
@@ -37,7 +38,17 @@ MLPopupWindowManager* _popupManager;
 												 name:NSWindowDidResizeNotification
 											   object:control.window
 	 ];
+	[[NSNotificationCenter defaultCenter] addObserver:self
+											 selector:@selector(applicationDidResignActive:)
+												 name:NSApplicationDidResignActiveNotification
+											   object:[NSApplication sharedApplication]
+	 ];
+	
 	return NO;
+}
+
+- (void) applicationDidResignActive:(NSNotification *)note {
+	[self hidePopup];
 }
 
 - (void) hidePopup {
