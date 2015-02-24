@@ -2,6 +2,7 @@
 #import "MLMainWindow.h"
 
 #import <AppKit/AppKit.h>
+#import "MLPopupWindowManager.h"
 
 @interface MLMainWindow ()
 @end
@@ -44,4 +45,10 @@
 	[self.pbContent addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[c]|" options:0 metrics:nil views:viewsDictionary]];
 }
 
+- (void)sendEvent:(NSEvent *)event {
+	if(event.type == NSLeftMouseUp) {
+		[[MLPopupWindowManager popupManager] hidePopup];
+	}
+	[super sendEvent:event];
+}
 @end
