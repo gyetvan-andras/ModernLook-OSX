@@ -36,7 +36,7 @@
 }
 
 - (void) commonInit {
-	self.font = [NSFont fontWithName:@"Helvetica Neue Light" size:16.0];
+	self.font = [NSFont fontWithName:@"Helvetica Neue Thin" size:16.0];
 	self.bordered = false;
 	self.backgroundColor = [NSColor clearColor];
 	self.focusRingType = NSFocusRingTypeNone;
