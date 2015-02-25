@@ -17,28 +17,39 @@
 	}
 	return self;
 }
+
 - (void)drawWithFrame:(NSRect)cellFrame inView:(NSView *)controlView {
 //	[self.backgroundColor set];
 	[[NSColor whiteColor] set];
 	NSRectFill(cellFrame);
 	
+	NSRect textCell = cellFrame;
+	textCell.origin.x += 4;
+	textCell.size.width -= 8;
 	NSMutableParagraphStyle * aParagraphStyle = [[NSMutableParagraphStyle alloc] init];
 	[aParagraphStyle setLineBreakMode:NSLineBreakByWordWrapping];
 	[aParagraphStyle setAlignment:self.alignment];
 	
-//	NSMutableDictionary *attrs = [
-//		[NSMutableDictionary dictionaryWithDictionary:
-//		[[self attributedStringValue] attributesAtIndex:0 effectiveRange:NULL]]
-//		mutableCopy];
-//	[attrs setObject:aParagraphStyle forKey:NSParagraphStyleAttributeName];
 	NSDictionary *attrs = [NSDictionary dictionaryWithObjects:@[aParagraphStyle,self.font,self.textColor]
 													  forKeys:@[NSParagraphStyleAttributeName,NSFontAttributeName,NSForegroundColorAttributeName]];
 	
-	[[self stringValue] drawInRect:cellFrame withAttributes:attrs];
+	[[self stringValue] drawInRect:textCell withAttributes:attrs];
+	
+	[[NSColor gridColor] set];
+	NSBezierPath *sepLine = [NSBezierPath bezierPath];
+	NSPoint p = cellFrame.origin;
+	p.y = 8;
+	p.x += cellFrame.size.width;
+	[sepLine moveToPoint:p];
+	
+	p.y += 10;//cellFrame.size.height - 16;
+	
+	[sepLine lineToPoint:p];
+	[sepLine stroke];
 	
 	[[NSColor blackColor] set];
 	NSBezierPath *bottomLine = [NSBezierPath bezierPath];
-	NSPoint p = cellFrame.origin;
+	p = cellFrame.origin;
 	p.y += cellFrame.size.height;
 	[bottomLine moveToPoint:p];
 	
