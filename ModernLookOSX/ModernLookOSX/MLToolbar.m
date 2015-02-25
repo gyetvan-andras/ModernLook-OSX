@@ -26,7 +26,7 @@
 		if(b.size.height > 20) {
 			self.verticalButtons = YES;
 		} else {
-			self.verticalButtons = YES;
+			self.verticalButtons = NO;
 		}
 		[self commonInit];
 	}
@@ -76,30 +76,19 @@
 	self.minimizeButton = [NSWindow standardWindowButton:NSWindowMiniaturizeButton forStyleMask:NSTitledWindowMask];
 	self.maximizeButton = [NSWindow standardWindowButton:NSWindowZoomButton forStyleMask:NSTitledWindowMask];
 	
-//	NSRect b = self.bounds;
-//	if(self.verticalButtons) {
-//		CGFloat y = b.size.height;
-//		
-//		CGFloat bh = self.closeButton.bounds.size.height;
-//		y = y - bh - 5;
-//		
-//		CGFloat x = 8;
-//		[self.closeButton setFrameOrigin:NSMakePoint(x, y)];
-//		[self.minimizeButton setFrameOrigin:NSMakePoint(x, y-bh-3)];
-//		[self.maximizeButton setFrameOrigin:NSMakePoint(x, y-bh-3-bh-3)];
-//	} else {
-//		CGFloat y = b.size.height;
-//		
-//		CGFloat bh = self.closeButton.bounds.size.height;
-//		CGFloat bw = self.closeButton.bounds.size.width;
-//		
-//		y = y - bh - 5;
-//		
-//		CGFloat x = 8;
-//		[self.closeButton setFrameOrigin:NSMakePoint(x, y)];
-//		[self.minimizeButton setFrameOrigin:NSMakePoint(x+2+bw, y)];
-//		[self.maximizeButton setFrameOrigin:NSMakePoint(x+2+bw+2+bw, y)];
-//	}
+	NSRect b = self.bounds;
+	CGFloat y = b.size.height;
+	
+	CGFloat bh = self.closeButton.bounds.size.height;
+	CGFloat bw = self.closeButton.bounds.size.width;
+	
+	y = y - bh - 5;
+	
+	CGFloat x = 8;
+	[self.closeButton setFrameOrigin:NSMakePoint(x, y)];
+	[self.minimizeButton setFrameOrigin:NSMakePoint(x+2+bw, y)];
+	[self.maximizeButton setFrameOrigin:NSMakePoint(x+2+bw+2+bw, y)];
+	
 	[self addSubview:self.closeButton];
 	[self addSubview:self.minimizeButton];
 	[self addSubview:self.maximizeButton];
@@ -139,7 +128,7 @@
 	
 	[NSGraphicsContext restoreGraphicsState];
 	
-	[super drawRect:dirtyRect];
+//	[super drawRect:dirtyRect];
 	
 }
 
