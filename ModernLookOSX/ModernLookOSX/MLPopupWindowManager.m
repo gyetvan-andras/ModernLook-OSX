@@ -8,7 +8,9 @@
 
 #import "MLPopupWindowManager.h"
 #import "MLPopupWindow.h"
-@interface MLPopupWindowManager()
+@interface MLPopupWindowManager() {
+	CGFloat originalHeight;
+}
 @property (nonatomic, weak) NSControl* control;
 @property (nonatomic, strong) MLPopupWindow* popupWindow;
 - (void) windowDidResize:(NSNotification *)note;
@@ -27,8 +29,7 @@ MLPopupWindowManager* _popupManager;
 		[self hidePopup];
 	}
 	self.control = control;
-	NSRect contentRect = control.bounds;
-	contentRect.size.height = 200;
+	originalHeight = content.bounds.size.height;
 	self.popupWindow.contentView = content;
 	[self layoutPopupWindow];
 	[control.window addChildWindow:self.popupWindow ordered:NSWindowAbove];
@@ -83,19 +84,37 @@ MLPopupWindowManager* _popupManager;
 
 - (void) layoutPopupWindow {
 	if(self.control) {
+		
+		NSRect screenFrame;
+		if (self.popupWindow && [self.popupWindow screen]) {
+			screenFrame = [[self.popupWindow screen] visibleFrame];
+		} else {
+			screenFrame = [[NSScreen mainScreen] visibleFrame];
+		}
+		
 		NSRect screenRect = [self.control.window convertRectToScreen:self.control.frame];
 		NSRect frame = NSZeroRect;
 		NSRect contentRect = self.control.bounds;
-		contentRect.size.height = 200;
 		frame.size.width = contentRect.size.width;
-		frame.size.height = 200;
+		frame.size.height = originalHeight;
 		frame.origin.x = screenRect.origin.x;
-		frame.origin.y = screenRect.origin.y - 200;
+		frame.origin.y = screenRect.origin.y - originalHeight;
+		
+		CGFloat x1 = frame.origin.x;
+		CGFloat y1 = frame.origin.y;
+		CGFloat x2 = x1 + frame.size.width;
+		CGFloat y2 = y1 + frame.size.height;
+		
+		if(x1 < screenFrame.origin.x) {
+			frame.origin.x = screenFrame.origin.x;
+		}
+		if(y1 < 0) {
+			frame.origin.y = screenRect.origin.y + contentRect.size.height;
+		}
+		if(x2 > screenFrame.size.width) {
+			frame.origin.x -= (x2 - screenFrame.size.width);
+		}
 		[self.popupWindow setFrame:frame display:NO];
-//		[self.popupWindow setMovableByWindowBackground:NO];
-//		[self.popupWindow setExcludedFromWindowsMenu:YES];
-//		[self.popupWindow setHasShadow:YES];
-//		[self.popupWindow setTitleVisibility:NSWindowTitleHidden];
 	};
 }
 
