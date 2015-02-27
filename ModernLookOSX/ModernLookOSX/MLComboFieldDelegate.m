@@ -126,10 +126,9 @@
 	return NO;
 }
 
-- (void) selectionDidChange:(id)sel {
+- (void) selectionDidChange:(id)sel fromUpDown:(BOOL)updown {
 	NSObject* o = sel;
-//	NSLog(@"selection changed to %@",o.description);
-	self.combo.stringValue = o.description;
+	if(updown) self.combo.stringValue = o.description;
 	self.combo.selectedItem = o;
 //	self.tf.string = o.description;
 }
