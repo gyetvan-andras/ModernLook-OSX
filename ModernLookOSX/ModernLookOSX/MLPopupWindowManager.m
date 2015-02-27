@@ -108,7 +108,7 @@ MLPopupWindowManager* _popupManager;
 		if(x1 < screenFrame.origin.x) {
 			frame.origin.x = screenFrame.origin.x;
 		}
-		if(y1 < 0) {
+		if(y1 < screenFrame.origin.y) {
 			frame.origin.y = screenRect.origin.y + contentRect.size.height;
 		}
 		if(x2 > screenFrame.size.width) {
