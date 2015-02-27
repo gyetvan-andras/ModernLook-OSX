@@ -50,7 +50,7 @@ Here is the code of the MLTextField class.
 	[super drawRect:dirtyRect];
 }
 ```
-You can easily change it to meet your needs, for example draw the line with foreground color, instead of hardcoded black (I plan to add this to the component soon).
+You can easily change it to meet your needs, for example draw the line with foreground color, instead of hardcoded black (~~I plan to add this to the component soon~~ - implemented).
 
 #Main components
 
@@ -116,7 +116,7 @@ The application has a toolbar, where the user can switch between the application
 #Known issues
 
 1. the window buttons on the toolbar behave strange. There are no images in them and they don't highlighted when the window is not selected, they just remain grayed out when the mouse hovered over.
-2. MLComboField dropdown remains on screen sometimes (switch to another windows, for example)
+2. ~~MLComboField dropdown remains on screen sometimes (switch to another windows, for example)~~ - fixed.
 3. MLTextField text selection covers the bottom thin line.
 
 #License
