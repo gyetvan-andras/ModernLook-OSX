@@ -10,5 +10,5 @@
 #import "MLTextField.h"
 
 @interface MLComboField : MLTextField
-
+@property (nonatomic,weak) id selectedItem;
 @end

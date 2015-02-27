@@ -8,12 +8,13 @@
 
 #import "MLComboFieldDelegate.h"
 #import "MLPopupWindowManager.h"
-
+#import "MLComboField.h"
 @interface MLComboFieldDelegate ()
 
 @property (nonatomic, strong) MLPopupContent* popupContent;
-@property (nonatomic, assign) NSTextView* tf;
+//@property (nonatomic, strong) NSTextView* tf;
 @property (nonatomic) BOOL dontSearch;
+@property (nonatomic, assign) MLComboField*combo;
 - (BOOL) showPopupForControl:(NSControl*)control;
 @end
 
@@ -60,26 +61,48 @@
 
 - (void) controlTextDidChange:(NSNotification *)obj {
 	NSControl* control = obj.object;
+	self.combo = nil;
+	if ([control isKindOfClass:[MLComboField class]]) {
+		self.combo = (MLComboField*)control;
+	}
+	if(!self.combo) {
+		NSLog(@"INVALID CONTROL");
+		return;
+	}
 	[self showPopupForControl:control];
+	
 	
 	if(self.dontSearch) {
 		self.dontSearch = NO;
 		return;
 	}
 	
+//	NSTextField* tfc = (NSTextField*)control;
+	NSTextView* editor = nil;
+	if([control.currentEditor isKindOfClass:[NSTextView class]]) {
+		editor = (NSTextView*)control.currentEditor;
+	}
+	
+	if(!editor) {
+		NSLog(@"NO EDITOR FOR CONTROL");
+		return;
+	}
 	NSString* s = [self.popupContent moveSelectionTo:control.stringValue];
 	if(s) {
-		NSInteger insertionPoint = [[[self.tf selectedRanges] objectAtIndex:0] rangeValue].location;
-		self.tf.string = s;
+		NSInteger insertionPoint = [[[editor selectedRanges] objectAtIndex:0] rangeValue].location;
+		editor.string = s;
 		NSRange r;
 		r.length = s.length - insertionPoint;
 		r.location = insertionPoint;
-		self.tf.selectedRange = r;
+		editor.selectedRange = r;
 	}
 }
 
 - (BOOL) control:(NSControl *)control textView:(NSTextView *)textView doCommandBySelector:(SEL)commandSelector {
-	self.tf = textView;
+	self.combo = nil;
+	if ([control isKindOfClass:[MLComboField class]]) {
+		self.combo = (MLComboField*)control;
+	}
 	if( commandSelector == @selector(moveUp:) ){
 		if([self showPopupForControl:control]) {
 			[self.popupContent moveSelectionUp:YES];
@@ -105,6 +128,9 @@
 
 - (void) selectionDidChange:(id)sel {
 	NSObject* o = sel;
-	self.tf.string = o.description;
+//	NSLog(@"selection changed to %@",o.description);
+	self.combo.stringValue = o.description;
+	self.combo.selectedItem = o;
+//	self.tf.string = o.description;
 }
 @end
