@@ -21,6 +21,10 @@
 	textEditor.selectedRange = r;
 }
 
+- (void) hidePopup {
+	[[MLPopupWindowManager popupManager] hidePopup];
+}
+
 -(void)textDidEndEditing:(NSNotification *)notification {
 	[[MLPopupWindowManager popupManager] hidePopup];
 	NSInteger insertionPoint = self.stringValue.length;

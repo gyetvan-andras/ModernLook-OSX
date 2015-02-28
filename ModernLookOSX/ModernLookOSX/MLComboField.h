@@ -11,4 +11,5 @@
 
 @interface MLComboField : MLTextField
 @property (nonatomic,weak) id selectedItem;
+- (void) hidePopup;
 @end
