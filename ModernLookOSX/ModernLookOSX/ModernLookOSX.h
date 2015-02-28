@@ -31,3 +31,4 @@ FOUNDATION_EXPORT const unsigned char ModernLookOSXVersionString[];
 #import <ModernLookOSX/MLTextField.h>
 #import <ModernLookOSX/MLToolbar.h>
 #import <ModernLookOSX/MLWindowContent.h>
+#import <ModernLookOSX/MLAlert.h>

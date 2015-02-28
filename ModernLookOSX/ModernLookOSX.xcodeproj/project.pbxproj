@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B3426C6B1AA25EF6008BC156 /* MLAlertWindow.h in Headers */ = {isa = PBXBuildFile; fileRef = B3426C661AA25EF6008BC156 /* MLAlertWindow.h */; };
+		B3426C6C1AA25EF6008BC156 /* MLAlertWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = B3426C671AA25EF6008BC156 /* MLAlertWindow.m */; };
+		B3426C6D1AA25EF6008BC156 /* MLAlert.h in Headers */ = {isa = PBXBuildFile; fileRef = B3426C681AA25EF6008BC156 /* MLAlert.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B3426C6E1AA25EF6008BC156 /* MLAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = B3426C691AA25EF6008BC156 /* MLAlert.m */; };
+		B3426C6F1AA25EF6008BC156 /* MLAlertYesNoCancel.xib in Resources */ = {isa = PBXBuildFile; fileRef = B3426C6A1AA25EF6008BC156 /* MLAlertYesNoCancel.xib */; };
 		B39FBCA41A9A1E57000C4BB2 /* ModernLookOSX.h in Headers */ = {isa = PBXBuildFile; fileRef = B39FBCA31A9A1E57000C4BB2 /* ModernLookOSX.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B39FBD9B1A9A261A000C4BB2 /* MLMainWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = B39FBD781A9A261A000C4BB2 /* MLMainWindow.m */; };
 		B39FBD9C1A9A261A000C4BB2 /* MLOutlineView.m in Sources */ = {isa = PBXBuildFile; fileRef = B39FBD791A9A261A000C4BB2 /* MLOutlineView.m */; };
@@ -41,6 +46,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B3426C661AA25EF6008BC156 /* MLAlertWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLAlertWindow.h; sourceTree = SOURCE_ROOT; };
+		B3426C671AA25EF6008BC156 /* MLAlertWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLAlertWindow.m; sourceTree = SOURCE_ROOT; };
+		B3426C681AA25EF6008BC156 /* MLAlert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLAlert.h; sourceTree = SOURCE_ROOT; };
+		B3426C691AA25EF6008BC156 /* MLAlert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLAlert.m; sourceTree = SOURCE_ROOT; };
+		B3426C6A1AA25EF6008BC156 /* MLAlertYesNoCancel.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MLAlertYesNoCancel.xib; sourceTree = SOURCE_ROOT; };
 		B39FBC9E1A9A1E57000C4BB2 /* ModernLookOSX.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ModernLookOSX.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B39FBCA21A9A1E57000C4BB2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B39FBCA31A9A1E57000C4BB2 /* ModernLookOSX.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ModernLookOSX.h; sourceTree = "<group>"; };
@@ -87,6 +97,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B3426C651AA25EE2008BC156 /* Alert */ = {
+			isa = PBXGroup;
+			children = (
+				B3426C661AA25EF6008BC156 /* MLAlertWindow.h */,
+				B3426C671AA25EF6008BC156 /* MLAlertWindow.m */,
+				B3426C681AA25EF6008BC156 /* MLAlert.h */,
+				B3426C691AA25EF6008BC156 /* MLAlert.m */,
+				B3426C6A1AA25EF6008BC156 /* MLAlertYesNoCancel.xib */,
+			);
+			name = Alert;
+			sourceTree = "<group>";
+		};
 		B39FBC941A9A1E57000C4BB2 = {
 			isa = PBXGroup;
 			children = (
@@ -124,6 +146,7 @@
 		B39FBCC61A9A1FC1000C4BB2 /* Modern Look */ = {
 			isa = PBXGroup;
 			children = (
+				B3426C651AA25EE2008BC156 /* Alert */,
 				B39FBDBF1A9A272C000C4BB2 /* Components */,
 				B39FBDBE1A9A2710000C4BB2 /* Popup */,
 				B39FBD941A9A261A000C4BB2 /* MLMainWindow.h */,
@@ -190,6 +213,7 @@
 				B39FBDB71A9A261A000C4BB2 /* MLMainWindow.h in Headers */,
 				B39FBDF11A9A35E8000C4BB2 /* MLOutlineView.h in Headers */,
 				B39FBDF21A9A35E8000C4BB2 /* MLTableView.h in Headers */,
+				B3426C6B1AA25EF6008BC156 /* MLAlertWindow.h in Headers */,
 				B39FBDF31A9A35E8000C4BB2 /* MLTableHeaderCell.h in Headers */,
 				B39FBDF41A9A35E8000C4BB2 /* MLComboField.h in Headers */,
 				B39FBDF51A9A35E8000C4BB2 /* MLComboFieldDelegate.h in Headers */,
@@ -197,6 +221,7 @@
 				B39FBDF71A9A35E8000C4BB2 /* MLRadioGroupManager.h in Headers */,
 				B39FBDF81A9A35E8000C4BB2 /* MLPopupContent.h in Headers */,
 				B39FBDF91A9A35E8000C4BB2 /* MLPopupWindow.h in Headers */,
+				B3426C6D1AA25EF6008BC156 /* MLAlert.h in Headers */,
 				B39FBDFA1A9A35E9000C4BB2 /* MLPopupWindowManager.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -258,6 +283,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B3426C6F1AA25EF6008BC156 /* MLAlertYesNoCancel.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -271,7 +297,9 @@
 				B39FBDA01A9A261A000C4BB2 /* MLTextField.m in Sources */,
 				B39FBDB51A9A261A000C4BB2 /* MLPopupWindowManager.m in Sources */,
 				B39FBDAB1A9A261A000C4BB2 /* MLRadioGroupManager.m in Sources */,
+				B3426C6C1AA25EF6008BC156 /* MLAlertWindow.m in Sources */,
 				B39FBDAF1A9A261A000C4BB2 /* MLToolbar.m in Sources */,
+				B3426C6E1AA25EF6008BC156 /* MLAlert.m in Sources */,
 				B39FBD9B1A9A261A000C4BB2 /* MLMainWindow.m in Sources */,
 				B39FBD9C1A9A261A000C4BB2 /* MLOutlineView.m in Sources */,
 				B39FBDB21A9A261A000C4BB2 /* MLWindowContent.m in Sources */,
