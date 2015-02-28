@@ -11,4 +11,5 @@
 
 @interface MLToolbar : MLGlassView
 @property (nonatomic) BOOL verticalButtons;
+@property (nonatomic) BOOL hiddenButtons;
 @end

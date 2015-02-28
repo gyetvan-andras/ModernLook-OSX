@@ -20,15 +20,21 @@
 
 - (instancetype)initWithFrame: (NSRect)frameRect
 {
+	if(frameRect.size.height > 20) {
+		_verticalButtons = YES;
+	} else {
+		_verticalButtons = NO;
+	}
+	
 	self = [super initWithFrame: frameRect];
 	if (self != nil) {
-		NSRect b = self.bounds;
-		if(b.size.height > 20) {
-			self.verticalButtons = YES;
-		} else {
-			self.verticalButtons = NO;
-		}
-		[self commonInit];
+//		NSRect b = self.bounds;
+//		if(b.size.height > 20) {
+//			self.verticalButtons = YES;
+//		} else {
+//			self.verticalButtons = NO;
+//		}
+//		[self commonInit];
 	}
 	
 	return self;
@@ -41,6 +47,18 @@
 //	}
 //	return self;
 //}
+
+- (void) setHiddenButtons:(BOOL)hiddenButtons {
+	_hiddenButtons = hiddenButtons;
+	if(_hiddenButtons) {
+		[self.closeButton removeFromSuperviewWithoutNeedingDisplay];
+		[self.minimizeButton removeFromSuperviewWithoutNeedingDisplay];
+		[self.maximizeButton removeFromSuperviewWithoutNeedingDisplay];
+		self.closeButton = nil;
+		self.minimizeButton = nil;
+		self.maximizeButton = nil;
+	}
+}
 
 - (void) setVerticalButtons:(BOOL)verticalButtons {
 	_verticalButtons = verticalButtons;
@@ -72,26 +90,29 @@
 
 - (void) commonInit {
 	[super commonInit];
-	self.closeButton = [NSWindow standardWindowButton:NSWindowCloseButton forStyleMask:NSTitledWindowMask];
-	self.minimizeButton = [NSWindow standardWindowButton:NSWindowMiniaturizeButton forStyleMask:NSTitledWindowMask];
-	self.maximizeButton = [NSWindow standardWindowButton:NSWindowZoomButton forStyleMask:NSTitledWindowMask];
-	
-	NSRect b = self.bounds;
-	CGFloat y = b.size.height;
-	
-	CGFloat bh = self.closeButton.bounds.size.height;
-	CGFloat bw = self.closeButton.bounds.size.width;
-	
-	y = y - bh - 5;
-	
-	CGFloat x = 8;
-	[self.closeButton setFrameOrigin:NSMakePoint(x, y)];
-	[self.minimizeButton setFrameOrigin:NSMakePoint(x+2+bw, y)];
-	[self.maximizeButton setFrameOrigin:NSMakePoint(x+2+bw+2+bw, y)];
-	
-	[self addSubview:self.closeButton];
-	[self addSubview:self.minimizeButton];
-	[self addSubview:self.maximizeButton];
+	_hiddenButtons = NO;
+	if(!self.hiddenButtons) {
+		self.closeButton = [NSWindow standardWindowButton:NSWindowCloseButton forStyleMask:NSTitledWindowMask];
+		self.minimizeButton = [NSWindow standardWindowButton:NSWindowMiniaturizeButton forStyleMask:NSTitledWindowMask];
+		self.maximizeButton = [NSWindow standardWindowButton:NSWindowZoomButton forStyleMask:NSTitledWindowMask];
+		
+		NSRect b = self.bounds;
+		CGFloat y = b.size.height;
+		
+		CGFloat bh = self.closeButton.bounds.size.height;
+		CGFloat bw = self.closeButton.bounds.size.width;
+		
+		y = y - bh - 5;
+		
+		CGFloat x = 8;
+		[self.closeButton setFrameOrigin:NSMakePoint(x, y)];
+		[self.minimizeButton setFrameOrigin:NSMakePoint(x+2+bw, y)];
+		[self.maximizeButton setFrameOrigin:NSMakePoint(x+2+bw+2+bw, y)];
+		
+		[self addSubview:self.closeButton];
+		[self addSubview:self.minimizeButton];
+		[self addSubview:self.maximizeButton];
+	}
 }
 
 - (void)drawRect:(NSRect)dirtyRect {
@@ -115,7 +136,7 @@
 	[bottomLine lineToPoint:p];
 	[bottomLine stroke];
 
-	if(self.verticalButtons) {
+	if(self.verticalButtons && !self.hiddenButtons) {
 		NSBezierPath *sepLine = [NSBezierPath bezierPath];
 		p = bounds.origin;
 		p.x += 29;
