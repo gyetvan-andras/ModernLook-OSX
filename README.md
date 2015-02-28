@@ -104,7 +104,7 @@ This component is derived from NSTableView and replaces the outline view header 
 It is really not a component, just a manager to mimic Segmented Control and needs further improvements. Anyways, it works as follows: add an object with custom class as MLRadioGroupManager and an NSView to IB and place some NSButton into it. Configure the buttons style to square and type to switch. Assign the buttons' sent action to the MLRadioGroupManager. Also assign the buttons parent view to the MLRadioGroupManager as groupView. With this setup the MLRadioGroupManager will act like a radio button group, so only one button can be selected at a time. Yes, I know it is a bit confusing, but you should take a look at the sample application's toolbar.
 
 ##MLAlert
-It is an alert window provider. At the moment it provides just a Yes/No/Cancel possibility. You can you this component like this:
+It is an alert window provider. At the moment it provides just a Yes/No/Cancel possibility. You can use this component like this:
 ```objective-c
 MLAlertResponse res = [MLAlert showQuestion:@"Create new Something?" title:@"Unknown Something" withCancel:NO];
 switch(res) {
