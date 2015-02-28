@@ -108,12 +108,9 @@ It is an alert window provider. At the moment it provides just a Yes/No/Cancel p
 ```objective-c
 MLAlertResponse res = [MLAlert showQuestion:@"Create new Something?" title:@"Unknown Something" withCancel:NO];
 switch(res) {
-	case MLALERT_YES:
-	break;
-	case MLALERT_NO:
-	break;
-	case MLALERT_CANCEL:
-	break;
+	case MLALERT_YES:break;
+	case MLALERT_NO:break;
+	case MLALERT_CANCEL:break;
 }
 ```
 #Sample Application
