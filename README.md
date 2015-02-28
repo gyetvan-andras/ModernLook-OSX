@@ -106,14 +106,14 @@ It is really not a component, just a manager to mimic Segmented Control and need
 ##MLAlert
 It is an alert window provider. At the moment it provides just a Yes/No/Cancel possibility. You can you this component like this:
 ```objective-c
-		MLAlertResponse res = [MLAlert showQuestion:@"Create new Something?" title:@"Unknown Something" withCancel:NO];
-		if(res == MLALERT_YES) {
-			p = [[PBEntityManager instance] createPayee:name];
-			combo.selectedItem = p;
-			return YES;
-		} else {
-			return NO;
-		}
+MLAlertResponse res = [MLAlert showQuestion:@"Create new Something?" title:@"Unknown Something" withCancel:NO];
+if(res == MLALERT_YES) {
+	p = [[PBEntityManager instance] createPayee:name];
+	combo.selectedItem = p;
+	return YES;
+} else {
+	return NO;
+}
 ```
 #Sample Application
 The provided sample application is an imagined Budget app. It has 4 separate area:
