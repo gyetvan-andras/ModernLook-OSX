@@ -10,7 +10,7 @@
 
 @implementation MLTableHeaderCell
 
-- (id) initTextCell:(NSString *)aString {
+- (instancetype) initTextCell:(NSString *)aString {
 	self = [super initTextCell:aString];
 	if(self) {
 		self.controlTint = NSClearControlTint;
@@ -30,8 +30,7 @@
 	[aParagraphStyle setLineBreakMode:NSLineBreakByWordWrapping];
 	[aParagraphStyle setAlignment:self.alignment];
 	
-	NSDictionary *attrs = [NSDictionary dictionaryWithObjects:@[aParagraphStyle,self.font,self.textColor]
-													  forKeys:@[NSParagraphStyleAttributeName,NSFontAttributeName,NSForegroundColorAttributeName]];
+	NSDictionary *attrs = @{NSParagraphStyleAttributeName: aParagraphStyle,NSFontAttributeName: self.font,NSForegroundColorAttributeName: self.textColor};
 	
 	[[self stringValue] drawInRect:textCell withAttributes:attrs];
 	

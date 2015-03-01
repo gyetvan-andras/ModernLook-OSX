@@ -11,5 +11,5 @@
 @class MLPopupContent;
 
 @interface MLComboFieldDelegate : NSObject <NSTextFieldDelegate,MLPopupContentDelegate>
-- (MLPopupContent*) createPopupContent;
+@property (NS_NONATOMIC_IOSONLY, readonly, strong) MLPopupContent *createPopupContent;
 @end

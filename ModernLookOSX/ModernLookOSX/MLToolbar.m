@@ -14,6 +14,8 @@
 @property (nonatomic, weak) NSButton *minimizeButton;
 @property (nonatomic, weak) NSButton *maximizeButton;
 
+@property (nonatomic, strong) NSTrackingArea* trackingArea;
+
 @end
 
 @implementation MLToolbar
@@ -27,15 +29,6 @@
 	}
 	
 	self = [super initWithFrame: frameRect];
-	if (self != nil) {
-//		NSRect b = self.bounds;
-//		if(b.size.height > 20) {
-//			self.verticalButtons = YES;
-//		} else {
-//			self.verticalButtons = NO;
-//		}
-//		[self commonInit];
-	}
 	
 	return self;
 }
@@ -58,6 +51,7 @@
 		self.minimizeButton = nil;
 		self.maximizeButton = nil;
 	}
+	[self createTrackingArea];
 }
 
 - (void) setVerticalButtons:(BOOL)verticalButtons {
@@ -86,15 +80,71 @@
 		[self.minimizeButton setFrameOrigin:NSMakePoint(x+2+bw, y)];
 		[self.maximizeButton setFrameOrigin:NSMakePoint(x+2+bw+2+bw, y)];
 	}
+	[self createTrackingArea];
+}
+
+- (void) createTrackingArea {
+	if(self.trackingArea) {
+		[self removeTrackingArea:self.trackingArea];
+	}
+	if(_hiddenButtons) return;
+	NSRect buttonsRect = NSZeroRect;
+	NSRect b = self.bounds;
+	
+	if(self.verticalButtons) {
+		CGFloat y = b.size.height;
+		
+		CGFloat bh = self.closeButton.bounds.size.height;
+		CGFloat bw = self.closeButton.bounds.size.width;
+		
+		y = y - bh - 5;
+		
+		CGFloat x = 8;
+		buttonsRect.origin = NSMakePoint(x, y-bh-3-bh-3);
+		buttonsRect.size = NSMakeSize(bw, bh+3+bh+3+bh);
+	} else {
+		CGFloat y = b.size.height;
+		
+		CGFloat bh = self.closeButton.bounds.size.height;
+		CGFloat bw = self.closeButton.bounds.size.width;
+		
+		y = y - bh - 5;
+		
+		CGFloat x = 8;
+		buttonsRect.origin = NSMakePoint(x, y);
+		buttonsRect.size = NSMakeSize(bw+2+bw+bw,bh);
+	
+	}
+	
+	self.trackingArea = [[NSTrackingArea alloc] initWithRect:buttonsRect
+            options: (NSTrackingMouseEnteredAndExited | NSTrackingActiveAlways )
+												  owner:self userInfo:nil];
+	[self addTrackingArea:self.trackingArea];
+	
+}
+
+- (void)mouseEntered:(NSEvent *)theEvent {
+	self.closeButton.highlighted = YES;
+	self.minimizeButton.highlighted = YES;
+	self.maximizeButton.highlighted = YES;
+}
+
+- (void)mouseExited:(NSEvent *)theEvent {
+	self.closeButton.highlighted = NO;
+	self.minimizeButton.highlighted = NO;
+	self.maximizeButton.highlighted = NO;
 }
 
 - (void) commonInit {
 	[super commonInit];
 	_hiddenButtons = NO;
 	if(!self.hiddenButtons) {
-		self.closeButton = [NSWindow standardWindowButton:NSWindowCloseButton forStyleMask:NSTitledWindowMask];
-		self.minimizeButton = [NSWindow standardWindowButton:NSWindowMiniaturizeButton forStyleMask:NSTitledWindowMask];
-		self.maximizeButton = [NSWindow standardWindowButton:NSWindowZoomButton forStyleMask:NSTitledWindowMask];
+		NSUInteger mask = NSClosableWindowMask | NSMiniaturizableWindowMask | NSResizableWindowMask;
+		self.closeButton = [NSWindow standardWindowButton:NSWindowCloseButton forStyleMask:mask];
+		self.minimizeButton = [NSWindow standardWindowButton:NSWindowMiniaturizeButton forStyleMask:mask];
+		self.maximizeButton = [NSWindow standardWindowButton:NSWindowZoomButton forStyleMask:mask];
+		
+		[self.closeButton setButtonType:NSMomentaryChangeButton];
 		
 		NSRect b = self.bounds;
 		CGFloat y = b.size.height;
@@ -113,6 +163,7 @@
 		[self addSubview:self.minimizeButton];
 		[self addSubview:self.maximizeButton];
 	}
+	[self createTrackingArea];
 }
 
 - (void)drawRect:(NSRect)dirtyRect {
@@ -146,6 +197,9 @@
 		sepLine.lineWidth = 0.4;
 		[sepLine stroke];
 	}
+	
+//	[[NSColor redColor] set];
+//	NSFrameRect(self.trackingArea.rect);
 	
 	[NSGraphicsContext restoreGraphicsState];
 	

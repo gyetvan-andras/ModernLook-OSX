@@ -20,7 +20,7 @@
 
 @implementation MLComboFieldDelegate
 
-- (id) init {
+- (instancetype) init {
 	self = [super init];
 	if(self) {
 		self.dontSearch = NO;
@@ -89,7 +89,7 @@
 	}
 	NSString* s = [self.popupContent moveSelectionTo:control.stringValue];
 	if(s) {
-		NSInteger insertionPoint = [[[editor selectedRanges] objectAtIndex:0] rangeValue].location;
+		NSInteger insertionPoint = [[editor selectedRanges][0] rangeValue].location;
 		editor.string = s;
 		NSRange r;
 		r.length = s.length - insertionPoint;

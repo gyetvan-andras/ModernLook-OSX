@@ -7,9 +7,9 @@
 //
 
 #import <Cocoa/Cocoa.h>
-typedef enum {
+typedef NS_ENUM(NSInteger, MLAlertResponse) {
 	MLALERT_YES,MLALERT_NO,MLALERT_CANCEL
-} MLAlertResponse;
+} ;
 
 @interface MLAlert : NSWindowController
 + (MLAlertResponse) showQuestion:(NSString*)question title:(NSString*)title withCancel:(BOOL)withCancel;

@@ -14,7 +14,7 @@
 
 @implementation MLTextField
 
-- (id) initWithCoder:(NSCoder *)coder {
+- (instancetype) initWithCoder:(NSCoder *)coder {
 	self = [super initWithCoder:coder];
 	if(self) {
 		NSFont* fnt = self.font;
@@ -27,7 +27,7 @@
 	return self;
 }
 
-- (id) initWithFrame:(NSRect)frameRect {
+- (instancetype) initWithFrame:(NSRect)frameRect {
 	self = [super initWithFrame:frameRect];
 	if(self) {
 		[self commonInit];

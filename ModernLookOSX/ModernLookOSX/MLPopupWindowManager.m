@@ -61,7 +61,7 @@ MLPopupWindowManager* _popupManager;
 	self.control = nil;
 }
 
-- (id) init {
+- (instancetype) init {
 	self = [super init];
 	if(self) {
 		NSRect contentRect = NSZeroRect;

@@ -39,7 +39,7 @@
 	return res;
 }
 
-- (id) init {
+- (instancetype) init {
 	self = [super initWithWindowNibName:@"MLAlertYesNoCancel"];
 	if(self) {
 		[self loadWindow];

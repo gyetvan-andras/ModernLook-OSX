@@ -9,7 +9,7 @@
 
 @implementation MLMainWindow
 
-- (id)initWithContentRect:(NSRect)contentRect styleMask:(NSUInteger)aStyle backing:(NSBackingStoreType)bufferingType defer:(BOOL)flag
+- (instancetype)initWithContentRect:(NSRect)contentRect styleMask:(NSUInteger)aStyle backing:(NSBackingStoreType)bufferingType defer:(BOOL)flag
 {
 	self = [super initWithContentRect:contentRect styleMask:NSBorderlessWindowMask backing:bufferingType defer:flag];
 	
@@ -38,7 +38,7 @@
 	
 	[c setTranslatesAutoresizingMaskIntoConstraints:NO];
 	
-	self.pbContent.subviews = [NSArray arrayWithObject:c];
+	self.pbContent.subviews = @[c];
 	
 	NSDictionary *viewsDictionary = NSDictionaryOfVariableBindings(c);
 	[self.pbContent addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[c]|" options:0 metrics:nil views:viewsDictionary]];
