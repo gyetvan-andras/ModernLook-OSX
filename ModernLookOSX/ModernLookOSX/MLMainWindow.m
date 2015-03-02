@@ -34,15 +34,28 @@
 }
 
 - (void)showContent:(NSView *)c {
+	c.alphaValue = 0;
+	c.wantsLayer = YES;
+	
 	[self.pbContent removeConstraints:self.pbContent.constraints];
 	
+	[[NSAnimationContext currentContext] setDuration:1.0];
+	
 	[c setTranslatesAutoresizingMaskIntoConstraints:NO];
+	if(self.pbContent.subviews.count > 0) {
+		[self.pbContent.subviews[0]  setAlphaValue:0.0];
+	}
 	
 	self.pbContent.subviews = @[c];
 	
 	NSDictionary *viewsDictionary = NSDictionaryOfVariableBindings(c);
 	[self.pbContent addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[c]|" options:0 metrics:nil views:viewsDictionary]];
 	[self.pbContent addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[c]|" options:0 metrics:nil views:viewsDictionary]];
+	[NSAnimationContext beginGrouping];
+	
+	[c.animator setAlphaValue:1.0];
+
+	[NSAnimationContext endGrouping];
 }
 
 - (void)sendEvent:(NSEvent *)event {

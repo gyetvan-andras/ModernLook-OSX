@@ -9,5 +9,5 @@
 #import <Cocoa/Cocoa.h>
 
 @interface MLTableView : NSTableView
-
+- (void)singleClickEdit: (id)sender;
 @end
