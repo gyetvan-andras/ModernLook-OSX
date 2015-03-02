@@ -103,7 +103,7 @@ MLPopupWindowManager* _popupManager;
 		CGFloat x1 = frame.origin.x;
 		CGFloat y1 = frame.origin.y;
 		CGFloat x2 = x1 + frame.size.width;
-		CGFloat y2 = y1 + frame.size.height;
+//		CGFloat y2 = y1 + frame.size.height;
 		
 		if(x1 < screenFrame.origin.x) {
 			frame.origin.x = screenFrame.origin.x;
