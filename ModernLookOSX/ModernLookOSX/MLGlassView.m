@@ -33,7 +33,7 @@
 
 - (void) commonInit {
 	self.backgroundColor = [NSColor clearColor];
-	self.wantsLayer = true;
+//	self.wantsLayer = true;
 }
 
 - (void)drawRect:(NSRect)dirtyRect {

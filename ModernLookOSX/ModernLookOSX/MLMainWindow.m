@@ -51,11 +51,13 @@
 	NSDictionary *viewsDictionary = NSDictionaryOfVariableBindings(c);
 	[self.pbContent addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[c]|" options:0 metrics:nil views:viewsDictionary]];
 	[self.pbContent addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[c]|" options:0 metrics:nil views:viewsDictionary]];
+	
 	[NSAnimationContext beginGrouping];
 	
 	[c.animator setAlphaValue:1.0];
 
 	[NSAnimationContext endGrouping];
+	
 }
 
 - (void)sendEvent:(NSEvent *)event {
