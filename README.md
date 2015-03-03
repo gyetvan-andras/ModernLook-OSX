@@ -96,8 +96,12 @@ It is a component similar to NSComboBox, where you can specify the content of th
 
 ##MLOutlineView
 This component is derived from NSOutlineView and replaces the outline view header control to add custom drawing to it.
+
 **NEW** as of 2015.03.03
-- saveTreeSate and -restoreTreeState: these calls are save/restore a state of an MLOutlineView. The state information contains the expanded and selected items and the scroll position. 
+- saveTreeSate
+-restoreTreeState 
+
+these calls are save/restore the state of an MLOutlineView. The state information contains the expanded and selected items and the scroll position. They works not just static content.
 
 ##MLTableView
 This component is derived from NSTableView and replaces the outline view header control to add custom drawing to it.
