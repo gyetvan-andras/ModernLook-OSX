@@ -8,7 +8,11 @@
 
 #import "MLOutlineView.h"
 #import "MLTableHeaderCell.h"
-@interface MLOutlineView ()
+@interface MLOutlineView () {
+	NSMutableArray* savedTreeState;
+	NSRect oldVisibleRect;
+}
+
 - (void) commonInit;
 @end
 
@@ -31,6 +35,8 @@
 }
 
 - (void) commonInit {
+	savedTreeState = [NSMutableArray array];
+	oldVisibleRect = NSZeroRect;
 	NSTableHeaderView *chv = self.headerView;
 	chv.frame = NSMakeRect(0, 0, 120, 24);
 	for(NSTableColumn *col in self.tableColumns) {
@@ -44,6 +50,36 @@
 		col.headerCell = cell;
 		
 	}
+}
+
+- (void) saveTreeState {
+	savedTreeState = [NSMutableArray array];
+	NSScrollView* sv = [self enclosingScrollView];
+	oldVisibleRect = [[sv contentView] documentVisibleRect];
+	
+	NSNumber* sr = @(self.selectedRow);
+	[savedTreeState addObject:sr];
+	
+	for(NSInteger i = 0; i < self.numberOfRows;i++) {
+		NSTreeNode* node = [self itemAtRow:i];
+		BOOL expanded = [self isItemExpanded:node];
+		[savedTreeState addObject:@(expanded)];
+	}
+}
+
+- (void) restoreTreeState {
+	NSNumber* sr = [savedTreeState firstObject];
+	for(NSInteger i = 1; i < savedTreeState.count;i++) {
+		NSNumber* n = savedTreeState[i];
+		BOOL expanded = n.boolValue;
+		if(expanded) {
+			[self expandItem:[self itemAtRow:i-1]];
+		}
+	}
+	NSIndexSet* selection = [NSIndexSet indexSetWithIndex:sr.integerValue];
+	[self selectRowIndexes:selection byExtendingSelection:NO];
+	NSScrollView* sv = [self enclosingScrollView];
+	[[sv contentView] scrollToPoint: oldVisibleRect.origin];
 }
 
 @end

@@ -9,5 +9,7 @@
 #import <Cocoa/Cocoa.h>
 
 @interface MLOutlineView : NSOutlineView
+- (void) saveTreeState;
+- (void) restoreTreeState;
 
 @end
