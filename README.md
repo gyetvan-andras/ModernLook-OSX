@@ -99,7 +99,7 @@ This component is derived from NSOutlineView and replaces the outline view heade
 
 **NEW** as of 2015.03.03
 - saveTreeSate
--restoreTreeState 
+- restoreTreeState 
 
 these calls are save/restore the state of an MLOutlineView. The state information contains the expanded and selected items and the scroll position. They works not just static content.
 
