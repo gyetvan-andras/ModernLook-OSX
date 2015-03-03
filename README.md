@@ -101,7 +101,7 @@ This component is derived from NSOutlineView and replaces the outline view heade
 - saveTreeSate
 - restoreTreeState 
 
-these calls are save/restore the state of an MLOutlineView. The state information contains the expanded and selected items and the scroll position. They work not just with static content: for example you have a tree which is loaded from a DB, let say date based, then autosave will not work. The only expectation that the outline structure should be the same, because save/restore is row based.
+these calls are save/restore the state of an MLOutlineView. The state information contains the expanded and selected items and the scroll position. They work not just with static content: for example you have a tree which is loaded from a DB, let's say date based, then autosave will not work. The only expectation that the outline structure should be the same, because save/restore is row based.
 
 ##MLTableView
 This component is derived from NSTableView and replaces the outline view header control to add custom drawing to it.
