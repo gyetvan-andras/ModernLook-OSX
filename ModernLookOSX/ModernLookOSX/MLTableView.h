@@ -9,5 +9,6 @@
 #import <Cocoa/Cocoa.h>
 
 @interface MLTableView : NSTableView
+@property (nonatomic,copy) NSColor* selectionColor;
 - (void)singleClickEdit: (id)sender;
 @end

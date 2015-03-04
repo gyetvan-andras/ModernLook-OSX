@@ -6,7 +6,7 @@
 //  Copyright (c) 2015. DroidZONE. All rights reserved.
 //
 
-#import <ModernLookOSX/ModernLookOSX.h>
+#import "ModernLookOSX/ModernLookOSX.h"
 
 @interface MLAlertWindow : MLMainWindow
 

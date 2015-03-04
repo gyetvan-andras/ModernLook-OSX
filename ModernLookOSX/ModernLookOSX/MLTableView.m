@@ -58,4 +58,36 @@
 	}
 }
 
+- (void) setSelectionColor:(NSColor *)selectionColor {
+	_selectionColor = selectionColor;
+	if(_selectionColor != nil) {
+		self.selectionHighlightStyle = NSTableViewSelectionHighlightStyleNone;
+	}
+}
+
+- (void)drawRow:(NSInteger)row clipRect:(NSRect)clipRect
+{
+	if(self.selectionColor != nil) {
+		NSColor* bgColor = Nil;
+		
+		if (self == [[self window] firstResponder] && [[self window] isMainWindow] && [[self window] isKeyWindow])
+		{
+			//			bgColor = [NSColor colorWithCalibratedRed:_selectionColor.redComponent green:_selectionColor.greenComponent blue:_selectionColor.blueComponent alpha:1.0];
+			bgColor = self.selectionColor;//[NSColor colorWithCalibratedWhite:0.300 alpha:1.000];
+		}
+		else
+		{
+			bgColor = [NSColor colorWithCalibratedWhite:0.800 alpha:1.000];
+		}
+		
+		NSIndexSet* selectedRowIndexes = [self selectedRowIndexes];
+		if ([selectedRowIndexes containsIndex:row])
+		{
+			[bgColor setFill];
+			NSRectFill([self rectOfRow:row]);
+		}
+	}
+	[super drawRow:row clipRect:clipRect];
+}
+
 @end

@@ -9,6 +9,7 @@
 #import <Cocoa/Cocoa.h>
 
 @interface MLOutlineView : NSOutlineView
+@property (nonatomic,copy) NSColor* selectionColor;
 - (void) saveTreeState;
 - (void) restoreTreeState;
 
