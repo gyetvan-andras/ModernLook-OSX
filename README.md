@@ -97,14 +97,24 @@ It is a component similar to NSComboBox, where you can specify the content of th
 ##MLOutlineView
 This component is derived from NSOutlineView and replaces the outline view header control to add custom drawing to it.
 
-**NEW** as of 2015.03.03
+**NEW** as of 03.03.2015
 - saveTreeSate
 - restoreTreeState 
 
 these calls are save/restore the state of an MLOutlineView. The state information contains the expanded and selected items and the scroll position. They work not just with static content: for example you have a tree which is loaded from a DB, let's say date based, then autosave will not work. The only expectation that the outline structure should be the same, because save/restore is row based.
 
+**NEW** as of 03.04.2015
+- selectionColor
+
+if this property is set, then it will be used as the selection background color.
+
 ##MLTableView
 This component is derived from NSTableView and replaces the outline view header control to add custom drawing to it.
+
+**NEW** as of 03.04.2015
+- selectionColor
+
+if this property is set, then it will be used as the selection background color.
 
 ##MLRadioGroupManager
 It is really not a component, just a manager to mimic Segmented Control and needs further improvements. Anyways, it works as follows: add an object with custom class as MLRadioGroupManager and an NSView to IB and place some NSButton into it. Configure the buttons style to square and type to switch. Assign the buttons' sent action to the MLRadioGroupManager. Also assign the buttons parent view to the MLRadioGroupManager as groupView. With this setup the MLRadioGroupManager will act like a radio button group, so only one button can be selected at a time. Yes, I know it is a bit confusing, but you should take a look at the sample application's toolbar.
