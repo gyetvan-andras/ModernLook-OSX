@@ -50,7 +50,7 @@
 - (void)outlineViewSelectionDidChange:(NSNotification *)notification {
 	if(!self.disableSelectionNotification) {
 		NSArray *sa = self.categories.selectedObjects;
-		[self.delegate selectionDidChange:sa.firstObject];
+		[self.delegate selectionDidChange:sa.firstObject fromUpDown:YES];
 	}
 }
 
