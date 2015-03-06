@@ -13,4 +13,9 @@
 - (void) cancelOperation:(id)sender {
 	[NSApp stopModalWithCode:MLALERT_CANCEL];
 }
+
+- (BOOL)canBecomeMainWindow {
+	return NO;
+}
+
 @end

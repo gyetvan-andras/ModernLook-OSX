@@ -11,7 +11,7 @@
 
 - (instancetype)initWithContentRect:(NSRect)contentRect styleMask:(NSUInteger)aStyle backing:(NSBackingStoreType)bufferingType defer:(BOOL)flag
 {
-	self = [super initWithContentRect:contentRect styleMask:NSBorderlessWindowMask backing:bufferingType defer:flag];
+	self = [super initWithContentRect:contentRect styleMask:NSBorderlessWindowMask|NSResizableWindowMask backing:bufferingType defer:flag];
 	
 	if ( self )
 	{
@@ -21,8 +21,24 @@
 		[self setStyleMask:NSBorderlessWindowMask|NSResizableWindowMask];
 		[self setHasShadow:YES];
 	}
-	
+	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(windowDidDeminiaturize:) name:NSWindowDidDeminiaturizeNotification object:self];
+	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(windowWillClose:) name:NSWindowWillCloseNotification object:self];
 	return self;
+}
+
+- (void)becomeMainWindow {
+	[super becomeMainWindow];
+	[NSApp addWindowsItem:self title:self.title filename:NO];
+}
+
+- (void) windowWillClose:(NSNotification*) notification {
+	[[NSNotificationCenter defaultCenter] removeObserver:self name:NSWindowDidDeminiaturizeNotification object:self];
+	[[NSNotificationCenter defaultCenter] removeObserver:self name:NSWindowWillCloseNotification object:self];
+	NSLog(@"Unregistered");
+}
+
+- (void) windowDidDeminiaturize:(NSNotification*) notification {
+	[self invalidateShadow];
 }
 
 - (BOOL)canBecomeKeyWindow {
@@ -66,4 +82,6 @@
 	}
 	[super sendEvent:event];
 }
+
+
 @end
