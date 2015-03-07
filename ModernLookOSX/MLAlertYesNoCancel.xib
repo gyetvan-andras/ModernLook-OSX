@@ -24,7 +24,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="480" height="166"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="X5U-LN-WrO">
+                    <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="X5U-LN-WrO" customClass="MLColoredButton">
                         <rect key="frame" x="377" y="11" width="85" height="33"/>
                         <buttonCell key="cell" type="bevel" title="No" bezelStyle="regularSquare" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="nQp-jq-bLi">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -34,20 +34,25 @@
                             <action selector="doNo:" target="-2" id="HLJ-ct-gSd"/>
                         </connections>
                     </button>
-                    <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Vcr-UG-FoQ">
+                    <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Vcr-UG-FoQ" customClass="MLColoredButton">
                         <rect key="frame" x="288" y="11" width="85" height="33"/>
-                        <buttonCell key="cell" type="bevel" title="Yes" bezelStyle="regularSquare" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Woz-7a-Olc">
+                        <buttonCell key="cell" type="bevel" title="Yes" bezelStyle="regularSquare" image="BuyTemplate" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Woz-7a-Olc">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" size="14" name="HelveticaNeue-Light"/>
                             <string key="keyEquivalent" base64-UTF8="YES">
 DQ
 </string>
                         </buttonCell>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="backgroundColor">
+                                <color key="value" red="0.20392157137393951" green="0.59607845544815063" blue="0.85882353782653809" alpha="1" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                         <connections>
                             <action selector="doYes:" target="-2" id="WRO-bk-FwV"/>
                         </connections>
                     </button>
-                    <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1VS-YW-anM">
+                    <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1VS-YW-anM" customClass="MLColoredButton">
                         <rect key="frame" x="24" y="11" width="85" height="33"/>
                         <buttonCell key="cell" type="bevel" title="Cancel" bezelStyle="regularSquare" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="ZI8-Ii-Jgc">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -103,7 +108,10 @@ Gw
             <connections>
                 <outlet property="delegate" destination="-2" id="0bl-1N-AYu"/>
             </connections>
-            <point key="canvasLocation" x="-88" y="83"/>
+            <point key="canvasLocation" x="-259" y="89"/>
         </window>
     </objects>
+    <resources>
+        <image name="BuyTemplate" width="512" height="512"/>
+    </resources>
 </document>

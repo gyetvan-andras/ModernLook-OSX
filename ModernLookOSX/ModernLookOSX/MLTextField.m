@@ -47,7 +47,6 @@
 	
 	NSRect bounds = [self bounds];
 	[self.textColor set];
-//	[[NSColor blackColor] set];
 	
 	NSBezierPath *bottomLine = [NSBezierPath bezierPath];
 	NSPoint p = NSZeroPoint;//bounds.origin;

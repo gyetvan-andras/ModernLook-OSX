@@ -34,7 +34,6 @@
 - (void) windowWillClose:(NSNotification*) notification {
 	[[NSNotificationCenter defaultCenter] removeObserver:self name:NSWindowDidDeminiaturizeNotification object:self];
 	[[NSNotificationCenter defaultCenter] removeObserver:self name:NSWindowWillCloseNotification object:self];
-	NSLog(@"Unregistered");
 }
 
 - (void) windowDidDeminiaturize:(NSNotification*) notification {

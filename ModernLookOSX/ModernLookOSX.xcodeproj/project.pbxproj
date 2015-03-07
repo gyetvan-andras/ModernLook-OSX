@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B32265F21AAA4ACB006891DA /* MLColoredButton.h in Headers */ = {isa = PBXBuildFile; fileRef = B32265F01AAA4ACB006891DA /* MLColoredButton.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B32265F31AAA4ACB006891DA /* MLColoredButton.m in Sources */ = {isa = PBXBuildFile; fileRef = B32265F11AAA4ACB006891DA /* MLColoredButton.m */; };
 		B3426C6B1AA25EF6008BC156 /* MLAlertWindow.h in Headers */ = {isa = PBXBuildFile; fileRef = B3426C661AA25EF6008BC156 /* MLAlertWindow.h */; };
 		B3426C6C1AA25EF6008BC156 /* MLAlertWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = B3426C671AA25EF6008BC156 /* MLAlertWindow.m */; };
 		B3426C6D1AA25EF6008BC156 /* MLAlert.h in Headers */ = {isa = PBXBuildFile; fileRef = B3426C681AA25EF6008BC156 /* MLAlert.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -46,6 +48,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B32265F01AAA4ACB006891DA /* MLColoredButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLColoredButton.h; sourceTree = SOURCE_ROOT; };
+		B32265F11AAA4ACB006891DA /* MLColoredButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLColoredButton.m; sourceTree = SOURCE_ROOT; };
 		B3426C661AA25EF6008BC156 /* MLAlertWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLAlertWindow.h; sourceTree = SOURCE_ROOT; };
 		B3426C671AA25EF6008BC156 /* MLAlertWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLAlertWindow.m; sourceTree = SOURCE_ROOT; };
 		B3426C681AA25EF6008BC156 /* MLAlert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLAlert.h; sourceTree = SOURCE_ROOT; };
@@ -194,6 +198,8 @@
 				B39FBD7D1A9A261A000C4BB2 /* MLTextField.m */,
 				B39FBD891A9A261A000C4BB2 /* MLRadioGroupManager.h */,
 				B39FBD881A9A261A000C4BB2 /* MLRadioGroupManager.m */,
+				B32265F01AAA4ACB006891DA /* MLColoredButton.h */,
+				B32265F11AAA4ACB006891DA /* MLColoredButton.m */,
 			);
 			name = Components;
 			sourceTree = "<group>";
@@ -221,6 +227,7 @@
 				B39FBDF71A9A35E8000C4BB2 /* MLRadioGroupManager.h in Headers */,
 				B39FBDF81A9A35E8000C4BB2 /* MLPopupContent.h in Headers */,
 				B39FBDF91A9A35E8000C4BB2 /* MLPopupWindow.h in Headers */,
+				B32265F21AAA4ACB006891DA /* MLColoredButton.h in Headers */,
 				B3426C6D1AA25EF6008BC156 /* MLAlert.h in Headers */,
 				B39FBDFA1A9A35E9000C4BB2 /* MLPopupWindowManager.h in Headers */,
 			);
@@ -296,6 +303,7 @@
 			files = (
 				B39FBDA01A9A261A000C4BB2 /* MLTextField.m in Sources */,
 				B39FBDB51A9A261A000C4BB2 /* MLPopupWindowManager.m in Sources */,
+				B32265F31AAA4ACB006891DA /* MLColoredButton.m in Sources */,
 				B39FBDAB1A9A261A000C4BB2 /* MLRadioGroupManager.m in Sources */,
 				B3426C6C1AA25EF6008BC156 /* MLAlertWindow.m in Sources */,
 				B39FBDAF1A9A261A000C4BB2 /* MLToolbar.m in Sources */,

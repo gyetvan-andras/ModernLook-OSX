@@ -31,6 +31,7 @@
 	if(!withCancel) {
 		alert.cancel.hidden = YES;
 	}
+//	[alert.yes.cell setBackgroundColor:[NSColor redColor]];
 	alert.title.stringValue = title;
 	alert.message.stringValue = question;
 	MLAlertResponse res = [alert runAlert];
