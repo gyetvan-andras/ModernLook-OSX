@@ -9,6 +9,13 @@
 /* Begin PBXBuildFile section */
 		B32265F21AAA4ACB006891DA /* MLColoredButton.h in Headers */ = {isa = PBXBuildFile; fileRef = B32265F01AAA4ACB006891DA /* MLColoredButton.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B32265F31AAA4ACB006891DA /* MLColoredButton.m in Sources */ = {isa = PBXBuildFile; fileRef = B32265F11AAA4ACB006891DA /* MLColoredButton.m */; };
+		B338CB601AAC5ECB00365DCA /* MLCalendarView.h in Headers */ = {isa = PBXBuildFile; fileRef = B338CB5D1AAC5ECB00365DCA /* MLCalendarView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B338CB611AAC5ECB00365DCA /* MLCalendarView.m in Sources */ = {isa = PBXBuildFile; fileRef = B338CB5E1AAC5ECB00365DCA /* MLCalendarView.m */; };
+		B338CB621AAC5ECB00365DCA /* MLCalendarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B338CB5F1AAC5ECB00365DCA /* MLCalendarView.xib */; };
+		B338CB661AAC6ED700365DCA /* MLCalendarCell.h in Headers */ = {isa = PBXBuildFile; fileRef = B338CB641AAC6ED700365DCA /* MLCalendarCell.h */; };
+		B338CB671AAC6ED700365DCA /* MLCalendarCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B338CB651AAC6ED700365DCA /* MLCalendarCell.m */; };
+		B338CB6B1AACA3A600365DCA /* MLCalendarBackground.h in Headers */ = {isa = PBXBuildFile; fileRef = B338CB691AACA3A600365DCA /* MLCalendarBackground.h */; };
+		B338CB6C1AACA3A600365DCA /* MLCalendarBackground.m in Sources */ = {isa = PBXBuildFile; fileRef = B338CB6A1AACA3A600365DCA /* MLCalendarBackground.m */; };
 		B3426C6B1AA25EF6008BC156 /* MLAlertWindow.h in Headers */ = {isa = PBXBuildFile; fileRef = B3426C661AA25EF6008BC156 /* MLAlertWindow.h */; };
 		B3426C6C1AA25EF6008BC156 /* MLAlertWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = B3426C671AA25EF6008BC156 /* MLAlertWindow.m */; };
 		B3426C6D1AA25EF6008BC156 /* MLAlert.h in Headers */ = {isa = PBXBuildFile; fileRef = B3426C681AA25EF6008BC156 /* MLAlert.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -50,6 +57,13 @@
 /* Begin PBXFileReference section */
 		B32265F01AAA4ACB006891DA /* MLColoredButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLColoredButton.h; sourceTree = SOURCE_ROOT; };
 		B32265F11AAA4ACB006891DA /* MLColoredButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLColoredButton.m; sourceTree = SOURCE_ROOT; };
+		B338CB5D1AAC5ECB00365DCA /* MLCalendarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLCalendarView.h; sourceTree = SOURCE_ROOT; };
+		B338CB5E1AAC5ECB00365DCA /* MLCalendarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLCalendarView.m; sourceTree = SOURCE_ROOT; };
+		B338CB5F1AAC5ECB00365DCA /* MLCalendarView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MLCalendarView.xib; sourceTree = SOURCE_ROOT; };
+		B338CB641AAC6ED700365DCA /* MLCalendarCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLCalendarCell.h; sourceTree = SOURCE_ROOT; };
+		B338CB651AAC6ED700365DCA /* MLCalendarCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLCalendarCell.m; sourceTree = SOURCE_ROOT; };
+		B338CB691AACA3A600365DCA /* MLCalendarBackground.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLCalendarBackground.h; sourceTree = SOURCE_ROOT; };
+		B338CB6A1AACA3A600365DCA /* MLCalendarBackground.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLCalendarBackground.m; sourceTree = SOURCE_ROOT; };
 		B3426C661AA25EF6008BC156 /* MLAlertWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLAlertWindow.h; sourceTree = SOURCE_ROOT; };
 		B3426C671AA25EF6008BC156 /* MLAlertWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLAlertWindow.m; sourceTree = SOURCE_ROOT; };
 		B3426C681AA25EF6008BC156 /* MLAlert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLAlert.h; sourceTree = SOURCE_ROOT; };
@@ -101,6 +115,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B338CB5C1AAC5E8400365DCA /* MLCalendar */ = {
+			isa = PBXGroup;
+			children = (
+				B338CB5D1AAC5ECB00365DCA /* MLCalendarView.h */,
+				B338CB5E1AAC5ECB00365DCA /* MLCalendarView.m */,
+				B338CB5F1AAC5ECB00365DCA /* MLCalendarView.xib */,
+				B338CB691AACA3A600365DCA /* MLCalendarBackground.h */,
+				B338CB6A1AACA3A600365DCA /* MLCalendarBackground.m */,
+				B338CB641AAC6ED700365DCA /* MLCalendarCell.h */,
+				B338CB651AAC6ED700365DCA /* MLCalendarCell.m */,
+			);
+			name = MLCalendar;
+			sourceTree = "<group>";
+		};
 		B3426C651AA25EE2008BC156 /* Alert */ = {
 			isa = PBXGroup;
 			children = (
@@ -150,6 +178,7 @@
 		B39FBCC61A9A1FC1000C4BB2 /* Modern Look */ = {
 			isa = PBXGroup;
 			children = (
+				B338CB5C1AAC5E8400365DCA /* MLCalendar */,
 				B3426C651AA25EE2008BC156 /* Alert */,
 				B39FBDBF1A9A272C000C4BB2 /* Components */,
 				B39FBDBE1A9A2710000C4BB2 /* Popup */,
@@ -225,10 +254,13 @@
 				B39FBDF51A9A35E8000C4BB2 /* MLComboFieldDelegate.h in Headers */,
 				B39FBDF61A9A35E8000C4BB2 /* MLTextField.h in Headers */,
 				B39FBDF71A9A35E8000C4BB2 /* MLRadioGroupManager.h in Headers */,
+				B338CB6B1AACA3A600365DCA /* MLCalendarBackground.h in Headers */,
 				B39FBDF81A9A35E8000C4BB2 /* MLPopupContent.h in Headers */,
 				B39FBDF91A9A35E8000C4BB2 /* MLPopupWindow.h in Headers */,
 				B32265F21AAA4ACB006891DA /* MLColoredButton.h in Headers */,
 				B3426C6D1AA25EF6008BC156 /* MLAlert.h in Headers */,
+				B338CB601AAC5ECB00365DCA /* MLCalendarView.h in Headers */,
+				B338CB661AAC6ED700365DCA /* MLCalendarCell.h in Headers */,
 				B39FBDFA1A9A35E9000C4BB2 /* MLPopupWindowManager.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -291,6 +323,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B3426C6F1AA25EF6008BC156 /* MLAlertYesNoCancel.xib in Resources */,
+				B338CB621AAC5ECB00365DCA /* MLCalendarView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -312,13 +345,16 @@
 				B39FBD9C1A9A261A000C4BB2 /* MLOutlineView.m in Sources */,
 				B39FBDB21A9A261A000C4BB2 /* MLWindowContent.m in Sources */,
 				B39FBDBA1A9A261A000C4BB2 /* MLPopupWindow.m in Sources */,
+				B338CB611AAC5ECB00365DCA /* MLCalendarView.m in Sources */,
 				B39FBDA21A9A261A000C4BB2 /* MLTableHeaderCell.m in Sources */,
 				B39FBD9D1A9A261A000C4BB2 /* MLTableView.m in Sources */,
 				B39FBDAD1A9A261A000C4BB2 /* MLGlassView.m in Sources */,
 				B39FBD9F1A9A261A000C4BB2 /* MLComboField.m in Sources */,
 				B39FBDB01A9A261A000C4BB2 /* MLContentView.m in Sources */,
 				B39FBDB61A9A261A000C4BB2 /* MLPopupContent.m in Sources */,
+				B338CB671AAC6ED700365DCA /* MLCalendarCell.m in Sources */,
 				B39FBDA51A9A261A000C4BB2 /* MLComboFieldDelegate.m in Sources */,
+				B338CB6C1AACA3A600365DCA /* MLCalendarBackground.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

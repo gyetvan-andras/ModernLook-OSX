@@ -31,16 +31,16 @@
 	return self;
 }
 
-- (void)awakeFromNib
-{
-	[self setAction:@selector(singleClickEdit:)];
-}
+//- (void)awakeFromNib
+//{
+//	[self setAction:@selector(singleClickEdit:)];
+//}
 
-- (void)singleClickEdit: (id)sender
-{
-	NSLog(@"singleClickEdit:");
-//	[self editColumn:[self clickedColumn] row:[self clickedRow] withEvent:nil select:NO];
-}
+//- (void)singleClickEdit: (id)sender
+//{
+//	NSLog(@"singleClickEdit:");
+////	[self editColumn:[self clickedColumn] row:[self clickedRow] withEvent:nil select:NO];
+//}
 
 - (void) commonInit {
 	NSTableHeaderView *chv = self.headerView;

@@ -10,5 +10,5 @@
 
 @interface MLTableView : NSTableView
 @property (nonatomic,copy) NSColor* selectionColor;
-- (void)singleClickEdit: (id)sender;
+//- (void)singleClickEdit: (id)sender;
 @end

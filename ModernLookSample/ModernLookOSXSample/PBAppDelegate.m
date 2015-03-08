@@ -23,6 +23,10 @@
 @property (weak) IBOutlet MLContentView *predictionView;
 
 @property (weak) IBOutlet WebView *webView;
+@property (strong) 	NSPopover* calendarPopover;
+@property (weak) IBOutlet MLCalendarView *calendarPopoverContent;
+
+- (IBAction)showCalendar:(id)sender;
 
 - (IBAction)pageSelectionChanged:(MLRadioGroupManager *)sender;
 
@@ -49,6 +53,28 @@
 
 - (BOOL) applicationShouldTerminateAfterLastWindowClosed:(NSApplication *)sender {
 	return YES;
+}
+
+- (void) createCategoryPopover {
+	NSPopover* myPopover = self.calendarPopover;
+	if(!myPopover) {
+		myPopover = [[NSPopover alloc] init];
+		MLCalendarView* cp = [[MLCalendarView alloc] init];
+		myPopover.contentViewController = cp;
+		myPopover.appearance = [NSAppearance appearanceNamed:NSAppearanceNameAqua];//]LightContent];
+		myPopover.animates = YES;
+		myPopover.behavior = NSPopoverBehaviorTransient;
+//		myPopover.delegate = self;
+	}
+	self.calendarPopover = myPopover;
+}
+
+- (IBAction)showCalendar:(id)sender {
+	[self createCategoryPopover];
+	NSButton* btn = sender;
+	NSRect cellRect = [btn bounds];
+	[self.calendarPopover showRelativeToRect:cellRect ofView:btn preferredEdge:NSMaxYEdge];
+	
 }
 
 - (IBAction)pageSelectionChanged:(MLRadioGroupManager *)sender {

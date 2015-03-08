@@ -17,6 +17,7 @@
                 <outlet property="accountsView" destination="NDY-c2-fRP" id="mte-kH-RF3"/>
                 <outlet property="budgetView" destination="Ydw-pI-Zgp" id="GQK-pP-jjN"/>
                 <outlet property="budgets" destination="cpE-2z-Ngj" id="cGb-wK-Upn"/>
+                <outlet property="calendarPopoverContent" destination="ScP-n9-aZ9" id="d00-rr-o84"/>
                 <outlet property="monthlyBudget" destination="TBe-SS-C04" id="rOH-wK-y6F"/>
                 <outlet property="predictionView" destination="Tje-Af-IVy" id="Pe0-gj-CK3"/>
                 <outlet property="settingsView" destination="MFd-Ea-01C" id="5gB-eM-9VK"/>
@@ -273,6 +274,16 @@
                                     <constraint firstAttribute="width" constant="130" id="lXu-9w-4Zz"/>
                                 </constraints>
                             </customView>
+                            <button fixedFrame="YES" tag="1" allowsExpansionToolTips="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dCC-If-MdS">
+                                <rect key="frame" x="208" y="17" width="27" height="30"/>
+                                <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="TimerTemplate" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="oyD-qO-Yvi">
+                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="showCalendar:" target="Voe-Tx-rLC" id="ERd-rG-jbs"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <constraints>
                             <constraint firstAttribute="height" constant="65" id="BCU-Ba-zf7"/>
@@ -455,7 +466,7 @@
                         <rect key="frame" x="1" y="119" width="223" height="15"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </scroller>
-                    <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="aGN-ys-XYl">
+                    <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="aGN-ys-XYl">
                         <rect key="frame" x="224" y="17" width="15" height="102"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </scroller>
@@ -1158,7 +1169,7 @@
                         <rect key="frame" x="1" y="119" width="223" height="15"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </scroller>
-                    <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="AdQ-tY-VLH">
+                    <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="AdQ-tY-VLH">
                         <rect key="frame" x="224" y="17" width="15" height="102"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </scroller>
@@ -1262,6 +1273,7 @@
             </userDefinedRuntimeAttributes>
             <point key="canvasLocation" x="-70.5" y="1591"/>
         </customView>
+        <viewController nibName="MLCalendarPopup" id="ScP-n9-aZ9" customClass="MLCalendarView"/>
     </objects>
     <resources>
         <image name="BuyTemplate" width="512" height="512"/>
