@@ -8,6 +8,7 @@
 
 #import "MLCalendarView.h"
 #import "MLCalendarCell.h"
+
 @interface MLCalendarView ()
 
 @property (weak) IBOutlet NSTextField *calendarTitle;
@@ -16,12 +17,33 @@
 
 @property (strong) NSMutableArray* dayLabels;
 @property (strong) NSMutableArray* dayCells;
+@property (nonatomic, strong) NSDate* date;
+
 - (id) viewByID:(NSString*)_id;
 - (void) layoutCalendar;
 - (void) stepMonth:(NSInteger)dm;
 @end
 
 @implementation MLCalendarView
+
++ (BOOL) isSameDate:(NSDate*)d1 date:(NSDate*)d2 {
+	if(d1 && d2) {
+		NSCalendar *cal = [NSCalendar currentCalendar];
+		cal.timeZone = [NSTimeZone timeZoneWithAbbreviation:@"UTC"];
+		unsigned unitFlags = NSCalendarUnitDay | NSCalendarUnitYear | NSCalendarUnitMonth;
+		NSDateComponents *components = [cal components:unitFlags fromDate:d1];
+		NSInteger ry = components.year;
+		NSInteger rm = components.month;
+		NSInteger rd = components.day;
+		components = [cal components:unitFlags fromDate:d2];
+		NSInteger ty = components.year;
+		NSInteger tm = components.month;
+		NSInteger td = components.day;
+		return (ry == ty && rm == tm && rd == td);
+	} else {
+		return NO;
+	}
+}
 
 - (instancetype) init {
 	self = [super initWithNibName:@"MLCalendarView" bundle:[NSBundle bundleForClass:[self class]]];
@@ -50,6 +72,8 @@
 	for(int i = 0; i < 6; i++) {
 		[self.dayCells addObject:[NSMutableArray array]];
 	}
+	NSDate* now = [NSDate date];
+	NSLog(@"Now: %@",now);
 }
 
 - (void)viewDidLoad {
@@ -96,6 +120,7 @@
 	_date = date;
 	[self layoutCalendar];
 	NSCalendar *cal = [NSCalendar currentCalendar];
+	cal.timeZone = [NSTimeZone timeZoneWithAbbreviation:@"UTC"];
 	unsigned unitFlags = NSCalendarUnitDay| NSCalendarUnitYear | NSCalendarUnitMonth;
 	NSDateComponents *components = [cal components:unitFlags fromDate:self.date];
 	NSInteger month = components.month;
@@ -119,24 +144,32 @@
 	}
 	MLCalendarCell* cell = sender;
 	cell.selected = YES;
+	self.selectedDate = cell.representedDate;
+	NSLog(@"Selected date is:%@",self.selectedDate);
 }
 
 - (NSDate*) monthDay:(NSInteger)day {
 	NSCalendar *cal = [NSCalendar currentCalendar];
+	cal.timeZone = [NSTimeZone timeZoneWithAbbreviation:@"UTC"];
 	unsigned unitFlags = NSCalendarUnitDay| NSCalendarUnitYear | NSCalendarUnitMonth;
-	NSDateComponents *components = [cal components:unitFlags fromDate:self.date];
-	components.day = day;
-	return [cal dateFromComponents:components];
+	NSDateComponents *components = [cal components:unitFlags fromDate:_date];
+	NSDateComponents *comps = [[NSDateComponents alloc] init];
+	comps.day = day;
+	comps.year = components.year;
+	comps.month = components.month;
+	return [cal dateFromComponents:comps];
 }
 
 - (NSInteger) lastDayOfTheMonth {
-	NSCalendar *currentCalendar = [NSCalendar currentCalendar];
-	NSRange daysRange = [currentCalendar rangeOfUnit:NSCalendarUnitDay inUnit:NSCalendarUnitMonth forDate:self.date];
+	NSCalendar *cal = [NSCalendar currentCalendar];
+	cal.timeZone = [NSTimeZone timeZoneWithAbbreviation:@"UTC"];
+	NSRange daysRange = [cal rangeOfUnit:NSCalendarUnitDay inUnit:NSCalendarUnitMonth forDate:self.date];
 	return daysRange.length;
 }
 
 - (NSInteger) colForDay:(NSInteger)day {
 	NSCalendar *cal = [NSCalendar currentCalendar];
+	cal.timeZone = [NSTimeZone timeZoneWithAbbreviation:@"UTC"];
 	if(cal.firstWeekday != 1) {
 		day--;
 		if(day < 1) day = 7;
@@ -145,14 +178,24 @@
 	return day - 1;
 }
 
++ (NSString*) dd:(NSDate*)d {
+	NSCalendar *cal = [NSCalendar currentCalendar];
+	cal.timeZone = [NSTimeZone timeZoneWithAbbreviation:@"UTC"];
+	unsigned unitFlags = NSCalendarUnitDay | NSCalendarUnitYear | NSCalendarUnitMonth;
+	NSDateComponents *cpt = [cal components:unitFlags fromDate:d];
+	return [NSString stringWithFormat:@"%ld-%ld-%ld",cpt.year, cpt.month, cpt.day];
+}
+
 - (void) layoutCalendar {
 	for(int row = 0; row < 6;row++) {
 		for(int col = 0; col < 7; col++) {
 			MLCalendarCell*cell = self.dayCells[row][col];
 			cell.representedDate = nil;
+			cell.selected = NO;
 		}
 	}
 	NSCalendar *cal = [NSCalendar currentCalendar];
+	cal.timeZone = [NSTimeZone timeZoneWithAbbreviation:@"UTC"];
 	unsigned unitFlags = NSCalendarUnitWeekday;
 	NSDateComponents *components = [cal components:unitFlags fromDate:[self monthDay:1]];
 	NSInteger firstDay = components.weekday;
@@ -163,7 +206,14 @@
 		for(; col < 7; col++) {
 			if(day <= lastDay) {
 				MLCalendarCell*cell = self.dayCells[row][col];
-				cell.representedDate = [self monthDay:day];
+				NSDate* d = [self monthDay:day];
+//				NSLog(@"Adding day:%ld to date:%@ --> %@",day, self.date, d);
+				cell.representedDate = d;
+				BOOL selected = [MLCalendarView isSameDate:d date:_selectedDate];
+				cell.selected = selected;
+				if(selected) {
+					NSLog(@"Same dates: %@ - %@", [MLCalendarView dd:d], [MLCalendarView dd:_selectedDate]);
+				}
 				day++;
 			}
 		}
@@ -173,6 +223,7 @@
 
 - (void) stepMonth:(NSInteger)dm {
 	NSCalendar *cal = [NSCalendar currentCalendar];
+	cal.timeZone = [NSTimeZone timeZoneWithAbbreviation:@"UTC"];
 	unsigned unitFlags = NSCalendarUnitDay| NSCalendarUnitYear | NSCalendarUnitMonth;
 	NSDateComponents *components = [cal components:unitFlags fromDate:self.date];
 	NSInteger month = components.month + dm;

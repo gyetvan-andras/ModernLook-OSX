@@ -40,17 +40,7 @@
 
 - (BOOL) isToday {
 	if(self.representedDate) {
-		NSCalendar *cal = [NSCalendar currentCalendar];
-		unsigned unitFlags = NSCalendarUnitDay | NSCalendarUnitYear | NSCalendarUnitMonth;
-		NSDateComponents *components = [cal components:unitFlags fromDate:_representedDate];
-		NSInteger ry = components.year;
-		NSInteger rm = components.month;
-		NSInteger rd = components.day;
-		components = [cal components:unitFlags fromDate:[NSDate date]];
-		NSInteger ty = components.year;
-		NSInteger tm = components.month;
-		NSInteger td = components.day;
-		return (ry == ty && rm == tm && rd == td);
+		return 	[MLCalendarView isSameDate:self.representedDate date:[NSDate date]];
 	} else {
 		return NO;
 	}
@@ -65,6 +55,7 @@
 	_representedDate = representedDate;
 	if(_representedDate) {
 		NSCalendar *cal = [NSCalendar currentCalendar];
+		cal.timeZone = [NSTimeZone timeZoneWithAbbreviation:@"UTC"];
 		unsigned unitFlags = NSCalendarUnitDay;// | NSCalendarUnitYear | NSCalendarUnitMonth;
 		NSDateComponents *components = [cal components:unitFlags fromDate:_representedDate];
 		NSInteger day = components.day;
@@ -92,7 +83,8 @@
 		if(self.representedDate) {
 			//selection
 			if(self.selected) {
-				NSRect circeRect = NSInsetRect(bounds, 4.0f, 4.0f);
+				NSRect circeRect = NSInsetRect(bounds, 3.5f, 3.5f);
+				circeRect.origin.y += 1;
 				NSBezierPath* bzc = [NSBezierPath bezierPathWithOvalInRect:circeRect];
 				[self.owner.selectionColor set];
 				[bzc fill];
@@ -109,7 +101,7 @@
 			NSSize size = [self.title sizeWithAttributes:attrs];
 			
 			NSRect r = NSMakeRect(bounds.origin.x,// + (bounds.size.width - size.width)/2.0,
-								  bounds.origin.y + (bounds.size.height - size.height)/2.0,
+								  bounds.origin.y + ((bounds.size.height - size.height)/2.0) - 1,
 								  bounds.size.width,
 								  size.height);
 			

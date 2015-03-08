@@ -15,5 +15,8 @@
 @property (nonatomic, copy) NSColor* todayMarkerColor;
 @property (nonatomic, copy) NSColor* dayMarkerColor;
 
-@property (nonatomic, strong) NSDate* date;
++ (BOOL) isSameDate:(NSDate*)d1 date:(NSDate*)d2;
+
+@property (nonatomic, strong) NSDate* selectedDate;
+
 @end
