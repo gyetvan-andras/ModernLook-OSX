@@ -73,7 +73,6 @@
 		[self.dayCells addObject:[NSMutableArray array]];
 	}
 	NSDate* now = [NSDate date];
-	NSLog(@"Now: %@",now);
 }
 
 - (void)viewDidLoad {
@@ -145,7 +144,7 @@
 	MLCalendarCell* cell = sender;
 	cell.selected = YES;
 	self.selectedDate = cell.representedDate;
-	NSLog(@"Selected date is:%@",self.selectedDate);
+//	NSLog(@"Selected date is:%@",self.selectedDate);
 }
 
 - (NSDate*) monthDay:(NSInteger)day {
@@ -207,13 +206,9 @@
 			if(day <= lastDay) {
 				MLCalendarCell*cell = self.dayCells[row][col];
 				NSDate* d = [self monthDay:day];
-//				NSLog(@"Adding day:%ld to date:%@ --> %@",day, self.date, d);
 				cell.representedDate = d;
 				BOOL selected = [MLCalendarView isSameDate:d date:_selectedDate];
 				cell.selected = selected;
-				if(selected) {
-					NSLog(@"Same dates: %@ - %@", [MLCalendarView dd:d], [MLCalendarView dd:_selectedDate]);
-				}
 				day++;
 			}
 		}
