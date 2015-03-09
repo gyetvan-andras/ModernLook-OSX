@@ -55,7 +55,7 @@
 	return YES;
 }
 
-- (void) createCategoryPopover {
+- (void) createCalendarPopover {
 	NSPopover* myPopover = self.calendarPopover;
 	if(!myPopover) {
 		myPopover = [[NSPopover alloc] init];
@@ -71,7 +71,7 @@
 }
 
 - (IBAction)showCalendar:(id)sender {
-	[self createCategoryPopover];
+	[self createCalendarPopover];
 	NSButton* btn = sender;
 	NSRect cellRect = [btn bounds];
 	[self.calendarPopover showRelativeToRect:cellRect ofView:btn preferredEdge:NSMaxYEdge];

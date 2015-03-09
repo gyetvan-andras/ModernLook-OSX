@@ -9,7 +9,6 @@
 #import <Cocoa/Cocoa.h>
 
 @protocol MLCalendarViewDelegate <NSObject>
-@optional
 - (void) didSelectDate:(NSDate*)selectedDate;
 @end
 

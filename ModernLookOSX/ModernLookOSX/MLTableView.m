@@ -90,4 +90,11 @@
 	[super drawRow:row clipRect:clipRect];
 }
 
+//- (void)editColumn:(NSInteger)columnIndex
+//			   row:(NSInteger)rowIndex
+//		 withEvent:(NSEvent *)theEvent
+//			select:(BOOL)flag {
+//	
+//}
+//
 @end

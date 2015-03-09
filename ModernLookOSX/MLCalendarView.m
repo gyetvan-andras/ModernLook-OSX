@@ -72,6 +72,7 @@
 	for(int i = 0; i < 6; i++) {
 		[self.dayCells addObject:[NSMutableArray array]];
 	}
+	_date = [NSDate date];
 }
 
 - (void)viewDidLoad {
@@ -101,8 +102,8 @@
 		NSTextField* tf = self.dayLabels[col];
 		tf.stringValue = day;
 	}
-	self.date = [NSDate date];
-//	[self layoutCalendar];
+//	self.date = [NSDate date];
+	[self layoutCalendar];
 }
 
 - (id) viewByID:(NSString*)_id {
@@ -115,7 +116,7 @@
 }
 
 - (void) setDate:(NSDate *)date {
-	_date = date;
+	_date = [self toUTC:date];
 	[self layoutCalendar];
 	NSCalendar *cal = [NSCalendar currentCalendar];
 	cal.timeZone = [NSTimeZone timeZoneWithAbbreviation:@"UTC"];
@@ -133,6 +134,25 @@
 	self.calendarTitle.stringValue = budgetDateSummary;
 }
 
+- (NSDate*) toUTC:(NSDate*)d {
+	NSCalendar *cal = [NSCalendar currentCalendar];
+	unsigned unitFlags = NSCalendarUnitDay| NSCalendarUnitYear | NSCalendarUnitMonth;
+	NSDateComponents *components = [cal components:unitFlags fromDate:d];
+	cal.timeZone = [NSTimeZone timeZoneWithAbbreviation:@"UTC"];
+	return [cal dateFromComponents:components];
+}
+- (void) setSelectedDate:(NSDate *)selectedDate {
+	_selectedDate = [self toUTC:selectedDate];
+	for(int row = 0; row < 6;row++) {
+		for(int col = 0; col < 7; col++) {
+			MLCalendarCell*cell = self.dayCells[row][col];
+			BOOL selected = [MLCalendarView isSameDate:cell.representedDate date:_selectedDate];
+			cell.selected = selected;
+		}
+	}
+	
+}
+
 - (void)cellClicked:(id)sender {
 	for(int row = 0; row < 6;row++) {
 		for(int col = 0; col < 7; col++) {
@@ -142,7 +162,7 @@
 	}
 	MLCalendarCell* cell = sender;
 	cell.selected = YES;
-	self.selectedDate = cell.representedDate;
+	_selectedDate = cell.representedDate;
 	if(self.delegate) {
 		if([self.delegate respondsToSelector:@selector(didSelectDate:)]) {
 			[self.delegate didSelectDate:self.selectedDate];
@@ -187,6 +207,7 @@
 }
 
 - (void) layoutCalendar {
+	if(!self.view) return;
 	for(int row = 0; row < 6;row++) {
 		for(int col = 0; col < 7; col++) {
 			MLCalendarCell*cell = self.dayCells[row][col];
