@@ -17,7 +17,7 @@
 
 @property (strong) NSMutableArray* dayLabels;
 @property (strong) NSMutableArray* dayCells;
-@property (nonatomic, strong) NSDate* date;
+//@property (nonatomic, strong) NSDate* date;
 
 - (id) viewByID:(NSString*)_id;
 - (void) layoutCalendar;
@@ -72,7 +72,6 @@
 	for(int i = 0; i < 6; i++) {
 		[self.dayCells addObject:[NSMutableArray array]];
 	}
-	NSDate* now = [NSDate date];
 }
 
 - (void)viewDidLoad {
@@ -126,7 +125,7 @@
 	NSInteger year = components.year;
 	
 	NSDateFormatter *df = [[NSDateFormatter alloc] init];
-	NSString *monthName = [[df standaloneMonthSymbols] objectAtIndex:month-1];
+	NSString *monthName = [df standaloneMonthSymbols][month-1];
 	NSString* mnFirstLetter = [[monthName substringToIndex:1] uppercaseString];
 	NSString* mnLastPart = [monthName substringFromIndex:1];
 	monthName = [NSString stringWithFormat:@"%@%@",mnFirstLetter,mnLastPart];
@@ -144,7 +143,11 @@
 	MLCalendarCell* cell = sender;
 	cell.selected = YES;
 	self.selectedDate = cell.representedDate;
-//	NSLog(@"Selected date is:%@",self.selectedDate);
+	if(self.delegate) {
+		if([self.delegate respondsToSelector:@selector(didSelectDate:)]) {
+			[self.delegate didSelectDate:self.selectedDate];
+		}
+	}
 }
 
 - (NSDate*) monthDay:(NSInteger)day {
@@ -169,12 +172,10 @@
 - (NSInteger) colForDay:(NSInteger)day {
 	NSCalendar *cal = [NSCalendar currentCalendar];
 	cal.timeZone = [NSTimeZone timeZoneWithAbbreviation:@"UTC"];
-	if(cal.firstWeekday != 1) {
-		day--;
-		if(day < 1) day = 7;
-	}
 	
-	return day - 1;
+	NSInteger idx = day - cal.firstWeekday;
+	if(idx < 0) idx = 7 + idx;
+	return idx;
 }
 
 + (NSString*) dd:(NSDate*)d {

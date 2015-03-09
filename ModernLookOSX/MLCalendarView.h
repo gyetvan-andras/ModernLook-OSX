@@ -8,6 +8,11 @@
 
 #import <Cocoa/Cocoa.h>
 
+@protocol MLCalendarViewDelegate <NSObject>
+@optional
+- (void) didSelectDate:(NSDate*)selectedDate;
+@end
+
 @interface MLCalendarView : NSViewController
 @property (nonatomic, copy) NSColor* backgroundColor;
 @property (nonatomic, copy) NSColor* textColor;
@@ -15,8 +20,12 @@
 @property (nonatomic, copy) NSColor* todayMarkerColor;
 @property (nonatomic, copy) NSColor* dayMarkerColor;
 
+@property (nonatomic,weak) id<MLCalendarViewDelegate> delegate;
+
+@property (nonatomic, strong) NSDate* date;
+@property (nonatomic, strong) NSDate* selectedDate;
+
 + (BOOL) isSameDate:(NSDate*)d1 date:(NSDate*)d2;
 
-@property (nonatomic, strong) NSDate* selectedDate;
 
 @end
