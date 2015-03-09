@@ -25,16 +25,16 @@
 	[self loadBudget];
 }
 
-- (id) initWithBudget:(PBBudget*)b year:(NSInteger)y month:(NSInteger)m {
+- (instancetype) initWithBudget:(PBBudget*)b year:(NSInteger)y month:(NSInteger)m {
 	self = [super init];
 	if(self) {
 		self.budget = b;
-		self.year = [NSNumber numberWithInteger:y];
-		self.month = [NSNumber numberWithInteger:m];
+		self.year = @(y);
+		self.month = @(m);
 		[self loadBudget];
-		_budgetedAmount = [NSNumber numberWithFloat:12.345654643654f];
-		_availableAmount = [NSNumber numberWithFloat:0.0f];
-		_spentAmount = [NSNumber numberWithFloat:-21.22f];
+		_budgetedAmount = @12.345654643654f;
+		_availableAmount = @0.0f;
+		_spentAmount = @-21.22f;
 	}
 	return self;
 }

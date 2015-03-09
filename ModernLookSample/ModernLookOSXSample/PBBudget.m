@@ -19,7 +19,7 @@
 @end
 @implementation PBBudget
 
-- (id) init {
+- (instancetype) init {
 	self = [super init];
 	if(self) {
 		self.accounts = [NSMutableArray array];

@@ -23,6 +23,6 @@
 @property (nonatomic, strong, readonly) NSDecimalNumber* spentAmount;//calculated
 @property (nonatomic, strong, readonly) NSDecimalNumber* availableAmount;//calculated
 
-- (id) initWithCategory:(PBCategory*)cat year:(NSInteger)y month:(NSInteger)m;
+- (instancetype) initWithCategory:(PBCategory*)cat year:(NSInteger)y month:(NSInteger)m NS_DESIGNATED_INITIALIZER;
 
 @end

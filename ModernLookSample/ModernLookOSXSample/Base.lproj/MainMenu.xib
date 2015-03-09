@@ -276,7 +276,7 @@
                             </customView>
                             <button fixedFrame="YES" tag="1" allowsExpansionToolTips="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dCC-If-MdS">
                                 <rect key="frame" x="208" y="17" width="27" height="30"/>
-                                <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="TimerTemplate" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="oyD-qO-Yvi">
+                                <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="CalendarTemplate" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="oyD-qO-Yvi">
                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
@@ -1277,6 +1277,7 @@
     </objects>
     <resources>
         <image name="BuyTemplate" width="512" height="512"/>
+        <image name="CalendarTemplate" width="512" height="512"/>
         <image name="NSAddTemplate" width="11" height="11"/>
         <image name="NSFollowLinkFreestandingTemplate" width="14" height="14"/>
         <image name="NSGoLeftTemplate" width="9" height="12"/>

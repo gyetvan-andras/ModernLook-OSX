@@ -60,6 +60,7 @@
 	if(!myPopover) {
 		myPopover = [[NSPopover alloc] init];
 		MLCalendarView* cp = [[MLCalendarView alloc] init];
+		cp.delegate = self;
 		myPopover.contentViewController = cp;
 		myPopover.appearance = [NSAppearance appearanceNamed:NSAppearanceNameAqua];//]LightContent];
 		myPopover.animates = YES;
@@ -77,6 +78,10 @@
 	
 }
 
+- (void) didSelectDate:(NSDate *)selectedDate {
+	[self.calendarPopover close];
+}
+
 - (IBAction)pageSelectionChanged:(MLRadioGroupManager *)sender {
 	switch(sender.selectedItem) {
 		case 1: [self.window showContent:self.settingsView];
@@ -87,7 +92,7 @@
 			break;
 		case 4: [self.window showContent:self.predictionView];
 			NSString *resourcesPath = [[NSBundle mainBundle] resourcePath];
-			NSString *htmlPath = [resourcesPath stringByAppendingString:@"/line.html"];
+			NSString *htmlPath = [resourcesPath stringByAppendingPathComponent:@"line.html"];
 			[[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL fileURLWithPath:htmlPath]]];
 			break;
 			

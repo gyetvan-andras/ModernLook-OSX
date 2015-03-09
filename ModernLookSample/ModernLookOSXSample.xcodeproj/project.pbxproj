@@ -11,6 +11,7 @@
 		B331BAC21A950C8900D86B9B /* BuyTemplate.png in Resources */ = {isa = PBXBuildFile; fileRef = B331BAC11A950C8900D86B9B /* BuyTemplate.png */; };
 		B331BAC41A950CD100D86B9B /* ScaleTemplate.png in Resources */ = {isa = PBXBuildFile; fileRef = B331BAC31A950CD100D86B9B /* ScaleTemplate.png */; };
 		B331BAC61A950CF100D86B9B /* TimerTemplate.png in Resources */ = {isa = PBXBuildFile; fileRef = B331BAC51A950CF100D86B9B /* TimerTemplate.png */; };
+		B338CB8C1AAD8A2A00365DCA /* CalendarTemplate.png in Resources */ = {isa = PBXBuildFile; fileRef = B338CB8B1AAD8A2A00365DCA /* CalendarTemplate.png */; };
 		B36330861A8FC464002070F3 /* PBCategoryContent.m in Sources */ = {isa = PBXBuildFile; fileRef = B36330841A8FC464002070F3 /* PBCategoryContent.m */; };
 		B36330871A8FC464002070F3 /* PBCategoryContent.xib in Resources */ = {isa = PBXBuildFile; fileRef = B36330851A8FC464002070F3 /* PBCategoryContent.xib */; };
 		B363308E1A90F86C002070F3 /* PBCategoryPopupManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B363308D1A90F86C002070F3 /* PBCategoryPopupManager.m */; };
@@ -61,6 +62,7 @@
 		B331BAC11A950C8900D86B9B /* BuyTemplate.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BuyTemplate.png; sourceTree = "<group>"; };
 		B331BAC31A950CD100D86B9B /* ScaleTemplate.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ScaleTemplate.png; sourceTree = "<group>"; };
 		B331BAC51A950CF100D86B9B /* TimerTemplate.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TimerTemplate.png; sourceTree = "<group>"; };
+		B338CB8B1AAD8A2A00365DCA /* CalendarTemplate.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CalendarTemplate.png; sourceTree = "<group>"; };
 		B36330831A8FC464002070F3 /* PBCategoryContent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBCategoryContent.h; sourceTree = "<group>"; };
 		B36330841A8FC464002070F3 /* PBCategoryContent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBCategoryContent.m; sourceTree = "<group>"; };
 		B36330851A8FC464002070F3 /* PBCategoryContent.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PBCategoryContent.xib; sourceTree = "<group>"; };
@@ -229,6 +231,7 @@
 		B3A15CFC1A8A192300203605 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				B338CB8B1AAD8A2A00365DCA /* CalendarTemplate.png */,
 				B331BAC11A950C8900D86B9B /* BuyTemplate.png */,
 				B331BAC31A950CD100D86B9B /* ScaleTemplate.png */,
 				B331BAC51A950CF100D86B9B /* TimerTemplate.png */,
@@ -359,6 +362,7 @@
 				B3A15D121A8A4CFC00203605 /* PiggyTemplate.png in Resources */,
 				B3A15D0A1A8A4BC800203605 /* CentsTemplate.png in Resources */,
 				B3A15D141A8A4D0F00203605 /* PursueTemplate.png in Resources */,
+				B338CB8C1AAD8A2A00365DCA /* CalendarTemplate.png in Resources */,
 				B37ABFD01A8788CA00886348 /* MainMenu.xib in Resources */,
 				B3A15D161A8A50D300203605 /* ChartTemplate.png in Resources */,
 				B3A15CFE1A8A198800203605 /* line.html in Resources */,

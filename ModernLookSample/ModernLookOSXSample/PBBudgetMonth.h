@@ -20,6 +20,6 @@
 
 @property (nonatomic, strong) NSMutableArray* monthlyCategoryBudgets;
 
-- (id) initWithBudget:(PBBudget*)b year:(NSInteger)y month:(NSInteger)m;
+- (instancetype) initWithBudget:(PBBudget*)b year:(NSInteger)y month:(NSInteger)m NS_DESIGNATED_INITIALIZER;
 
 @end

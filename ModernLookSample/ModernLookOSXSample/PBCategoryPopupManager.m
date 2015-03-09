@@ -11,7 +11,7 @@
 #import <ModernLookOSX/ModernLookOSX.h>
 @implementation PBCategoryPopupManager
 - (MLPopupContent*) createPopupContent {
-	PBBudget* b = [self.budgets.arrangedObjects objectAtIndex:self.budgets.selectionIndex];
+	PBBudget* b = (self.budgets.arrangedObjects)[self.budgets.selectionIndex];
 	PBCategoryContent* c = [[PBCategoryContent alloc] initWithBudget:b];
 	return c;
 }

@@ -13,7 +13,7 @@
 @end
 
 @implementation PBCategory
-- (id) init {
+- (instancetype) init {
 	self = [super init];
 	if(self) {
 		self.subCategories = [NSMutableArray array];

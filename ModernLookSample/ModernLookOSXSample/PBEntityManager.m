@@ -31,7 +31,7 @@ PBEntityManager* _entityManager;
 	return _entityManager;
 }
 
-- (id) init {
+- (instancetype) init {
 	self = [super init];
 	if(self) {
 	}

@@ -12,6 +12,6 @@
 
 @interface PBCategoryContent : MLPopupContent <NSOutlineViewDelegate>
 @property (nonatomic, weak) PBBudget* budget;
-- (id) initWithBudget:(PBBudget*)budget;
+- (instancetype) initWithBudget:(PBBudget*)budget NS_DESIGNATED_INITIALIZER;
 
 @end

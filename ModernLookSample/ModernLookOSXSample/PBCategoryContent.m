@@ -18,7 +18,7 @@
 @end
 
 @implementation PBCategoryContent
-- (id) initWithBudget:(PBBudget*)budget {
+- (instancetype) initWithBudget:(PBBudget*)budget {
 	self = [super initWithNibName:@"PBCategoryContent" bundle:[NSBundle bundleForClass:[self class]]];
 	if(self) {
 		self.budget = budget;
@@ -57,8 +57,8 @@
 - (BOOL) childByName:(NSString*) name children:(NSArray*)children indexes:(NSMutableArray*)indexes {
 	BOOL ret = NO;
 	for(NSUInteger i = 0; i < children.count;i++) {
-		PBCategory* cat = [children objectAtIndex:i];
-		[indexes addObject:[NSNumber numberWithUnsignedInteger:i]];
+		PBCategory* cat = children[i];
+		[indexes addObject:@(i)];
 		if([cat.name hasPrefix:name]) {
 			ret = YES;
 			break;

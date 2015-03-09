@@ -10,7 +10,7 @@
 
 @implementation PBMonthlyCategoryBudget
 
-- (id) initWithCategory:(PBCategory*)cat year:(NSInteger)y month:(NSInteger)m
+- (instancetype) initWithCategory:(PBCategory*)cat year:(NSInteger)y month:(NSInteger)m
 {
 	self = [super init];
 	if(self) {

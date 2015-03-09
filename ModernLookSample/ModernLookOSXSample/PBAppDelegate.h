@@ -9,7 +9,7 @@
 #import <Cocoa/Cocoa.h>
 #import <ModernLookOSX/ModernLookOSX.h>
 
-@interface PBAppDelegate : NSObject <NSApplicationDelegate>
+@interface PBAppDelegate : NSObject <NSApplicationDelegate,MLCalendarViewDelegate>
 
 
 @end
