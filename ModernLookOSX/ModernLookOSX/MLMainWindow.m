@@ -3,8 +3,11 @@
 
 #import <AppKit/AppKit.h>
 #import "MLPopupWindowManager.h"
-
+#import "MLTextView.h"
+#import "MLTableView.h"
+#import "MLOutlineView.h"
 @interface MLMainWindow ()
+@property (strong) MLTextView* mlTextView;
 @end
 
 @implementation MLMainWindow
@@ -82,5 +85,16 @@
 	[super sendEvent:event];
 }
 
-
+- (NSText*) fieldEditor:(BOOL)createFlag forObject:(id)anObject {
+	if([anObject isKindOfClass:[MLTableView class]] || [anObject isKindOfClass:[MLOutlineView class]]) {
+//		NSLog(@"fieldEditor for %@",anObject);
+		if(!self.mlTextView) {
+			self.mlTextView = [[MLTextView alloc] init];
+		}
+		return self.mlTextView;
+	}
+	NSText* ret = [super fieldEditor:createFlag forObject:anObject];
+//	NSLog(@"fieldEditor for %@",anObject);
+	return ret;
+}
 @end

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B30DD11A1AAEFA0100125D25 /* MLTextView.h in Headers */ = {isa = PBXBuildFile; fileRef = B30DD1181AAEFA0100125D25 /* MLTextView.h */; };
+		B30DD11B1AAEFA0100125D25 /* MLTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = B30DD1191AAEFA0100125D25 /* MLTextView.m */; };
 		B32265F21AAA4ACB006891DA /* MLColoredButton.h in Headers */ = {isa = PBXBuildFile; fileRef = B32265F01AAA4ACB006891DA /* MLColoredButton.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B32265F31AAA4ACB006891DA /* MLColoredButton.m in Sources */ = {isa = PBXBuildFile; fileRef = B32265F11AAA4ACB006891DA /* MLColoredButton.m */; };
 		B338CB601AAC5ECB00365DCA /* MLCalendarView.h in Headers */ = {isa = PBXBuildFile; fileRef = B338CB5D1AAC5ECB00365DCA /* MLCalendarView.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -55,6 +57,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B30DD1181AAEFA0100125D25 /* MLTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLTextView.h; sourceTree = SOURCE_ROOT; };
+		B30DD1191AAEFA0100125D25 /* MLTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLTextView.m; sourceTree = SOURCE_ROOT; };
 		B32265F01AAA4ACB006891DA /* MLColoredButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLColoredButton.h; sourceTree = SOURCE_ROOT; };
 		B32265F11AAA4ACB006891DA /* MLColoredButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLColoredButton.m; sourceTree = SOURCE_ROOT; };
 		B338CB5D1AAC5ECB00365DCA /* MLCalendarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLCalendarView.h; sourceTree = SOURCE_ROOT; };
@@ -229,6 +233,8 @@
 				B39FBD881A9A261A000C4BB2 /* MLRadioGroupManager.m */,
 				B32265F01AAA4ACB006891DA /* MLColoredButton.h */,
 				B32265F11AAA4ACB006891DA /* MLColoredButton.m */,
+				B30DD1181AAEFA0100125D25 /* MLTextView.h */,
+				B30DD1191AAEFA0100125D25 /* MLTextView.m */,
 			);
 			name = Components;
 			sourceTree = "<group>";
@@ -254,6 +260,7 @@
 				B39FBDF51A9A35E8000C4BB2 /* MLComboFieldDelegate.h in Headers */,
 				B39FBDF61A9A35E8000C4BB2 /* MLTextField.h in Headers */,
 				B39FBDF71A9A35E8000C4BB2 /* MLRadioGroupManager.h in Headers */,
+				B30DD11A1AAEFA0100125D25 /* MLTextView.h in Headers */,
 				B338CB6B1AACA3A600365DCA /* MLCalendarBackground.h in Headers */,
 				B39FBDF81A9A35E8000C4BB2 /* MLPopupContent.h in Headers */,
 				B39FBDF91A9A35E8000C4BB2 /* MLPopupWindow.h in Headers */,
@@ -338,6 +345,7 @@
 				B39FBDB51A9A261A000C4BB2 /* MLPopupWindowManager.m in Sources */,
 				B32265F31AAA4ACB006891DA /* MLColoredButton.m in Sources */,
 				B39FBDAB1A9A261A000C4BB2 /* MLRadioGroupManager.m in Sources */,
+				B30DD11B1AAEFA0100125D25 /* MLTextView.m in Sources */,
 				B3426C6C1AA25EF6008BC156 /* MLAlertWindow.m in Sources */,
 				B39FBDAF1A9A261A000C4BB2 /* MLToolbar.m in Sources */,
 				B3426C6E1AA25EF6008BC156 /* MLAlert.m in Sources */,
