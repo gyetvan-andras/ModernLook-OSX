@@ -90,6 +90,7 @@
 //		NSLog(@"fieldEditor for %@",anObject);
 		if(!self.mlTextView) {
 			self.mlTextView = [[MLTextView alloc] init];
+			self.mlTextView.fieldEditorMarker = self.fieldEditorMarker;
 		}
 		return self.mlTextView;
 	}

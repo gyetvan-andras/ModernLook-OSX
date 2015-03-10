@@ -9,4 +9,5 @@
 #import <Cocoa/Cocoa.h>
 
 @interface MLTextView : NSTextView
+@property (strong) NSColor* fieldEditorMarker;
 @end

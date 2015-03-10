@@ -5,5 +5,7 @@
 @interface MLMainWindow : NSWindow
 @property (weak) IBOutlet NSView *pbContent;
 @property (weak) IBOutlet MLToolbar *pbToolbar;
+
+@property (strong) NSColor* fieldEditorMarker;
 - (void)showContent:(NSView *)c;
 @end

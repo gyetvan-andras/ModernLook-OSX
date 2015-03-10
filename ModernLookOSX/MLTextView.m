@@ -27,4 +27,21 @@
 	[super setFocusRingType:NSFocusRingTypeNone];
 }
 
+- (void) drawRect:(NSRect)dirtyRect {
+	if(self.fieldEditorMarker) {
+		NSRect bounds = [self bounds];
+		[self.fieldEditorMarker set];
+		
+		NSBezierPath *bottomLine = [NSBezierPath bezierPath];
+		NSPoint p = NSZeroPoint;//bounds.origin;
+		p.y = bounds.size.height - 1;
+		[bottomLine moveToPoint:p];
+		p.x += bounds.size.width;
+		[bottomLine lineToPoint:p];
+		bottomLine.lineWidth = 2.0f;
+		[bottomLine stroke];
+	}
+	[super drawRect:dirtyRect];
+}
+
 @end
