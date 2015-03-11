@@ -24,8 +24,11 @@
                 <rect key="frame" x="0.0" y="0.0" width="480" height="166"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="X5U-LN-WrO" customClass="MLColoredButton">
+                    <button misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="X5U-LN-WrO" customClass="MLColoredButton">
                         <rect key="frame" x="377" y="11" width="85" height="33"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="28" id="fmm-TV-Cg4"/>
+                        </constraints>
                         <buttonCell key="cell" type="bevel" title="No" bezelStyle="regularSquare" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="nQp-jq-bLi">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" size="14" name="HelveticaNeue-Light"/>
@@ -34,8 +37,11 @@
                             <action selector="doNo:" target="-2" id="HLJ-ct-gSd"/>
                         </connections>
                     </button>
-                    <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Vcr-UG-FoQ" customClass="MLColoredButton">
+                    <button misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Vcr-UG-FoQ" customClass="MLColoredButton">
                         <rect key="frame" x="288" y="11" width="85" height="33"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="28" id="GO8-AA-uvk"/>
+                        </constraints>
                         <buttonCell key="cell" type="bevel" title="Yes" bezelStyle="regularSquare" image="BuyTemplate" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Woz-7a-Olc">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" size="14" name="HelveticaNeue-Light"/>
@@ -52,8 +58,11 @@ DQ
                             <action selector="doYes:" target="-2" id="WRO-bk-FwV"/>
                         </connections>
                     </button>
-                    <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1VS-YW-anM" customClass="MLColoredButton">
+                    <button misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1VS-YW-anM" customClass="MLColoredButton">
                         <rect key="frame" x="24" y="11" width="85" height="33"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="28" id="6Rg-7O-thZ"/>
+                        </constraints>
                         <buttonCell key="cell" type="bevel" title="Cancel" bezelStyle="regularSquare" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="ZI8-Ii-Jgc">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" size="14" name="HelveticaNeue-Light"/>
@@ -99,6 +108,14 @@ Gw
                         <font key="titleFont" metaFont="system"/>
                     </box>
                 </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="X5U-LN-WrO" secondAttribute="bottom" constant="14" id="4Zg-G8-c0A"/>
+                    <constraint firstAttribute="trailing" secondItem="X5U-LN-WrO" secondAttribute="trailing" constant="20" id="KOw-V3-YvZ"/>
+                    <constraint firstItem="X5U-LN-WrO" firstAttribute="leading" secondItem="Vcr-UG-FoQ" secondAttribute="trailing" constant="8" id="aF2-Sx-v90"/>
+                    <constraint firstAttribute="bottom" secondItem="Vcr-UG-FoQ" secondAttribute="bottom" constant="14" id="cLh-43-4cs"/>
+                    <constraint firstAttribute="bottom" secondItem="1VS-YW-anM" secondAttribute="bottom" constant="14" id="gcA-bB-F44"/>
+                    <constraint firstItem="1VS-YW-anM" firstAttribute="leading" secondItem="se5-gp-TjO" secondAttribute="leading" constant="26" id="pvB-fn-Q5v"/>
+                </constraints>
                 <userDefinedRuntimeAttributes>
                     <userDefinedRuntimeAttribute type="color" keyPath="backgroundColor">
                         <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>

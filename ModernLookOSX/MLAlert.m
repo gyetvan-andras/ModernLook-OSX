@@ -26,18 +26,29 @@
 
 @implementation MLAlert
 
-+ (MLAlertResponse) showQuestion:(NSString*)question title:(NSString*)title withCancel:(BOOL)withCancel {
++ (MLAlertResponse) showQuestion:(NSString*)question title:(NSString*)title withCancel:(BOOL)withCancel buttonsTitle:(NSArray*)titles {
 	MLAlert* alert = [[MLAlert alloc] init];
 	if(!withCancel) {
 		alert.cancel.hidden = YES;
 	}
-//	[alert.yes.cell setBackgroundColor:[NSColor redColor]];
 	alert.title.stringValue = title;
 	alert.message.stringValue = question;
+	if(titles.count == 3) {
+		alert.cancel.title = titles[0];
+		alert.yes.title = titles[1];
+		alert.no.title = titles[2];
+	} else {
+		alert.yes.title = titles[0];
+		alert.no.title = titles[1];
+	}
+	[alert resizeButtons];
 	MLAlertResponse res = [alert runAlert];
 	[alert.window close];
-	
 	return res;
+}
+
++ (MLAlertResponse) showQuestion:(NSString*)question title:(NSString*)title withCancel:(BOOL)withCancel {
+	return [MLAlert showQuestion:question title:title withCancel:withCancel buttonsTitle:@[@"Cancel",@"Yes",@"No"]];
 }
 
 - (instancetype) init {
@@ -47,6 +58,25 @@
 		[self.window setStyleMask:NSBorderlessWindowMask];
 	}
 	return self;
+}
+
+- (void) resizeButtons {
+//	[self.no sizeToFit];
+//	[self.yes sizeToFit];
+//	[self.cancel sizeToFit];
+	NSRect cr = self.cancel.bounds;
+	NSRect yr = self.yes.bounds;
+	NSRect nr = self.no.bounds;
+	cr.size.width += 10;
+	yr.size.width += 10;
+	nr.size.width += 10;
+	self.no.bounds = nr;
+	self.yes.bounds = yr;
+	self.cancel.bounds = cr;
+	self.no.needsDisplay = YES;
+	self.yes.needsDisplay = YES;
+	self.cancel.needsDisplay = YES;
+	
 }
 
 - (MLAlertResponse) runAlert {
