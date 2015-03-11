@@ -140,13 +140,13 @@ Calendar component for OSX inspired by some free iOS calendar
 	</p>
 </p>
 
-#Description
+###Description
 
 MLCalendarView is a date selector component which is represented as a month calendar.
 
 The component uses the system Language & Region settings, so it will display the month and day names regarding to the system settings. Also it lays out the days according to the first day of week system setting.
 
-#Usage
+###Usage
 MLCalendarView is derived from NSViewController and can be used as any other view. 
 
 The component contains the following properties to change the default colors used by the calendar.
@@ -167,7 +167,7 @@ Also, there is a delegate for the calendar, which is used to send a message when
 @protocol MLCalendarViewDelegate <NSObject>
 - (void) didSelectDate:(NSDate*)selectedDate;
 @end
-
+```
 #Sample Application
 The provided sample application is an imagined Budget app. It has 4 separate area:
 
