@@ -130,7 +130,7 @@ switch(res) {
 }
 ```
 
-# Calendar-OSX
+##MLCalendarView
 
 Calendar component for OSX inspired by some free iOS calendar
 <p align="center">
