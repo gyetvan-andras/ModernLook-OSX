@@ -8,6 +8,7 @@
 
 #import "MLCalendarView.h"
 #import "MLCalendarCell.h"
+#import "MLCalendarBackground.h"
 
 @interface MLCalendarView ()
 
@@ -45,6 +46,12 @@
 	}
 }
 
+//- (void) setBackgroundColor:(NSColor *)backgroundColor {
+//	_backgroundColor = backgroundColor;
+//	MLCalendarBackground* bv = (MLCalendarBackground*)self.view;
+//	bv.backgroundColor = backgroundColor;
+//}
+
 - (instancetype) init {
 	self = [super initWithNibName:@"MLCalendarView" bundle:[NSBundle bundleForClass:[self class]]];
 	if (self != nil) {
@@ -75,6 +82,12 @@
 	_date = [NSDate date];
 }
 
+//- (void) setBackgroundColor:(NSColor *)backgroundColor {
+//	_backgroundColor = backgroundColor;
+//	MLCalendarBackground* bv = (MLCalendarBackground*)self.view;
+//	bv.backgroundColor = backgroundColor;
+//}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
 	self.dayLabels = [NSMutableArray array];
@@ -103,6 +116,8 @@
 		tf.stringValue = day;
 	}
 //	self.date = [NSDate date];
+	MLCalendarBackground* bv = (MLCalendarBackground*)self.view;
+	bv.backgroundColor = self.backgroundColor;
 	[self layoutCalendar];
 }
 
