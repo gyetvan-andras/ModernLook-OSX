@@ -64,15 +64,23 @@
 //	[self.no sizeToFit];
 //	[self.yes sizeToFit];
 //	[self.cancel sizeToFit];
+	
 	NSRect cr = self.cancel.bounds;
 	NSRect yr = self.yes.bounds;
 	NSRect nr = self.no.bounds;
-	cr.size.width += 10;
-	yr.size.width += 10;
-	nr.size.width += 10;
+	
+	cr.size.width = self.cancel.frame.size.width + 10;
+	yr.size.width = self.yes.frame.size.width + 10;
+	nr.size.width = self.no.frame.size.width + 10;
+	
+	if(cr.size.width < 85) cr.size.width = 85;
+	if(yr.size.width < 85) yr.size.width = 85;
+	if(nr.size.width < 85) nr.size.width = 85;
+	
 	self.no.bounds = nr;
 	self.yes.bounds = yr;
 	self.cancel.bounds = cr;
+	
 	self.no.needsDisplay = YES;
 	self.yes.needsDisplay = YES;
 	self.cancel.needsDisplay = YES;

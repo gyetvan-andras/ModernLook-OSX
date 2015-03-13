@@ -24,12 +24,13 @@
                 <rect key="frame" x="0.0" y="0.0" width="480" height="166"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <button misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="X5U-LN-WrO" customClass="MLColoredButton">
+                    <button translatesAutoresizingMaskIntoConstraints="NO" id="X5U-LN-WrO" customClass="MLColoredButton">
                         <rect key="frame" x="377" y="11" width="85" height="33"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="28" id="fmm-TV-Cg4"/>
+                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="81" id="hyg-9o-zaF"/>
                         </constraints>
-                        <buttonCell key="cell" type="bevel" title="No" bezelStyle="regularSquare" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="nQp-jq-bLi">
+                        <buttonCell key="cell" type="bevel" title="N" bezelStyle="regularSquare" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="nQp-jq-bLi">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" size="14" name="HelveticaNeue-Light"/>
                         </buttonCell>
@@ -37,12 +38,13 @@
                             <action selector="doNo:" target="-2" id="HLJ-ct-gSd"/>
                         </connections>
                     </button>
-                    <button misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Vcr-UG-FoQ" customClass="MLColoredButton">
+                    <button translatesAutoresizingMaskIntoConstraints="NO" id="Vcr-UG-FoQ" customClass="MLColoredButton">
                         <rect key="frame" x="288" y="11" width="85" height="33"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="28" id="GO8-AA-uvk"/>
+                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="81" id="ijK-NT-qK1"/>
                         </constraints>
-                        <buttonCell key="cell" type="bevel" title="Yes" bezelStyle="regularSquare" image="BuyTemplate" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Woz-7a-Olc">
+                        <buttonCell key="cell" type="bevel" title="Y" bezelStyle="regularSquare" image="BuyTemplate" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Woz-7a-Olc">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" size="14" name="HelveticaNeue-Light"/>
                             <string key="keyEquivalent" base64-UTF8="YES">
@@ -58,12 +60,13 @@ DQ
                             <action selector="doYes:" target="-2" id="WRO-bk-FwV"/>
                         </connections>
                     </button>
-                    <button misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1VS-YW-anM" customClass="MLColoredButton">
+                    <button translatesAutoresizingMaskIntoConstraints="NO" id="1VS-YW-anM" customClass="MLColoredButton">
                         <rect key="frame" x="24" y="11" width="85" height="33"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="28" id="6Rg-7O-thZ"/>
+                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="81" id="Ogc-3L-wHF"/>
                         </constraints>
-                        <buttonCell key="cell" type="bevel" title="Cancel" bezelStyle="regularSquare" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="ZI8-Ii-Jgc">
+                        <buttonCell key="cell" type="bevel" title="C" bezelStyle="regularSquare" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="ZI8-Ii-Jgc">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" size="14" name="HelveticaNeue-Light"/>
                             <string key="keyEquivalent" base64-UTF8="YES">

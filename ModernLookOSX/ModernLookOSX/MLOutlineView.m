@@ -11,6 +11,7 @@
 @interface MLOutlineView () {
 	NSMutableArray* savedTreeState;
 	NSRect oldVisibleRect;
+	NSArray* savedSortDescriptors;
 }
 
 - (void) commonInit;
@@ -58,8 +59,11 @@
 	NSScrollView* sv = [self enclosingScrollView];
 	oldVisibleRect = [[sv contentView] documentVisibleRect];
 	
+	savedSortDescriptors = self.sortDescriptors;
+	
 	NSNumber* sr = @(self.selectedRow);
 	[savedTreeState addObject:sr];
+	
 	
 	for(NSInteger i = 0; i < self.numberOfRows;i++) {
 		NSTreeNode* node = [self itemAtRow:i];
@@ -69,6 +73,7 @@
 }
 
 - (void) restoreTreeState {
+	self.sortDescriptors = savedSortDescriptors;
 	NSNumber* sr = [savedTreeState firstObject];
 	for(NSInteger i = 1; i < savedTreeState.count;i++) {
 		NSNumber* n = savedTreeState[i];
