@@ -177,6 +177,8 @@ The provided sample application is an imagined Budget app. It has 4 separate are
 4. Prediction panel
 
 The application has a toolbar, where the user can switch between the application panels, by using MLRadioGroupManager. All the panels are derived from MLContentView and they use MLOutlienView, MLTableView, MLComboField and MLTextField.
+**NEW** as of 03.10.2015
+Added a calendar button to the toolbar to demonstrate MLCalendarView in action.
 
 #Known issues
 
