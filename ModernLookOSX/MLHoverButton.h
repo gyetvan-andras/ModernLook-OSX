@@ -8,9 +8,9 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface MLHooverButton : NSButton
+@interface MLHoverButton : NSButton
 @property (nonatomic, copy) NSColor* backgroundColor;
-@property (nonatomic, copy) NSColor* hooverBackgroundColor;
+@property (nonatomic, copy) NSColor* hoveredBackgroundColor;
 @property (nonatomic, copy) NSColor* foregroundColor;
-@property (nonatomic, copy) NSColor* hooveredForegroundColor;
+@property (nonatomic, copy) NSColor* hoveredForegroundColor;
 @end

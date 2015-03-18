@@ -6,10 +6,10 @@
 //  Copyright (c) 2015 DroidZONE. All rights reserved.
 //
 
-#import "MLHooverButton.h"
+#import "MLHoverButton.h"
 #import <QuartzCore/QuartzCore.h>
 
-@interface MLHooverButton ()
+@interface MLHoverButton ()
 @property (nonatomic, strong) NSTrackingArea* trackingArea;
 @property (nonatomic) BOOL hoovered;
 @property (nonatomic, strong) NSImage* tintedImage;
@@ -17,7 +17,7 @@
 @property (nonatomic, strong) CALayer* imgLayer;
 @end
 
-@implementation MLHooverButton
+@implementation MLHoverButton
 
 - (instancetype) initWithCoder:(NSCoder *)coder {
 	self = [super initWithCoder:coder];
@@ -40,8 +40,8 @@
 	self.title = @"1";
 	[self createTrackingArea];
 	self.hoovered = NO;
-	self.hooveredForegroundColor = [NSColor whiteColor] ;//]selectedTextColor];
-	self.hooverBackgroundColor = [NSColor selectedTextBackgroundColor];
+	self.hoveredForegroundColor = [NSColor whiteColor] ;//]selectedTextColor];
+	self.hoveredBackgroundColor = [NSColor selectedTextBackgroundColor];
 	self.backgroundColor = [NSColor clearColor];
 	self.foregroundColor = [NSColor controlTextColor];
 //	[self prepareLayer];
@@ -174,17 +174,17 @@
 //	self.bgLayer.fillColor = [toBG CGColor];
 //}
 
-- (void) setHooveredForegroundColor:(NSColor *)hooveredForegroundColor {
-	_hooveredForegroundColor = hooveredForegroundColor;
+- (void) setHoveredForegroundColor:(NSColor *)hooveredForegroundColor {
+	_hoveredForegroundColor = hooveredForegroundColor;
 	if(self.image) {
-		self.tintedImage = [self imageTintedWithColor:self.hooveredForegroundColor];
+		self.tintedImage = [self imageTintedWithColor:self.hoveredForegroundColor];
 	}
 }
 
 - (void) setImage:(NSImage *)image {
 	[super setImage:image];
 	if(image) {
-		self.tintedImage = [self imageTintedWithColor:self.hooveredForegroundColor];
+		self.tintedImage = [self imageTintedWithColor:self.hoveredForegroundColor];
 	} else {
 		self.tintedImage = nil;
 	}
@@ -221,8 +221,8 @@
 	NSColor* bg = self.backgroundColor;
 	NSColor* fc = nil;
 	if(self.hoovered && !self.isHighlighted) {
-		bg = self.hooverBackgroundColor;
-		fc = self.hooveredForegroundColor;
+		bg = self.hoveredBackgroundColor;
+		fc = self.hoveredForegroundColor;
 	} else {
 		bg = self.backgroundColor;
 		fc = self.foregroundColor;

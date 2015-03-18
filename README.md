@@ -168,7 +168,7 @@ Also, there is a delegate for the calendar, which is used to send a message when
 - (void) didSelectDate:(NSDate*)selectedDate;
 @end
 ```
-#MLHooverButton
+#MLHoverButton
 It is derived from NSButton and draws itself as a filled circle with an image or text. The visuals can be specified by the following properties.
 ```objective-c
 @property (nonatomic, copy) NSColor* backgroundColor;
@@ -193,7 +193,7 @@ Added a calendar button to the toolbar to demonstrate MLCalendarView in action.
 
 **NEW** as of 03.18.2015
 
-Added an MLHooverButton to the toolbar to demonstrate its look.
+Added an MLHoverButton to the toolbar to demonstrate its look.
 
 #Known issues
 

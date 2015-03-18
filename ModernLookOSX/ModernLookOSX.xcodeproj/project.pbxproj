@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B30588751AB8AC2E00D948E7 /* MLHooverButton.h in Headers */ = {isa = PBXBuildFile; fileRef = B30588731AB8AC2E00D948E7 /* MLHooverButton.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B30588761AB8AC2E00D948E7 /* MLHooverButton.m in Sources */ = {isa = PBXBuildFile; fileRef = B30588741AB8AC2E00D948E7 /* MLHooverButton.m */; };
+		B30588751AB8AC2E00D948E7 /* MLHoverButton.h in Headers */ = {isa = PBXBuildFile; fileRef = B30588731AB8AC2E00D948E7 /* MLHoverButton.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B30588761AB8AC2E00D948E7 /* MLHoverButton.m in Sources */ = {isa = PBXBuildFile; fileRef = B30588741AB8AC2E00D948E7 /* MLHoverButton.m */; };
 		B30DD11A1AAEFA0100125D25 /* MLTextView.h in Headers */ = {isa = PBXBuildFile; fileRef = B30DD1181AAEFA0100125D25 /* MLTextView.h */; };
 		B30DD11B1AAEFA0100125D25 /* MLTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = B30DD1191AAEFA0100125D25 /* MLTextView.m */; };
 		B32265F21AAA4ACB006891DA /* MLColoredButton.h in Headers */ = {isa = PBXBuildFile; fileRef = B32265F01AAA4ACB006891DA /* MLColoredButton.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -60,8 +60,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		B30588731AB8AC2E00D948E7 /* MLHooverButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLHooverButton.h; sourceTree = SOURCE_ROOT; };
-		B30588741AB8AC2E00D948E7 /* MLHooverButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLHooverButton.m; sourceTree = SOURCE_ROOT; };
+		B30588731AB8AC2E00D948E7 /* MLHoverButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLHoverButton.h; sourceTree = SOURCE_ROOT; };
+		B30588741AB8AC2E00D948E7 /* MLHoverButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLHoverButton.m; sourceTree = SOURCE_ROOT; };
 		B30DD1181AAEFA0100125D25 /* MLTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLTextView.h; sourceTree = SOURCE_ROOT; };
 		B30DD1191AAEFA0100125D25 /* MLTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLTextView.m; sourceTree = SOURCE_ROOT; };
 		B32265F01AAA4ACB006891DA /* MLColoredButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLColoredButton.h; sourceTree = SOURCE_ROOT; };
@@ -243,8 +243,8 @@
 				B32265F11AAA4ACB006891DA /* MLColoredButton.m */,
 				B30DD1181AAEFA0100125D25 /* MLTextView.h */,
 				B30DD1191AAEFA0100125D25 /* MLTextView.m */,
-				B30588731AB8AC2E00D948E7 /* MLHooverButton.h */,
-				B30588741AB8AC2E00D948E7 /* MLHooverButton.m */,
+				B30588731AB8AC2E00D948E7 /* MLHoverButton.h */,
+				B30588741AB8AC2E00D948E7 /* MLHoverButton.m */,
 			);
 			name = Components;
 			sourceTree = "<group>";
@@ -274,7 +274,7 @@
 				B338CB6B1AACA3A600365DCA /* MLCalendarBackground.h in Headers */,
 				B39FBDF81A9A35E8000C4BB2 /* MLPopupContent.h in Headers */,
 				B39FBDF91A9A35E8000C4BB2 /* MLPopupWindow.h in Headers */,
-				B30588751AB8AC2E00D948E7 /* MLHooverButton.h in Headers */,
+				B30588751AB8AC2E00D948E7 /* MLHoverButton.h in Headers */,
 				B32265F21AAA4ACB006891DA /* MLColoredButton.h in Headers */,
 				B3426C6D1AA25EF6008BC156 /* MLAlert.h in Headers */,
 				B338CB601AAC5ECB00365DCA /* MLCalendarView.h in Headers */,
@@ -370,7 +370,7 @@
 				B39FBDAD1A9A261A000C4BB2 /* MLGlassView.m in Sources */,
 				B39FBD9F1A9A261A000C4BB2 /* MLComboField.m in Sources */,
 				B39FBDB01A9A261A000C4BB2 /* MLContentView.m in Sources */,
-				B30588761AB8AC2E00D948E7 /* MLHooverButton.m in Sources */,
+				B30588761AB8AC2E00D948E7 /* MLHoverButton.m in Sources */,
 				B39FBDB61A9A261A000C4BB2 /* MLPopupContent.m in Sources */,
 				B338CB671AAC6ED700365DCA /* MLCalendarCell.m in Sources */,
 				B39FBDA51A9A261A000C4BB2 /* MLComboFieldDelegate.m in Sources */,
