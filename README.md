@@ -168,6 +168,15 @@ Also, there is a delegate for the calendar, which is used to send a message when
 - (void) didSelectDate:(NSDate*)selectedDate;
 @end
 ```
+#MLHooverButton
+It is derived from NSButton and draws itself as a filled circle with an image or text. The visuals can be specified by the following properties.
+```objective-c
+@property (nonatomic, copy) NSColor* backgroundColor;
+@property (nonatomic, copy) NSColor* hooverBackgroundColor;
+@property (nonatomic, copy) NSColor* foregroundColor;
+@property (nonatomic, copy) NSColor* hooveredForegroundColor;
+```
+
 #Sample Application
 The provided sample application is an imagined Budget app. It has 4 separate area:
 
@@ -179,7 +188,12 @@ The provided sample application is an imagined Budget app. It has 4 separate are
 The application has a toolbar, where the user can switch between the application panels, by using MLRadioGroupManager. All the panels are derived from MLContentView and they use MLOutlienView, MLTableView, MLComboField and MLTextField.
 
 **NEW** as of 03.10.2015
+
 Added a calendar button to the toolbar to demonstrate MLCalendarView in action.
+
+**NEW** as of 03.18.2015
+
+Added an MLHooverButton to the toolbar to demonstrate its look.
 
 #Known issues
 
