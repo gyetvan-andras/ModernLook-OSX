@@ -43,6 +43,7 @@
 }
 
 - (void)drawRect:(NSRect)dirtyRect {
+	[super drawRect:dirtyRect];
 	[NSGraphicsContext saveGraphicsState];
 	
 	NSRect bounds = [self bounds];
@@ -57,7 +58,7 @@
 	[bottomLine stroke];
 	
 	[NSGraphicsContext restoreGraphicsState];
-	[super drawRect:dirtyRect];
+//	[super drawRect:dirtyRect];
 }
 
 @end

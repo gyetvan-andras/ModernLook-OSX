@@ -13,8 +13,8 @@
 @property (nonatomic, strong) NSTrackingArea* trackingArea;
 @property (nonatomic) BOOL hoovered;
 @property (nonatomic, strong) NSImage* tintedImage;
-@property (nonatomic, strong) CAShapeLayer* bgLayer;
-@property (nonatomic, strong) CALayer* imgLayer;
+//@property (nonatomic, strong) CAShapeLayer* bgLayer;
+//@property (nonatomic, strong) CALayer* imgLayer;
 @end
 
 @implementation MLHoverButton
@@ -35,7 +35,14 @@
 	return self;
 }
 
+- (void) viewDidEndLiveResize {
+	[self createTrackingArea];
+}
+
 - (void) commonInit {
+//	[[NSNotificationCenter defaultCenter] addObserver:self
+//		selector:@selector(windowResized:) name:NSViewFrameDidChangeNotification
+//		object:self];
 	self.wantsLayer = YES;
 	self.title = @"1";
 	[self createTrackingArea];
@@ -130,7 +137,18 @@
 	if(self.trackingArea) {
 		[self removeTrackingArea:self.trackingArea];
 	}
-	self.trackingArea = [[NSTrackingArea alloc] initWithRect:self.bounds
+	NSRect circleRect = self.bounds;
+	if(circleRect.size.width > circleRect.size.height) {
+		CGFloat originalW = circleRect.size.width;
+		circleRect.size.width = circleRect.size.height;
+		circleRect.origin.x = ((originalW - circleRect.size.width)/2.0);
+	} else if(circleRect.size.width < circleRect.size.height) {
+		CGFloat originalH = circleRect.size.height;
+		circleRect.size.height = circleRect.size.width;
+		circleRect.origin.y = ((originalH - circleRect.size.height)/2.0);
+	}
+	
+	self.trackingArea = [[NSTrackingArea alloc] initWithRect:circleRect
 													 options: (NSTrackingMouseEnteredAndExited | NSTrackingActiveInActiveApp)
 													   owner:self userInfo:nil];
 	[self addTrackingArea:self.trackingArea];
@@ -252,8 +270,8 @@
 		imageRect.size.width = w;
 		imageRect.size.height = h;
 		
-		imageRect.origin.x = ((circleRect.size.width - imageRect.size.width)/2.0f) +1;
-		imageRect.origin.y = (circleRect.size.height - imageRect.size.height)/2.0f;
+		imageRect.origin.x = (self.bounds.size.width/2.0) - (imageRect.size.width/2.0f);
+		imageRect.origin.y = (self.bounds.size.height - imageRect.size.height)/2.0f;
 		
 		[i drawInRect:imageRect];
 		
