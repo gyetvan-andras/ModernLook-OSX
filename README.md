@@ -177,7 +177,7 @@ It is derived from NSButton and draws itself as a filled circle with an image or
 @property (nonatomic, copy) NSColor* hooveredForegroundColor;
 ```
 #MLHyperlink
-It is looks and behaves like a hyperlink in a web browser. When the mouse hover over it will change the text color and add a underline to the text.
+It looks and behaves similar to a hyperlink in a web browser. When the mouse hover over it will change the text color and underline the text.
 There is a
 ```objective-c
 @property (nonatomic, copy) NSColor* hoveredTextColor;
