@@ -176,6 +176,13 @@ It is derived from NSButton and draws itself as a filled circle with an image or
 @property (nonatomic, copy) NSColor* foregroundColor;
 @property (nonatomic, copy) NSColor* hooveredForegroundColor;
 ```
+#MLHyperlink
+It is looks and behaves like a hyperlink in a web browser. When the mouse hover over it will change the text color and add a underline to the text.
+There is a
+```objective-c
+@property (nonatomic, copy) NSColor* hoveredTextColor;
+```
+property to specify the text color when hovered.
 
 #Sample Application
 The provided sample application is an imagined Budget app. It has 4 separate area:
@@ -194,6 +201,10 @@ Added a calendar button to the toolbar to demonstrate MLCalendarView in action.
 **NEW** as of 03.18.2015
 
 Added an MLHoverButton to the toolbar to demonstrate its look.
+
+**NEW** as of 03.19.2015
+
+Change the toolbar title to be a hyperlink. When clicked it will log out a message to the console.
 
 #Known issues
 

@@ -29,6 +29,7 @@
 - (IBAction)showCalendar:(id)sender;
 
 - (IBAction)pageSelectionChanged:(MLRadioGroupManager *)sender;
+- (IBAction)hyperlinkAction:(id)sender;
 
 @end
 
@@ -97,6 +98,10 @@
 			break;
 			
 	}
+}
+
+- (IBAction)hyperlinkAction:(id)sender {
+	NSLog(@"Hyperlink Clicked");
 }
 
 @end

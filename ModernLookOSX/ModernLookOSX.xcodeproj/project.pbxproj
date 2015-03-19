@@ -20,6 +20,8 @@
 		B338CB671AAC6ED700365DCA /* MLCalendarCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B338CB651AAC6ED700365DCA /* MLCalendarCell.m */; };
 		B338CB6B1AACA3A600365DCA /* MLCalendarBackground.h in Headers */ = {isa = PBXBuildFile; fileRef = B338CB691AACA3A600365DCA /* MLCalendarBackground.h */; };
 		B338CB6C1AACA3A600365DCA /* MLCalendarBackground.m in Sources */ = {isa = PBXBuildFile; fileRef = B338CB6A1AACA3A600365DCA /* MLCalendarBackground.m */; };
+		B33CF17D1ABB4D6300CA33B7 /* MLHyperlink.h in Headers */ = {isa = PBXBuildFile; fileRef = B33CF17B1ABB4D6300CA33B7 /* MLHyperlink.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B33CF17E1ABB4D6300CA33B7 /* MLHyperlink.m in Sources */ = {isa = PBXBuildFile; fileRef = B33CF17C1ABB4D6300CA33B7 /* MLHyperlink.m */; };
 		B3426C6B1AA25EF6008BC156 /* MLAlertWindow.h in Headers */ = {isa = PBXBuildFile; fileRef = B3426C661AA25EF6008BC156 /* MLAlertWindow.h */; };
 		B3426C6C1AA25EF6008BC156 /* MLAlertWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = B3426C671AA25EF6008BC156 /* MLAlertWindow.m */; };
 		B3426C6D1AA25EF6008BC156 /* MLAlert.h in Headers */ = {isa = PBXBuildFile; fileRef = B3426C681AA25EF6008BC156 /* MLAlert.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -73,6 +75,8 @@
 		B338CB651AAC6ED700365DCA /* MLCalendarCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLCalendarCell.m; sourceTree = SOURCE_ROOT; };
 		B338CB691AACA3A600365DCA /* MLCalendarBackground.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLCalendarBackground.h; sourceTree = SOURCE_ROOT; };
 		B338CB6A1AACA3A600365DCA /* MLCalendarBackground.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLCalendarBackground.m; sourceTree = SOURCE_ROOT; };
+		B33CF17B1ABB4D6300CA33B7 /* MLHyperlink.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLHyperlink.h; sourceTree = SOURCE_ROOT; };
+		B33CF17C1ABB4D6300CA33B7 /* MLHyperlink.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLHyperlink.m; sourceTree = SOURCE_ROOT; };
 		B3426C661AA25EF6008BC156 /* MLAlertWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLAlertWindow.h; sourceTree = SOURCE_ROOT; };
 		B3426C671AA25EF6008BC156 /* MLAlertWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLAlertWindow.m; sourceTree = SOURCE_ROOT; };
 		B3426C681AA25EF6008BC156 /* MLAlert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLAlert.h; sourceTree = SOURCE_ROOT; };
@@ -237,6 +241,8 @@
 				B39FBD7F1A9A261A000C4BB2 /* MLTableHeaderCell.m */,
 				B39FBD841A9A261A000C4BB2 /* MLTextField.h */,
 				B39FBD7D1A9A261A000C4BB2 /* MLTextField.m */,
+				B33CF17B1ABB4D6300CA33B7 /* MLHyperlink.h */,
+				B33CF17C1ABB4D6300CA33B7 /* MLHyperlink.m */,
 				B39FBD891A9A261A000C4BB2 /* MLRadioGroupManager.h */,
 				B39FBD881A9A261A000C4BB2 /* MLRadioGroupManager.m */,
 				B32265F01AAA4ACB006891DA /* MLColoredButton.h */,
@@ -276,6 +282,7 @@
 				B39FBDF91A9A35E8000C4BB2 /* MLPopupWindow.h in Headers */,
 				B30588751AB8AC2E00D948E7 /* MLHoverButton.h in Headers */,
 				B32265F21AAA4ACB006891DA /* MLColoredButton.h in Headers */,
+				B33CF17D1ABB4D6300CA33B7 /* MLHyperlink.h in Headers */,
 				B3426C6D1AA25EF6008BC156 /* MLAlert.h in Headers */,
 				B338CB601AAC5ECB00365DCA /* MLCalendarView.h in Headers */,
 				B338CB661AAC6ED700365DCA /* MLCalendarCell.h in Headers */,
@@ -359,6 +366,7 @@
 				B30DD11B1AAEFA0100125D25 /* MLTextView.m in Sources */,
 				B3426C6C1AA25EF6008BC156 /* MLAlertWindow.m in Sources */,
 				B39FBDAF1A9A261A000C4BB2 /* MLToolbar.m in Sources */,
+				B33CF17E1ABB4D6300CA33B7 /* MLHyperlink.m in Sources */,
 				B3426C6E1AA25EF6008BC156 /* MLAlert.m in Sources */,
 				B39FBD9B1A9A261A000C4BB2 /* MLMainWindow.m in Sources */,
 				B39FBD9C1A9A261A000C4BB2 /* MLOutlineView.m in Sources */,

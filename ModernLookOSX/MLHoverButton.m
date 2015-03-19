@@ -270,7 +270,7 @@
 		imageRect.size.width = w;
 		imageRect.size.height = h;
 		
-		imageRect.origin.x = (self.bounds.size.width/2.0) - (imageRect.size.width/2.0f);
+		imageRect.origin.x = (self.bounds.size.width - imageRect.size.width)/2.0f;
 		imageRect.origin.y = (self.bounds.size.height - imageRect.size.height)/2.0f;
 		
 		[i drawInRect:imageRect];

@@ -214,16 +214,20 @@
                     <customView translatesAutoresizingMaskIntoConstraints="NO" id="leA-4i-5wT" customClass="MLToolbar">
                         <rect key="frame" x="0.0" y="446" width="685" height="65"/>
                         <subviews>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ESC-eE-mBo">
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ESC-eE-mBo" customClass="MLHyperlink">
                                 <rect key="frame" x="32" y="18" width="170" height="29"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="29" id="07M-2E-gJS"/>
+                                    <constraint firstAttribute="width" constant="166" id="yCa-7N-vIf"/>
                                 </constraints>
-                                <textFieldCell key="cell" controlSize="small" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Budget Skeleton" id="y2k-xv-nDY">
+                                <textFieldCell key="cell" controlSize="small" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="justified" title="Budget Skeleton" id="y2k-xv-nDY">
                                     <font key="font" size="24" name="HelveticaNeue-Thin"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
+                                <connections>
+                                    <action selector="hyperlinkAction:" target="Voe-Tx-rLC" id="3Wh-DI-ydW"/>
+                                </connections>
                             </textField>
                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="j45-r1-6Vj">
                                 <rect key="frame" x="549" y="15" width="130" height="34"/>
