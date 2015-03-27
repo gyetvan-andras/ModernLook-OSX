@@ -10,6 +10,7 @@
                 <outlet property="message" destination="WVl-N5-6Px" id="0V6-a5-Wpn"/>
                 <outlet property="no" destination="X5U-LN-WrO" id="rkB-jM-oo8"/>
                 <outlet property="title" destination="OEn-fO-laH" id="XH5-ua-dmJ"/>
+                <outlet property="toolbar" destination="D4K-MO-rYw" id="goD-Hr-a2S"/>
                 <outlet property="window" destination="F0z-JX-Cv5" id="gIp-Ho-8D9"/>
                 <outlet property="yes" destination="Vcr-UG-FoQ" id="q29-wZ-bl1"/>
             </connections>
@@ -105,7 +106,7 @@ Gw
                         </userDefinedRuntimeAttributes>
                     </customView>
                     <box verticalHuggingPriority="750" fixedFrame="YES" title="Box" boxType="separator" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="Yq5-8L-hsM">
-                        <rect key="frame" x="26" y="54" width="434" height="5"/>
+                        <rect key="frame" x="26" y="54" width="434" height="4"/>
                         <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
                         <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <font key="titleFont" metaFont="system"/>

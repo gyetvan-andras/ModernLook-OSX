@@ -7,6 +7,7 @@
 //
 
 #import "MLAlert.h"
+#import "MLToolbar.h"
 
 @interface MLAlert ()
 @property (weak) IBOutlet NSTextField *title;
@@ -14,6 +15,7 @@
 @property (weak) IBOutlet NSButton *cancel;
 @property (weak) IBOutlet NSButton *yes;
 @property (weak) IBOutlet NSButton *no;
+@property (weak) IBOutlet MLToolbar *toolbar;
 
 - (IBAction)doCancel:(id)sender;
 - (IBAction)doYes:(id)sender;
@@ -49,6 +51,25 @@
 
 + (MLAlertResponse) showQuestion:(NSString*)question title:(NSString*)title withCancel:(BOOL)withCancel {
 	return [MLAlert showQuestion:question title:title withCancel:withCancel buttonsTitle:@[@"Cancel",@"Yes",@"No"]];
+}
+
++ (MLAlertResponse) showError:(NSString*)question title:(NSString*)title buttonsTitle:(NSString*)butonTitle {
+	MLAlert* alert = [[MLAlert alloc] init];
+	alert.toolbar.backgroundColor = [NSColor redColor];
+	alert.cancel.hidden = YES;
+	alert.yes.hidden = YES;
+	alert.title.stringValue = title;
+	alert.message.stringValue = question;
+	alert.no.title = butonTitle;
+	[alert resizeButtons];
+	MLAlertResponse res = [alert runAlert];
+	[alert.window close];
+	return res;
+	
+}
+
++ (MLAlertResponse) showError:(NSString*)question title:(NSString*)title {
+	return [MLAlert showError:question title:title buttonsTitle:@"Back"];
 }
 
 - (instancetype) init {

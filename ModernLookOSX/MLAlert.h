@@ -14,4 +14,6 @@ typedef NS_ENUM(NSInteger, MLAlertResponse) {
 @interface MLAlert : NSWindowController
 + (MLAlertResponse) showQuestion:(NSString*)question title:(NSString*)title withCancel:(BOOL)withCancel;
 + (MLAlertResponse) showQuestion:(NSString*)question title:(NSString*)title withCancel:(BOOL)withCancel buttonsTitle:(NSArray*)titles;
++ (MLAlertResponse) showError:(NSString*)question title:(NSString*)title buttonsTitle:(NSString*)butonTitle;
++ (MLAlertResponse) showError:(NSString*)question title:(NSString*)title;
 @end
