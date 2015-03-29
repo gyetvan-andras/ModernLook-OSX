@@ -8,6 +8,7 @@
 
 #import "MLOutlineView.h"
 #import "MLTableHeaderCell.h"
+#import "MLPopupWindow.h"
 @interface MLOutlineView () {
 	NSMutableArray* savedTreeState;
 	NSRect oldVisibleRect;
@@ -101,7 +102,7 @@
 		NSColor* bgColor = Nil;
 		if([NSApplication sharedApplication].active) {
 			bgColor = self.selectionColor;
-			if([[self window] isMainWindow] && [[self window] isKeyWindow]) {
+			if(([[self window] isMainWindow] && [[self window] isKeyWindow]) || ([self.window isKindOfClass:[MLPopupWindow class]] )) {
 				bgColor = self.selectionColor;
 			} else {
 				bgColor = [NSColor colorWithCalibratedWhite:0.800 alpha:1.000];
