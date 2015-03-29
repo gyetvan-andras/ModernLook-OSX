@@ -50,6 +50,10 @@
 	return [[MLPopupWindowManager popupManager] showPopupForControl:control withContent:self.popupContent.view];
 }
 
+- (void) requestClose {
+	[[MLPopupWindowManager popupManager] hidePopup];
+}
+
 - (NSArray*) control:(NSControl *)control textView:(NSTextView *)textView completions:(NSArray *)words forPartialWordRange:(NSRange)charRange indexOfSelectedItem:(NSInteger *)index {
 	return nil;
 }

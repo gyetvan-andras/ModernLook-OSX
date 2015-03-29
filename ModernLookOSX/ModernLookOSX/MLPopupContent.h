@@ -11,6 +11,7 @@
 @protocol MLPopupContentDelegate <NSObject>
 @required
 - (void) selectionDidChange:(id)sel fromUpDown:(BOOL)updown;
+- (void) requestClose;
 @end
 
 @interface MLPopupContent : NSViewController
