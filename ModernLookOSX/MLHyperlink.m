@@ -78,9 +78,10 @@
 - (void)drawRect:(NSRect)dirtyRect {
 //	[super drawRect:dirtyRect];
 	[NSGraphicsContext saveGraphicsState];
+	
 	NSRect bounds = [self bounds];
-	[self.backgroundColor set];
-	NSRectFill(bounds);
+//	[self.backgroundColor set];
+//	NSRectFill(bounds);
 	
 	NSColor* drawColor = nil;
 	
