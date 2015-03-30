@@ -44,7 +44,7 @@
 //		selector:@selector(windowResized:) name:NSViewFrameDidChangeNotification
 //		object:self];
 	self.wantsLayer = YES;
-	self.title = @"1";
+//	self.title = @"1";
 	[self createTrackingArea];
 	self.hoovered = NO;
 	self.hoveredForegroundColor = [NSColor whiteColor] ;//]selectedTextColor];
@@ -138,15 +138,15 @@
 		[self removeTrackingArea:self.trackingArea];
 	}
 	NSRect circleRect = self.bounds;
-	if(circleRect.size.width > circleRect.size.height) {
-		CGFloat originalW = circleRect.size.width;
-		circleRect.size.width = circleRect.size.height;
-		circleRect.origin.x = ((originalW - circleRect.size.width)/2.0);
-	} else if(circleRect.size.width < circleRect.size.height) {
-		CGFloat originalH = circleRect.size.height;
-		circleRect.size.height = circleRect.size.width;
-		circleRect.origin.y = ((originalH - circleRect.size.height)/2.0);
-	}
+//	if(circleRect.size.width > circleRect.size.height) {
+//		CGFloat originalW = circleRect.size.width;
+//		circleRect.size.width = circleRect.size.height;
+//		circleRect.origin.x = ((originalW - circleRect.size.width)/2.0);
+//	} else if(circleRect.size.width < circleRect.size.height) {
+//		CGFloat originalH = circleRect.size.height;
+//		circleRect.size.height = circleRect.size.width;
+//		circleRect.origin.y = ((originalH - circleRect.size.height)/2.0);
+//	}
 	
 	self.trackingArea = [[NSTrackingArea alloc] initWithRect:circleRect
 													 options: (NSTrackingMouseEnteredAndExited | NSTrackingActiveInActiveApp)
@@ -221,21 +221,41 @@
 	return image;
 }
 
-//- (void)drawRect:(NSRect)dirtyRect {
-//}
+- (void) drawText:(NSString*) text inRect:(NSRect)rect withColor:(NSColor*) fc {
+	NSMutableParagraphStyle * aParagraphStyle = [[NSMutableParagraphStyle alloc] init];
+	[aParagraphStyle setLineBreakMode:NSLineBreakByWordWrapping];
+	[aParagraphStyle setAlignment:NSLeftTextAlignment];
+	
+	NSDictionary *attrs = @{NSParagraphStyleAttributeName: aParagraphStyle,NSFontAttributeName: self.font,NSForegroundColorAttributeName: fc};
+	
+	NSSize size = [self.title sizeWithAttributes:attrs];
+	
+	NSRect r = NSMakeRect(rect.origin.x,// + (bounds.size.width - size.width)/2.0,
+						  rect.origin.y + ((rect.size.height - size.height)/2.0),
+						  rect.size.width,
+						  size.height);
+	[self.title drawInRect:r withAttributes:attrs];
+	
+}
 
 - (void)drawRect:(NSRect)dirtyRect {
 	[NSGraphicsContext saveGraphicsState];
 	NSRect circleRect = self.bounds;
+	
 	if(circleRect.size.width > circleRect.size.height) {
-		CGFloat originalW = circleRect.size.width;
+//		CGFloat originalW = circleRect.size.width;
 		circleRect.size.width = circleRect.size.height;
-		circleRect.origin.x = ((originalW - circleRect.size.width)/2.0);
+//		circleRect.origin.x = ((originalW - circleRect.size.width)/2.0);
 	} else if(circleRect.size.width < circleRect.size.height) {
 		CGFloat originalH = circleRect.size.height;
 		circleRect.size.height = circleRect.size.width;
 		circleRect.origin.y = ((originalH - circleRect.size.height)/2.0);
 	}
+	
+	NSRect textRect = self.bounds;
+	textRect.origin.x += circleRect.size.width + 4;
+	textRect.size.width -= circleRect.size.width + 4;
+	
 	NSColor* bg = self.backgroundColor;
 	NSColor* fc = nil;
 	if(self.hoovered && !self.isHighlighted) {
@@ -253,9 +273,9 @@
 	if(self.image) {
 		
 		NSRect targetRect = NSInsetRect(circleRect, 8.0f, 8.0f);
-
+		
 		NSImage* i = nil;
-
+		
 		if(self.hoovered && !self.isHighlighted) {
 			i = self.tintedImage;
 		} else {
@@ -270,28 +290,114 @@
 		imageRect.size.width = w;
 		imageRect.size.height = h;
 		
-		imageRect.origin.x = (self.bounds.size.width - imageRect.size.width)/2.0f;
-		imageRect.origin.y = (self.bounds.size.height - imageRect.size.height)/2.0f;
+		imageRect.origin.x = (circleRect.size.width - imageRect.size.width)/2.0f;
+		imageRect.origin.y = (circleRect.size.height - imageRect.size.height)/2.0f;
 		
 		[i drawInRect:imageRect];
+		[self drawText:self.title inRect:textRect withColor:fc];
 		
 	} else {
+		NSString* sign = nil;
+		NSString* text = nil;
+		NSArray* components = [self.title componentsSeparatedByString:@"|"];
+		if(components.count == 2) {
+			sign = components[0];
+			text = components[1];
+		} else {
+			sign = [self.title substringToIndex:1];
+			text = [self.title substringFromIndex:1];
+		}
 		NSMutableParagraphStyle * aParagraphStyle = [[NSMutableParagraphStyle alloc] init];
 		[aParagraphStyle setLineBreakMode:NSLineBreakByWordWrapping];
 		[aParagraphStyle setAlignment:NSCenterTextAlignment];
 		
 		NSDictionary *attrs = @{NSParagraphStyleAttributeName: aParagraphStyle,NSFontAttributeName: self.font,NSForegroundColorAttributeName: fc};
 		
-		NSSize size = [self.title sizeWithAttributes:attrs];
+		NSSize size = [sign sizeWithAttributes:attrs];
 		
 		NSRect r = NSMakeRect(circleRect.origin.x,// + (bounds.size.width - size.width)/2.0,
 							  circleRect.origin.y + ((circleRect.size.height - size.height)/2.0) - 2,
 							  circleRect.size.width,
 							  size.height);
 		
-		[self.title drawInRect:r withAttributes:attrs];
+		[sign drawInRect:r withAttributes:attrs];
+		[self drawText:text inRect:textRect withColor:fc];
 	}
 	[NSGraphicsContext restoreGraphicsState];
 }
+
+//- (void)drawRect:(NSRect)dirtyRect {
+//}
+
+//- (void)drawRect:(NSRect)dirtyRect {
+//	[NSGraphicsContext saveGraphicsState];
+//	NSRect circleRect = self.bounds;
+//	
+//	if(circleRect.size.width > circleRect.size.height) {
+//		CGFloat originalW = circleRect.size.width;
+//		circleRect.size.width = circleRect.size.height;
+//		circleRect.origin.x = ((originalW - circleRect.size.width)/2.0);
+//	} else if(circleRect.size.width < circleRect.size.height) {
+//		CGFloat originalH = circleRect.size.height;
+//		circleRect.size.height = circleRect.size.width;
+//		circleRect.origin.y = ((originalH - circleRect.size.height)/2.0);
+//	}
+//	NSColor* bg = self.backgroundColor;
+//	NSColor* fc = nil;
+//	if(self.hoovered && !self.isHighlighted) {
+//		bg = self.hoveredBackgroundColor;
+//		fc = self.hoveredForegroundColor;
+//	} else {
+//		bg = self.backgroundColor;
+//		fc = self.foregroundColor;
+//	}
+//	
+//	NSBezierPath* bgPath = [NSBezierPath bezierPathWithOvalInRect:circleRect];
+//	[bg set];
+//	[bgPath fill];
+//	
+//	if(self.image) {
+//		
+//		NSRect targetRect = NSInsetRect(circleRect, 8.0f, 8.0f);
+//
+//		NSImage* i = nil;
+//
+//		if(self.hoovered && !self.isHighlighted) {
+//			i = self.tintedImage;
+//		} else {
+//			i = self.image;
+//		}
+//		
+//		NSRect imageRect = NSZeroRect;
+//		CGFloat w = i.size.width;
+//		CGFloat h = i.size.height;
+//		if(w > targetRect.size.width) w = targetRect.size.width;
+//		if(h > targetRect.size.height) h = targetRect.size.height;
+//		imageRect.size.width = w;
+//		imageRect.size.height = h;
+//		
+//		imageRect.origin.x = (self.bounds.size.width - imageRect.size.width)/2.0f;
+//		imageRect.origin.y = (self.bounds.size.height - imageRect.size.height)/2.0f;
+//		
+//		[i drawInRect:imageRect];
+//		
+//	} else {
+//		NSMutableParagraphStyle * aParagraphStyle = [[NSMutableParagraphStyle alloc] init];
+//		[aParagraphStyle setLineBreakMode:NSLineBreakByWordWrapping];
+//		[aParagraphStyle setAlignment:NSCenterTextAlignment];
+//		
+//		NSDictionary *attrs = @{NSParagraphStyleAttributeName: aParagraphStyle,NSFontAttributeName: self.font,NSForegroundColorAttributeName: fc};
+//		
+//		NSSize size = [self.title sizeWithAttributes:attrs];
+//		
+//		NSRect r = NSMakeRect(circleRect.origin.x,// + (bounds.size.width - size.width)/2.0,
+//							  circleRect.origin.y + ((circleRect.size.height - size.height)/2.0) - 2,
+//							  circleRect.size.width,
+//							  size.height);
+//		
+//		[self.title drawInRect:r withAttributes:attrs];
+//	}
+//	[NSGraphicsContext restoreGraphicsState];
+//}
 
 @end

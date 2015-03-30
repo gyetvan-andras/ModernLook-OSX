@@ -297,7 +297,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="26" id="0ro-WU-AC1"/>
                                 </constraints>
-                                <buttonCell key="cell" type="bevel" bezelStyle="regularSquare" image="NSActionTemplate" imagePosition="only" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="eJU-SJ-UB5">
+                                <buttonCell key="cell" type="bevel" title="Settings" bezelStyle="regularSquare" image="NSActionTemplate" imagePosition="overlaps" alignment="left" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="eJU-SJ-UB5">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
