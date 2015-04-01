@@ -231,7 +231,7 @@
 	NSSize size = [self.title sizeWithAttributes:attrs];
 	
 	NSRect r = NSMakeRect(rect.origin.x,// + (bounds.size.width - size.width)/2.0,
-						  rect.origin.y + ((rect.size.height - size.height)/2.0),
+						  rect.origin.y + ((rect.size.height - size.height)/2.0) - 2,
 						  rect.size.width,
 						  size.height);
 	[self.title drawInRect:r withAttributes:attrs];
@@ -239,6 +239,7 @@
 }
 
 - (void)drawRect:(NSRect)dirtyRect {
+	BOOL isOn = NO;
 	[NSGraphicsContext saveGraphicsState];
 	NSRect circleRect = self.bounds;
 	
@@ -258,7 +259,8 @@
 	
 	NSColor* bg = self.backgroundColor;
 	NSColor* fc = nil;
-	if(self.hoovered && !self.isHighlighted) {
+	isOn = (self.hoovered && !self.isHighlighted) || (self.state == NSOnState);
+	if(isOn) {
 		bg = self.hoveredBackgroundColor;
 		fc = self.hoveredForegroundColor;
 	} else {
@@ -276,7 +278,7 @@
 		
 		NSImage* i = nil;
 		
-		if(self.hoovered && !self.isHighlighted) {
+		if(isOn) {
 			i = self.tintedImage;
 		} else {
 			i = self.image;
