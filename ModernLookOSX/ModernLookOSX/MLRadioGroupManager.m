@@ -25,6 +25,9 @@
 		}
 	}
 	self.selectedItem = sender.tag;
-	[self sendAction:self.action to:self.target];
+//	NSLog(@"Action:%@ - target: %@", NSStringFromSelector(self.action), self.target);
+	[self.target performSelectorOnMainThread:self.action withObject:self waitUntilDone:YES];
+//	[self.target performSelector:self.action withObject:self afterDelay:0];
+//	[self sendAction:self.action to:self.target];
 }
 @end
