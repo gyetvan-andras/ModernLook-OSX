@@ -10,4 +10,5 @@
 
 @interface MLHyperlink : NSTextField
 @property (nonatomic, copy) NSColor* hoveredTextColor;
+@property (nonatomic) BOOL hasUnderline;
 @end

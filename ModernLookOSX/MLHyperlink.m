@@ -76,31 +76,49 @@
 }
 
 - (void)drawRect:(NSRect)dirtyRect {
-//	[super drawRect:dirtyRect];
 	[NSGraphicsContext saveGraphicsState];
 	
 	NSRect bounds = [self bounds];
-//	[self.backgroundColor set];
-//	NSRectFill(bounds);
 	
 	NSColor* drawColor = nil;
 	
 	if(self.hoovered) {
 		drawColor = self.hoveredTextColor;
 	} else {
-		drawColor = self.textColor;
+		if(self.stringValue != nil && self.stringValue.length > 0) {
+			drawColor = self.textColor;
+		} else {
+			drawColor = [NSColor tertiaryLabelColor];
+		}
 	}
 	
+	NSString* text = @"";
+	if(self.stringValue != nil && self.stringValue.length > 0) {
+		text = self.stringValue;
+	} else {
+		text = self.placeholderString;
+	}
 	
 	NSMutableParagraphStyle * aParagraphStyle = [[NSMutableParagraphStyle alloc] init];
 	[aParagraphStyle setLineBreakMode:NSLineBreakByWordWrapping];
 	[aParagraphStyle setAlignment:self.alignment];
 	NSDictionary *attrs = @{NSParagraphStyleAttributeName: aParagraphStyle,NSFontAttributeName: self.font,NSForegroundColorAttributeName: drawColor};
 	
-	[self.stringValue drawInRect:self.bounds withAttributes:attrs];
+	[text drawInRect:self.bounds withAttributes:attrs];
 
-	if(self.hoovered) {
-		NSSize size = [self.stringValue sizeWithAttributes:attrs];
+	if(self.hasUnderline) {
+		NSRect bounds = [self bounds];
+		[self.textColor set];
+		
+		NSBezierPath *bottomLine = [NSBezierPath bezierPath];
+		NSPoint p = NSZeroPoint;//bounds.origin;
+		p.y = bounds.size.height;
+		[bottomLine moveToPoint:p];
+		p.x += bounds.size.width;
+		[bottomLine lineToPoint:p];
+		[bottomLine stroke];
+	} else if(self.hoovered) {
+		NSSize size = [text sizeWithAttributes:attrs];
 
 		CGFloat x1 = 0.0f;
 		CGFloat x2 = 0.0f;
