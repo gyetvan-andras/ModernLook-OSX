@@ -98,4 +98,9 @@
 //	NSLog(@"fieldEditor for %@",anObject);
 	return ret;
 }
+
+- (void) cancelOperation:(id)sender {
+	NSLog(@"cancelOperation - MLMainWindow");
+}
+
 @end
