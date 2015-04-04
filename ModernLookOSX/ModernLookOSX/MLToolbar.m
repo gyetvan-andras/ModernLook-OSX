@@ -100,8 +100,13 @@
 		y = y - bh - 5;
 		
 		CGFloat x = 8;
-		buttonsRect.origin = NSMakePoint(x, y-bh-3-bh-3);
-		buttonsRect.size = NSMakeSize(bw, bh+3+bh+3+bh);
+		if(self.justClose) {
+			buttonsRect.origin = NSMakePoint(x, y);
+			buttonsRect.size = NSMakeSize(bw, bh+3);
+		} else {
+			buttonsRect.origin = NSMakePoint(x, y-bh-3-bh-3);
+			buttonsRect.size = NSMakeSize(bw, bh+3+bh+3+bh);
+		}
 	} else {
 		CGFloat y = b.size.height;
 		
@@ -111,8 +116,13 @@
 		y = y - bh - 5;
 		
 		CGFloat x = 8;
-		buttonsRect.origin = NSMakePoint(x, y);
-		buttonsRect.size = NSMakeSize(bw+2+bw+bw,bh);
+		if(self.justClose) {
+			buttonsRect.origin = NSMakePoint(x, y);
+			buttonsRect.size = NSMakeSize(bw+2,bh);
+		} else {
+			buttonsRect.origin = NSMakePoint(x, y);
+			buttonsRect.size = NSMakeSize(bw+2+bw+bw,bh);
+		}
 	
 	}
 	
@@ -135,15 +145,26 @@
 	self.maximizeButton.highlighted = NO;
 }
 
+- (void) setJustClose:(BOOL)justClose {
+	_justClose = justClose;
+	if(justClose) {
+		self.minimizeButton.hidden = justClose;
+		self.maximizeButton.hidden = justClose;
+	}
+	[self createTrackingArea];
+}
+
 - (void) commonInit {
 	[super commonInit];
 	_hiddenButtons = NO;
+	_justClose = NO;
 	if(!self.hiddenButtons) {
 		NSUInteger mask = NSClosableWindowMask | NSMiniaturizableWindowMask | NSResizableWindowMask;
 		self.closeButton = [NSWindow standardWindowButton:NSWindowCloseButton forStyleMask:mask];
-		self.minimizeButton = [NSWindow standardWindowButton:NSWindowMiniaturizeButton forStyleMask:mask];
-		self.maximizeButton = [NSWindow standardWindowButton:NSWindowZoomButton forStyleMask:mask];
-		
+//		if(!self.justClose) {
+			self.minimizeButton = [NSWindow standardWindowButton:NSWindowMiniaturizeButton forStyleMask:mask];
+			self.maximizeButton = [NSWindow standardWindowButton:NSWindowZoomButton forStyleMask:mask];
+//		}
 		[self.closeButton setButtonType:NSMomentaryChangeButton];
 		
 		NSRect b = self.bounds;
@@ -187,7 +208,7 @@
 	[bottomLine lineToPoint:p];
 	[bottomLine stroke];
 
-	if(self.verticalButtons && !self.hiddenButtons) {
+	if(self.verticalButtons && !self.hiddenButtons && !self.justClose) {
 		NSBezierPath *sepLine = [NSBezierPath bezierPath];
 		p = bounds.origin;
 		p.x += 29;
