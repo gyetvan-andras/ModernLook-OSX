@@ -118,7 +118,9 @@
 		return NO;
 	}
 	if( commandSelector == @selector(moveDown:) ){
-		if([self showPopupForControl:control]) {
+		if(![self showPopupForControl:control]) {
+			[self.popupContent selectFirstItem];
+		} else {
 			[self.popupContent moveSelectionUp:NO];
 		}
 		return YES;

@@ -18,4 +18,5 @@
 @property (nonatomic, weak) id<MLPopupContentDelegate> delegate;
 - (void) moveSelectionUp:(BOOL)up;
 - (NSString*) moveSelectionTo:(NSString*)str;
+- (void) selectFirstItem;
 @end
