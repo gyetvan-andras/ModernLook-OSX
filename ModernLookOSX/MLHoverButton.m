@@ -259,7 +259,7 @@
 	
 	NSColor* bg = self.backgroundColor;
 	NSColor* fc = nil;
-	isOn = (self.hoovered && !self.isHighlighted) || (self.state == NSOnState);
+	isOn = (self.hoovered && !self.isHighlighted);// || (self.state == NSOnState);
 	if(isOn) {
 		bg = self.hoveredBackgroundColor;
 		fc = self.hoveredForegroundColor;
