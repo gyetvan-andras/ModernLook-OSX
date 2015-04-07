@@ -87,7 +87,6 @@
 
 - (NSText*) fieldEditor:(BOOL)createFlag forObject:(id)anObject {
 	if([anObject isKindOfClass:[MLTableView class]] || [anObject isKindOfClass:[MLOutlineView class]]) {
-//		NSLog(@"fieldEditor for %@",anObject);
 		if(!self.mlTextView) {
 			self.mlTextView = [[MLTextView alloc] init];
 			self.mlTextView.fieldEditorMarker = self.fieldEditorMarker;
@@ -95,7 +94,6 @@
 		return self.mlTextView;
 	}
 	NSText* ret = [super fieldEditor:createFlag forObject:anObject];
-//	NSLog(@"fieldEditor for %@",anObject);
 	return ret;
 }
 

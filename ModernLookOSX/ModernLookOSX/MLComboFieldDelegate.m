@@ -1,4 +1,4 @@
-//
+  //
 //  PBTextFieldPopupManager.m
 //  Predicitve Budget
 //
@@ -29,7 +29,6 @@
 }
 
 - (BOOL)control:(NSControl *)control isValidObject:(id)object {
-	NSLog(@"Validating:%@",object);
 	return YES;
 }
 
@@ -70,7 +69,6 @@
 		self.combo = (MLComboField*)control;
 	}
 	if(!self.combo) {
-		NSLog(@"INVALID CONTROL");
 		return;
 	}
 	[self showPopupForControl:control];
@@ -88,7 +86,6 @@
 	}
 	
 	if(!editor) {
-		NSLog(@"NO EDITOR FOR CONTROL");
 		return;
 	}
 	NSString* s = [self.popupContent moveSelectionTo:control.stringValue];
