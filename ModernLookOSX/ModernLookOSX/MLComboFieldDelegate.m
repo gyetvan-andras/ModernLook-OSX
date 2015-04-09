@@ -116,7 +116,11 @@
 	}
 	if( commandSelector == @selector(moveDown:) ){
 		if(![self showPopupForControl:control]) {
-			[self.popupContent selectFirstItem];
+			if(self.combo.stringValue && self.combo.stringValue.length > 0) {
+				[self.popupContent moveSelectionTo:self.combo.stringValue];
+			} else {
+				[self.popupContent selectFirstItem];
+			}
 		} else {
 			[self.popupContent moveSelectionUp:NO];
 		}

@@ -35,14 +35,14 @@ MLPopupWindowManager* _popupManager;
 	[control.window addChildWindow:self.popupWindow ordered:NSWindowAbove];
 	
 	[[NSNotificationCenter defaultCenter] addObserver:self
-											 selector:@selector(windowDidResize:)
-												 name:NSWindowDidResizeNotification
-											   object:control.window
+		selector:@selector(windowDidResize:)
+		name:NSWindowDidResizeNotification
+		object:control.window
 	 ];
 	[[NSNotificationCenter defaultCenter] addObserver:self
-											 selector:@selector(applicationDidResignActive:)
-												 name:NSApplicationDidResignActiveNotification
-											   object:[NSApplication sharedApplication]
+		selector:@selector(applicationDidResignActive:)
+		name:NSApplicationDidResignActiveNotification
+		object:[NSApplication sharedApplication]
 	 ];
 	
 	return NO;
