@@ -8,6 +8,7 @@
 
 #import "MLAlert.h"
 #import "MLToolbar.h"
+#import "MLMainWindow.h"
 
 @interface MLAlert ()
 @property (weak) IBOutlet NSTextField *title;
@@ -109,13 +110,19 @@
 }
 
 - (MLAlertResponse) runAlert {
-	NSInteger runSessionRes;
-	NSModalSession session = [NSApp beginModalSessionForWindow:self.window];
-	for (;;) {
-		runSessionRes = [NSApp runModalSession:session];
-		if (runSessionRes != NSModalResponseContinue) break;
-	}
-	[NSApp endModalSession:session];
+	[MLMainWindow relativeCenterWindow:self.window];
+	NSInteger runSessionRes = [[NSApplication sharedApplication] runModalForWindow:self.window];
+	[self.window close];
+
+//	NSInteger runSessionRes;
+//	NSModalSession session = [NSApp beginModalSessionForWindow:self.window];
+//	for (;;) {
+//		runSessionRes = [NSApp runModalSession:session];
+//		if (runSessionRes != NSModalResponseContinue) break;
+//	}
+//	[NSApp endModalSession:session];
+	
+
 	return (MLAlertResponse)runSessionRes;
 }
 

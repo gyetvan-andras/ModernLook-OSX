@@ -59,6 +59,8 @@
 		B39FBDF81A9A35E8000C4BB2 /* MLPopupContent.h in Headers */ = {isa = PBXBuildFile; fileRef = B39FBD951A9A261A000C4BB2 /* MLPopupContent.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B39FBDF91A9A35E8000C4BB2 /* MLPopupWindow.h in Headers */ = {isa = PBXBuildFile; fileRef = B39FBD9A1A9A261A000C4BB2 /* MLPopupWindow.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B39FBDFA1A9A35E9000C4BB2 /* MLPopupWindowManager.h in Headers */ = {isa = PBXBuildFile; fileRef = B39FBD991A9A261A000C4BB2 /* MLPopupWindowManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B3EDCCC51AD83F5D007A7388 /* MLCenteredWindow.h in Headers */ = {isa = PBXBuildFile; fileRef = B3EDCCC31AD83F5D007A7388 /* MLCenteredWindow.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B3EDCCC61AD83F5D007A7388 /* MLCenteredWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = B3EDCCC41AD83F5D007A7388 /* MLCenteredWindow.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -116,6 +118,8 @@
 		B39FBD971A9A261A000C4BB2 /* MLPopupWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MLPopupWindow.m; path = ModernLookOSX/MLPopupWindow.m; sourceTree = SOURCE_ROOT; };
 		B39FBD991A9A261A000C4BB2 /* MLPopupWindowManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MLPopupWindowManager.h; path = ModernLookOSX/MLPopupWindowManager.h; sourceTree = SOURCE_ROOT; };
 		B39FBD9A1A9A261A000C4BB2 /* MLPopupWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MLPopupWindow.h; path = ModernLookOSX/MLPopupWindow.h; sourceTree = SOURCE_ROOT; };
+		B3EDCCC31AD83F5D007A7388 /* MLCenteredWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MLCenteredWindow.h; path = ModernLookOSX/MLCenteredWindow.h; sourceTree = SOURCE_ROOT; };
+		B3EDCCC41AD83F5D007A7388 /* MLCenteredWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MLCenteredWindow.m; path = ModernLookOSX/MLCenteredWindow.m; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -200,6 +204,8 @@
 				B39FBDBE1A9A2710000C4BB2 /* Popup */,
 				B39FBD941A9A261A000C4BB2 /* MLMainWindow.h */,
 				B39FBD781A9A261A000C4BB2 /* MLMainWindow.m */,
+				B3EDCCC31AD83F5D007A7388 /* MLCenteredWindow.h */,
+				B3EDCCC41AD83F5D007A7388 /* MLCenteredWindow.m */,
 				B39FBD8B1A9A261A000C4BB2 /* MLGlassView.h */,
 				B39FBD8A1A9A261A000C4BB2 /* MLGlassView.m */,
 				B39FBD911A9A261A000C4BB2 /* MLToolbar.h */,
@@ -282,6 +288,7 @@
 				B39FBDF91A9A35E8000C4BB2 /* MLPopupWindow.h in Headers */,
 				B30588751AB8AC2E00D948E7 /* MLHoverButton.h in Headers */,
 				B32265F21AAA4ACB006891DA /* MLColoredButton.h in Headers */,
+				B3EDCCC51AD83F5D007A7388 /* MLCenteredWindow.h in Headers */,
 				B33CF17D1ABB4D6300CA33B7 /* MLHyperlink.h in Headers */,
 				B3426C6D1AA25EF6008BC156 /* MLAlert.h in Headers */,
 				B338CB601AAC5ECB00365DCA /* MLCalendarView.h in Headers */,
@@ -376,6 +383,7 @@
 				B39FBDA21A9A261A000C4BB2 /* MLTableHeaderCell.m in Sources */,
 				B39FBD9D1A9A261A000C4BB2 /* MLTableView.m in Sources */,
 				B39FBDAD1A9A261A000C4BB2 /* MLGlassView.m in Sources */,
+				B3EDCCC61AD83F5D007A7388 /* MLCenteredWindow.m in Sources */,
 				B39FBD9F1A9A261A000C4BB2 /* MLComboField.m in Sources */,
 				B39FBDB01A9A261A000C4BB2 /* MLContentView.m in Sources */,
 				B30588761AB8AC2E00D948E7 /* MLHoverButton.m in Sources */,

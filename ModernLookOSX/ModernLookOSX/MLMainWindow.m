@@ -101,4 +101,12 @@
 	NSLog(@"cancelOperation - MLMainWindow");
 }
 
++ (void) relativeCenterWindow:(NSWindow *)window {
+	NSRect mr = [NSApplication sharedApplication].mainWindow.frame;
+	NSPoint mp = NSMakePoint(NSMidX(mr), NSMidY(mr));
+	
+	NSRect r = window.frame;
+	NSPoint wo = NSMakePoint(mp.x - (r.size.width/2.0f),mp.y - (r.size.height/2.0f));
+	[window setFrameOrigin:wo];
+}
 @end

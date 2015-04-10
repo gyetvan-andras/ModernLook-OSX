@@ -36,3 +36,4 @@ FOUNDATION_EXPORT const unsigned char ModernLookOSXVersionString[];
 #import <ModernLookOSX/MLCalendarView.h>
 #import <ModernLookOSX/MLHoverButton.h>
 #import <ModernLookOSX/MLHyperlink.h>
+#import <ModernLookOSX/MLCenteredWindow.h>

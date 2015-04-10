@@ -8,6 +8,6 @@
 
 #import "ModernLookOSX/ModernLookOSX.h"
 
-@interface MLAlertWindow : MLMainWindow
+@interface MLAlertWindow : MLCenteredWindow
 
 @end

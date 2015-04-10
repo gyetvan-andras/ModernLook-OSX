@@ -8,4 +8,5 @@
 
 @property (strong) NSColor* fieldEditorMarker;
 - (void)showContent:(NSView *)c;
++ (void) relativeCenterWindow:(NSWindow*)window;
 @end
