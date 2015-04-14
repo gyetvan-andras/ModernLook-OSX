@@ -60,11 +60,11 @@
 		NSColor* bgColor = Nil;
 		if([NSApplication sharedApplication].active) {
 			bgColor = self.selectionColor;
-			if(([[self window] isMainWindow] && [[self window] isKeyWindow]) || ([self.window isKindOfClass:[MLPopupWindow class]] )) {
-				bgColor = self.selectionColor;
-			} else {
-				bgColor = [NSColor colorWithCalibratedWhite:0.800 alpha:1.000];
-			}
+//			if(([[self window] isMainWindow] && [[self window] isKeyWindow]) || ([self.window isKindOfClass:[MLPopupWindow class]] )) {
+//				bgColor = self.selectionColor;
+//			} else {
+//				bgColor = [NSColor colorWithCalibratedWhite:0.800 alpha:1.000];
+//			}
 		} else {
 			bgColor = [NSColor colorWithCalibratedWhite:0.800 alpha:1.000];
 		}
