@@ -13,4 +13,5 @@
 @property (nonatomic, copy) NSColor* hoveredBackgroundColor;
 @property (nonatomic, copy) NSColor* foregroundColor;
 @property (nonatomic, copy) NSColor* hoveredForegroundColor;
+@property (nonatomic, assign) CGFloat  circleBorder;
 @end
