@@ -27,6 +27,8 @@
 		B3426C6D1AA25EF6008BC156 /* MLAlert.h in Headers */ = {isa = PBXBuildFile; fileRef = B3426C681AA25EF6008BC156 /* MLAlert.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B3426C6E1AA25EF6008BC156 /* MLAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = B3426C691AA25EF6008BC156 /* MLAlert.m */; };
 		B3426C6F1AA25EF6008BC156 /* MLAlertYesNoCancel.xib in Resources */ = {isa = PBXBuildFile; fileRef = B3426C6A1AA25EF6008BC156 /* MLAlertYesNoCancel.xib */; };
+		B36BA07B1AE2D68D0035AF15 /* MLCheckbox.h in Headers */ = {isa = PBXBuildFile; fileRef = B36BA0791AE2D68D0035AF15 /* MLCheckbox.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B36BA07C1AE2D68D0035AF15 /* MLCheckbox.m in Sources */ = {isa = PBXBuildFile; fileRef = B36BA07A1AE2D68D0035AF15 /* MLCheckbox.m */; };
 		B38F701C1AB8CE9E00F47545 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B38F701B1AB8CE9E00F47545 /* QuartzCore.framework */; };
 		B39FBCA41A9A1E57000C4BB2 /* ModernLookOSX.h in Headers */ = {isa = PBXBuildFile; fileRef = B39FBCA31A9A1E57000C4BB2 /* ModernLookOSX.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B39FBD9B1A9A261A000C4BB2 /* MLMainWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = B39FBD781A9A261A000C4BB2 /* MLMainWindow.m */; };
@@ -84,6 +86,8 @@
 		B3426C681AA25EF6008BC156 /* MLAlert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLAlert.h; sourceTree = SOURCE_ROOT; };
 		B3426C691AA25EF6008BC156 /* MLAlert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLAlert.m; sourceTree = SOURCE_ROOT; };
 		B3426C6A1AA25EF6008BC156 /* MLAlertYesNoCancel.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MLAlertYesNoCancel.xib; sourceTree = SOURCE_ROOT; };
+		B36BA0791AE2D68D0035AF15 /* MLCheckbox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLCheckbox.h; sourceTree = SOURCE_ROOT; };
+		B36BA07A1AE2D68D0035AF15 /* MLCheckbox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLCheckbox.m; sourceTree = SOURCE_ROOT; };
 		B38F701B1AB8CE9E00F47545 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		B39FBC9E1A9A1E57000C4BB2 /* ModernLookOSX.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ModernLookOSX.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B39FBCA21A9A1E57000C4BB2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -257,6 +261,8 @@
 				B30DD1191AAEFA0100125D25 /* MLTextView.m */,
 				B30588731AB8AC2E00D948E7 /* MLHoverButton.h */,
 				B30588741AB8AC2E00D948E7 /* MLHoverButton.m */,
+				B36BA0791AE2D68D0035AF15 /* MLCheckbox.h */,
+				B36BA07A1AE2D68D0035AF15 /* MLCheckbox.m */,
 			);
 			name = Components;
 			sourceTree = "<group>";
@@ -289,6 +295,7 @@
 				B30588751AB8AC2E00D948E7 /* MLHoverButton.h in Headers */,
 				B32265F21AAA4ACB006891DA /* MLColoredButton.h in Headers */,
 				B3EDCCC51AD83F5D007A7388 /* MLCenteredWindow.h in Headers */,
+				B36BA07B1AE2D68D0035AF15 /* MLCheckbox.h in Headers */,
 				B33CF17D1ABB4D6300CA33B7 /* MLHyperlink.h in Headers */,
 				B3426C6D1AA25EF6008BC156 /* MLAlert.h in Headers */,
 				B338CB601AAC5ECB00365DCA /* MLCalendarView.h in Headers */,
@@ -373,6 +380,7 @@
 				B30DD11B1AAEFA0100125D25 /* MLTextView.m in Sources */,
 				B3426C6C1AA25EF6008BC156 /* MLAlertWindow.m in Sources */,
 				B39FBDAF1A9A261A000C4BB2 /* MLToolbar.m in Sources */,
+				B36BA07C1AE2D68D0035AF15 /* MLCheckbox.m in Sources */,
 				B33CF17E1ABB4D6300CA33B7 /* MLHyperlink.m in Sources */,
 				B3426C6E1AA25EF6008BC156 /* MLAlert.m in Sources */,
 				B39FBD9B1A9A261A000C4BB2 /* MLMainWindow.m in Sources */,

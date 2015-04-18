@@ -1,23 +1,20 @@
 //
-//  MLHooverButton.m
+//  MLCheckbox.m
 //  ModernLookOSX
 //
-//  Created by András Gyetván on 17/03/15.
+//  Created by András Gyetván on 18/04/15.
 //  Copyright (c) 2015 DroidZONE. All rights reserved.
 //
 
-#import "MLHoverButton.h"
-#import <QuartzCore/QuartzCore.h>
+#import "MLCheckbox.h"
 
-@interface MLHoverButton ()
+@interface MLCheckbox ()
 @property (nonatomic, strong) NSTrackingArea* trackingArea;
 @property (nonatomic) BOOL hoovered;
 @property (nonatomic, strong) NSImage* tintedImage;
-//@property (nonatomic, strong) CAShapeLayer* bgLayer;
-//@property (nonatomic, strong) CALayer* imgLayer;
 @end
 
-@implementation MLHoverButton
+@implementation MLCheckbox
 
 - (instancetype) initWithCoder:(NSCoder *)coder {
 	self = [super initWithCoder:coder];
@@ -40,7 +37,7 @@
 }
 
 - (void) commonInit {
-	self.wantsLayer = YES;
+//	self.wantsLayer = YES;
 	[self createTrackingArea];
 	self.hoovered = NO;
 	self.hoveredForegroundColor = [NSColor whiteColor] ;//]selectedTextColor];
@@ -48,7 +45,6 @@
 	self.backgroundColor = [NSColor clearColor];
 	self.foregroundColor = [NSColor controlTextColor];
 	self.circleBorder = 8;
-	self.drawsOn = NO;
 }
 
 - (void) createTrackingArea {
@@ -126,9 +122,7 @@
 	NSRect circleRect = self.bounds;
 	
 	if(circleRect.size.width > circleRect.size.height) {
-//		CGFloat originalW = circleRect.size.width;
 		circleRect.size.width = circleRect.size.height;
-//		circleRect.origin.x = ((originalW - circleRect.size.width)/2.0);
 	} else if(circleRect.size.width < circleRect.size.height) {
 		CGFloat originalH = circleRect.size.height;
 		circleRect.size.height = circleRect.size.width;
@@ -141,10 +135,7 @@
 	
 	NSColor* bg = self.backgroundColor;
 	NSColor* fc = nil;
-	isOn = (self.hoovered && !self.isHighlighted);// || (self.state == NSOnState);
-	if(self.drawsOn && (self.state == NSOnState)) {
-		isOn = YES;
-	}
+	isOn = (self.hoovered && !self.isHighlighted) || (self.state == NSOnState);
 	if(isOn) {
 		bg = self.hoveredBackgroundColor;
 		fc = self.hoveredForegroundColor;
@@ -156,60 +147,28 @@
 	NSBezierPath* bgPath = [NSBezierPath bezierPathWithOvalInRect:circleRect];
 	[bg set];
 	[bgPath fill];
-	
-	if(self.image) {
-		
-		NSRect targetRect = NSInsetRect(circleRect, self.circleBorder, self.circleBorder);
-		
-		NSImage* i = nil;
-		
-		if(isOn) {
-			i = self.tintedImage;
-		} else {
-			i = self.image;
-		}
-		
-		NSRect imageRect = NSZeroRect;
-		CGFloat w = i.size.width;
-		CGFloat h = i.size.height;
-		if(w > targetRect.size.width) w = targetRect.size.width;
-		if(h > targetRect.size.height) h = targetRect.size.height;
-		imageRect.size.width = w;
-		imageRect.size.height = h;
-		
-		imageRect.origin.x = (circleRect.size.width - imageRect.size.width)/2.0f;
-		imageRect.origin.y = (circleRect.size.height - imageRect.size.height)/2.0f;
-		
-		[i drawInRect:imageRect];
-		[self drawText:self.title inRect:textRect withColor:fc];
-		
+	NSImage* i = nil;
+	if(isOn) {
+		i = self.onImage ? self.onImage : self.tintedImage;
 	} else {
-		NSString* sign = nil;
-		NSString* text = nil;
-		NSArray* components = [self.title componentsSeparatedByString:@"|"];
-		if(components.count == 2) {
-			sign = components[0];
-			text = components[1];
-		} else {
-			sign = [self.title substringToIndex:1];
-			text = [self.title substringFromIndex:1];
-		}
-		NSMutableParagraphStyle * aParagraphStyle = [[NSMutableParagraphStyle alloc] init];
-		[aParagraphStyle setLineBreakMode:NSLineBreakByWordWrapping];
-		[aParagraphStyle setAlignment:NSCenterTextAlignment];
-		
-		NSDictionary *attrs = @{NSParagraphStyleAttributeName: aParagraphStyle,NSFontAttributeName: self.font,NSForegroundColorAttributeName: fc};
-		
-		NSSize size = [sign sizeWithAttributes:attrs];
-		
-		NSRect r = NSMakeRect(circleRect.origin.x,// + (bounds.size.width - size.width)/2.0,
-							  circleRect.origin.y + ((circleRect.size.height - size.height)/2.0) - 2,
-							  circleRect.size.width,
-							  size.height);
-		
-		[sign drawInRect:r withAttributes:attrs];
-		[self drawText:text inRect:textRect withColor:fc];
+		i = self.image;
 	}
+	
+	NSRect targetRect = NSInsetRect(circleRect, self.circleBorder, self.circleBorder);
+	
+	NSRect imageRect = NSZeroRect;
+	CGFloat w = i.size.width;
+	CGFloat h = i.size.height;
+	if(w > targetRect.size.width) w = targetRect.size.width;
+	if(h > targetRect.size.height) h = targetRect.size.height;
+	imageRect.size.width = w;
+	imageRect.size.height = h;
+	
+	imageRect.origin.x = (circleRect.size.width - imageRect.size.width)/2.0f;
+	imageRect.origin.y = (circleRect.size.height - imageRect.size.height)/2.0f;
+	
+	[i drawInRect:imageRect];
+	[self drawText:self.title inRect:textRect withColor:fc];
 	[NSGraphicsContext restoreGraphicsState];
 }
 

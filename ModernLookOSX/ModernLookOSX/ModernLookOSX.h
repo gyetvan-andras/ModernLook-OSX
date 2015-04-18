@@ -37,3 +37,4 @@ FOUNDATION_EXPORT const unsigned char ModernLookOSXVersionString[];
 #import <ModernLookOSX/MLHoverButton.h>
 #import <ModernLookOSX/MLHyperlink.h>
 #import <ModernLookOSX/MLCenteredWindow.h>
+#import <ModernLookOSX/MLCheckbox.h>

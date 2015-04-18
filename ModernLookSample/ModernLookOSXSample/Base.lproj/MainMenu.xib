@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6254" systemVersion="14D72i" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="7531" systemVersion="14D131" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6254"/>
-        <plugIn identifier="com.apple.WebKitIBPlugin" version="6254"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="7531"/>
+        <plugIn identifier="com.apple.WebKitIBPlugin" version="7531"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="NSApplication">
@@ -206,7 +206,7 @@
         <window title="ModernLook" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" animationBehavior="default" id="MGV-z3-o5U" customClass="MLMainWindow">
             <windowStyleMask key="styleMask" closable="YES" miniaturizable="YES" resizable="YES"/>
             <rect key="contentRect" x="354" y="187" width="685" height="511"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1440" height="877"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1280" height="777"/>
             <view key="contentView" wantsLayer="YES" id="hrB-oC-67N" customClass="MLWindowContent">
                 <rect key="frame" x="0.0" y="0.0" width="685" height="511"/>
                 <autoresizingMask key="autoresizingMask"/>
@@ -293,7 +293,7 @@
                                 </connections>
                             </button>
                             <button translatesAutoresizingMaskIntoConstraints="NO" id="GXg-vc-gGC" customClass="MLHoverButton">
-                                <rect key="frame" x="238" y="16" width="305" height="31"/>
+                                <rect key="frame" x="238" y="16" width="193" height="31"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="26" id="0ro-WU-AC1"/>
                                 </constraints>
@@ -310,8 +310,32 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </button>
+                            <button translatesAutoresizingMaskIntoConstraints="NO" id="e04-Bf-8u6" customClass="MLCheckbox">
+                                <rect key="frame" x="435" y="16" width="108" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="26" id="NHW-aE-4h9"/>
+                                    <constraint firstAttribute="width" constant="104" id="P2m-ja-EH6"/>
+                                </constraints>
+                                <buttonCell key="cell" type="bevel" title="every days" bezelStyle="regularSquare" image="TimerTemplate" imagePosition="left" alignment="left" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="hdQ-dQ-YmX">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="hoveredBackgroundColor">
+                                        <color key="value" red="0.9529411793" green="0.61176472900000001" blue="0.070588238540000001" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="hoveredForegroundColor">
+                                        <color key="value" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="circleBorder">
+                                        <integer key="value" value="0"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
                         </subviews>
                         <constraints>
+                            <constraint firstItem="e04-Bf-8u6" firstAttribute="top" secondItem="leA-4i-5wT" secondAttribute="top" constant="20" id="4YX-9e-FX2"/>
+                            <constraint firstItem="j45-r1-6Vj" firstAttribute="leading" secondItem="e04-Bf-8u6" secondAttribute="trailing" constant="8" id="9Rq-eW-Zd9"/>
                             <constraint firstAttribute="height" constant="65" id="BCU-Ba-zf7"/>
                             <constraint firstItem="dCC-If-MdS" firstAttribute="leading" secondItem="ESC-eE-mBo" secondAttribute="trailing" constant="8" id="Ke5-rN-L3x"/>
                             <constraint firstItem="dCC-If-MdS" firstAttribute="top" secondItem="leA-4i-5wT" secondAttribute="top" constant="18" id="Lop-fT-pQu"/>
@@ -321,7 +345,7 @@
                             <constraint firstItem="GXg-vc-gGC" firstAttribute="leading" secondItem="dCC-If-MdS" secondAttribute="trailing" constant="5" id="fsS-Y0-JuA"/>
                             <constraint firstItem="ESC-eE-mBo" firstAttribute="leading" secondItem="leA-4i-5wT" secondAttribute="leading" constant="34" id="hMa-JP-Z3e"/>
                             <constraint firstAttribute="centerY" secondItem="j45-r1-6Vj" secondAttribute="centerY" id="nXd-8g-iaD"/>
-                            <constraint firstItem="j45-r1-6Vj" firstAttribute="leading" secondItem="GXg-vc-gGC" secondAttribute="trailing" constant="8" id="uQQ-c5-ZZa"/>
+                            <constraint firstItem="j45-r1-6Vj" firstAttribute="leading" secondItem="GXg-vc-gGC" secondAttribute="trailing" constant="120" id="uQQ-c5-ZZa"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="color" keyPath="backgroundColor">
@@ -767,6 +791,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <outlineView focusRingType="none" verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" multipleSelection="NO" autosaveColumns="NO" rowHeight="25" viewBased="YES" indentationPerLevel="16" outlineTableColumn="dCQ-VL-2uH" id="i9d-yo-FAK">
+                                <rect key="frame" x="0.0" y="0.0" width="300" height="0.0"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <size key="intercellSpacing" width="2" height="3"/>
                                 <color key="backgroundColor" red="0.74117648599999997" green="0.76470589639999997" blue="0.78039217000000005" alpha="0.0" colorSpace="calibratedRGB"/>
@@ -1047,9 +1072,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" alternatingRowBackgroundColors="YES" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowHeight="25" headerView="0Us-ys-5RR" viewBased="YES" id="9Xc-u4-Ifw" customClass="MLTableView">
+                                <rect key="frame" x="0.0" y="0.0" width="628" height="0.0"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <size key="intercellSpacing" width="3" height="2"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
                                 <tableColumns>
                                     <tableColumn width="102" minWidth="10" maxWidth="3.4028234663852886e+38" id="sgn-7e-UGC">
