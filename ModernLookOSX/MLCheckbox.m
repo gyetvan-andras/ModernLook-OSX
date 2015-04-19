@@ -11,6 +11,7 @@
 @interface MLCheckbox ()
 @property (nonatomic, strong) NSTrackingArea* trackingArea;
 @property (nonatomic) BOOL hoovered;
+@property (nonatomic) BOOL justTurnedOff;
 @property (nonatomic, strong) NSImage* tintedImage;
 @end
 
@@ -39,6 +40,7 @@
 - (void) commonInit {
 //	self.wantsLayer = YES;
 	[self createTrackingArea];
+	self.justTurnedOff = NO;
 	self.hoovered = NO;
 	self.hoveredForegroundColor = [NSColor whiteColor] ;//]selectedTextColor];
 	self.hoveredBackgroundColor = [NSColor selectedTextBackgroundColor];
@@ -62,13 +64,27 @@
 
 - (void)mouseEntered:(NSEvent *)theEvent {
 	self.hoovered = YES;
+	self.justTurnedOff = NO;
 	self.needsDisplay = YES;
 }
 
 - (void)mouseExited:(NSEvent *)theEvent {
 	self.hoovered = NO;
+	self.justTurnedOff = NO;
 	self.needsDisplay = YES;
 }
+
+- (void) mouseDown:(NSEvent *)theEvent {
+	[super mouseDown:theEvent];
+	if(self.hoovered) {
+		self.justTurnedOff = self.state == NSOffState;
+	};
+}
+
+//- (void)setState:(NSInteger)state {
+//	[super setState:state];
+//	if(self.hoovered && state == NSOffState) self.justTurnedOff = YES;
+//}
 
 - (void) setHoveredForegroundColor:(NSColor *)hooveredForegroundColor {
 	_hoveredForegroundColor = hooveredForegroundColor;
@@ -102,7 +118,7 @@
 - (void) drawText:(NSString*) text inRect:(NSRect)rect withColor:(NSColor*) fc {
 	NSMutableParagraphStyle * aParagraphStyle = [[NSMutableParagraphStyle alloc] init];
 	[aParagraphStyle setLineBreakMode:NSLineBreakByWordWrapping];
-	[aParagraphStyle setAlignment:NSLeftTextAlignment];
+	[aParagraphStyle setAlignment:self.alignment];
 	
 	NSDictionary *attrs = @{NSParagraphStyleAttributeName: aParagraphStyle,NSFontAttributeName: self.font,NSForegroundColorAttributeName: fc};
 	
@@ -136,6 +152,7 @@
 	NSColor* bg = self.backgroundColor;
 	NSColor* fc = nil;
 	isOn = (self.hoovered && !self.isHighlighted) || (self.state == NSOnState);
+	if(self.justTurnedOff) isOn = NO;
 	if(isOn) {
 		bg = self.hoveredBackgroundColor;
 		fc = self.hoveredForegroundColor;
@@ -168,6 +185,13 @@
 	imageRect.origin.y = (circleRect.size.height - imageRect.size.height)/2.0f;
 	
 	[i drawInRect:imageRect];
+	
+	
+//	NSMutableParagraphStyle * aParagraphStyle = [[NSMutableParagraphStyle alloc] init];
+//	[aParagraphStyle setLineBreakMode:NSLineBreakByWordWrapping];
+//	[aParagraphStyle setAlignment:self.alignment];
+//	NSDictionary *attrs = @{NSParagraphStyleAttributeName: aParagraphStyle,NSFontAttributeName: self.font,NSForegroundColorAttributeName: drawColor};
+	
 	[self drawText:self.title inRect:textRect withColor:fc];
 	[NSGraphicsContext restoreGraphicsState];
 }
