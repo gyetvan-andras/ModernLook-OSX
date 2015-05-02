@@ -12,4 +12,5 @@
 
 @interface MLComboFieldDelegate : NSObject <NSTextFieldDelegate,MLPopupContentDelegate>
 @property (NS_NONATOMIC_IOSONLY, readonly, strong) MLPopupContent *createPopupContent;
+- (void) handleMouseClick:(NSControl*)control;
 @end

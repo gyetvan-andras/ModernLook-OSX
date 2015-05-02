@@ -99,6 +99,25 @@
 	}
 }
 
+- (void) displayPopupFirstTime:(NSControl*)control {
+	if(![self showPopupForControl:control]) {
+		if(self.combo.stringValue && self.combo.stringValue.length > 0) {
+			[self.popupContent moveSelectionTo:self.combo.stringValue];
+		} else {
+			[self.popupContent selectFirstItem];
+		}
+	} else {
+		[self.popupContent moveSelectionUp:NO];
+	}
+}
+
+- (void) handleMouseClick:(NSControl*)control {
+	if ([control isKindOfClass:[MLComboField class]]) {
+		self.combo = (MLComboField*)control;
+	}
+	[self displayPopupFirstTime:control];
+}
+
 - (BOOL) control:(NSControl *)control textView:(NSTextView *)textView doCommandBySelector:(SEL)commandSelector {
 	self.combo = nil;
 	if ([control isKindOfClass:[MLComboField class]]) {
@@ -115,15 +134,7 @@
 		return NO;
 	}
 	if( commandSelector == @selector(moveDown:) ){
-		if(![self showPopupForControl:control]) {
-			if(self.combo.stringValue && self.combo.stringValue.length > 0) {
-				[self.popupContent moveSelectionTo:self.combo.stringValue];
-			} else {
-				[self.popupContent selectFirstItem];
-			}
-		} else {
-			[self.popupContent moveSelectionUp:NO];
-		}
+		[self displayPopupFirstTime:control];
 		return YES;
 	}
 	if( commandSelector == @selector(cancelOperation:) ){

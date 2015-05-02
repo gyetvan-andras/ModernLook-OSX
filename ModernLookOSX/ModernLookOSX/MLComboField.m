@@ -8,6 +8,7 @@
 
 #import "MLComboField.h"
 #import "MLPopupWindowManager.h"
+#import "MLComboFieldDelegate.h"
 
 @implementation MLComboField
 
@@ -19,6 +20,15 @@
 	r.location = insertionPoint;
 	NSText* textEditor = [self.window fieldEditor:YES forObject:self];
 	textEditor.selectedRange = r;
+}
+
+- (void) mouseDown:(NSEvent *)theEvent {
+	[super mouseDown:theEvent];
+	if([self.delegate respondsToSelector:@selector(handleMouseClick:)]) {
+		MLComboFieldDelegate* d = (MLComboFieldDelegate*)self.delegate;
+		[d handleMouseClick:self];
+	}
+	NSLog(@"Mouse down!");
 }
 
 - (void) hidePopup {
