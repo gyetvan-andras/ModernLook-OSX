@@ -29,7 +29,7 @@
 	}
 	
 	self = [super initWithFrame: frameRect];
-	
+	[self setVerticalButtons:_verticalButtons];
 	return self;
 }
 
