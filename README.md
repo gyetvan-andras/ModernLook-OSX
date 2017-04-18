@@ -12,7 +12,7 @@ This project aims to provide a simple and customizable component set which can b
 
 ModernLook-OSX requires OSX 10.10 to work properly. I have tested the components on OSX 10.9 with no success: generally the application runs well on 10.9, but some visual effect does not work. Probably some hacking can help, so if you can make it look better on 10.9 please let me know. However I think this new look does not fit well on older OSX UI.
 
-#Description
+# Description
 
 ModernLook-OSX is the amalgamation of different ideas found all around the net (especially on [stackoverflow.com](http://stackoverflow.com) ) discussing about how to achieve the look of application rewritten by Apple for Yosemite.
 
@@ -52,23 +52,23 @@ Here is the code of the MLTextField class.
 ```
 You can easily change it to meet your needs, for example draw the line with foreground color, instead of hardcoded black (~~I plan to add this to the component soon~~ - implemented).
 
-#Main components
+# Main components
 
 ModernLook-OSX contains several components to let you create exciting applications, however not all the OSX UI covered yet. I plan to add more component to the package, so stay tuned!
 
-##MLMainWindow
+## MLMainWindow
 This component can be used to create a window for your application.
 
-##MLWindowContent
+## MLWindowContent
 This component is used for MLMainWindow's contentView. It draws as a colored, rounded rectangle. You can specify it's color by overriding the backgroundColor property.
 
-##MLToolbar
+## MLToolbar
 This component can be used for MLMainWindow's toolbar. This component has nothing common with standard NSToolbar, it is a simple NSView which just draws the window buttons. The content of the toolbar can be designed in IB. The background color can be specified with backgroundColor property, which is transparent by default.
 
-##MLContentView
+## MLContentView
 You must use this component as your window content base class. The background color can be specified with backgroundColor property, which is transparent by default. 
 
-#Window setup
+# Window setup
 You can design your window in IB and it is up to you how to layout stuffs. Generally you should add a toolbar and content view to the window, specifying their Custom Class properties accordingly.
 <p align="center">
 	<img src="doc/ml-ib.png" alt="Window Setup in IB">
@@ -81,12 +81,12 @@ Above you can see, that the toolbar portion of the window is a custom class of M
 
 You can add any other component to these views, however most of the native NS* components will look a bit strange. I have added a few components to the ModernLook-OSX and I am working on to more.
 
-#Additional components
+# Additional components
 
-##MLTextField
+## MLTextField
 Very simple subclass of NSTextField. It just sets the default font, make the component transparent and draws a thin line beneath the component.
 
-##MLComboField
+## MLComboField
 It is a component similar to NSComboBox, where you can specify the content of the dropdown. It involves the following steps:
 
 1. add an NSTextField to your content in IB and set its custom class to MLComboField
@@ -94,7 +94,7 @@ It is a component similar to NSComboBox, where you can specify the content of th
 3. create a view controller which is derived from MLPopupContent and override ```- (void) moveSelectionUp:(BOOL)up;``` and ```- (NSString*) moveSelectionTo:(NSString*)str;```
 4. add your dropdown content provider to IB and set it as delegate of the MLComboField.
 
-##MLOutlineView
+## MLOutlineView
 This component is derived from NSOutlineView and replaces the outline view header control to add custom drawing to it.
 
 **NEW** as of 03.03.2015
@@ -108,7 +108,7 @@ these calls are save/restore the state of an MLOutlineView. The state informatio
 
 if this property is set, then it will be used as the selection background color.
 
-##MLTableView
+## MLTableView
 This component is derived from NSTableView and replaces the outline view header control to add custom drawing to it.
 
 **NEW** as of 03.04.2015
@@ -116,10 +116,10 @@ This component is derived from NSTableView and replaces the outline view header 
 
 if this property is set, then it will be used as the selection background color.
 
-##MLRadioGroupManager
+## MLRadioGroupManager
 It is really not a component, just a manager to mimic Segmented Control and needs further improvements. Anyways, it works as follows: add an object with custom class as MLRadioGroupManager and an NSView to IB and place some NSButton into it. Configure the buttons style to square and type to switch. Assign the buttons' sent action to the MLRadioGroupManager. Also assign the buttons parent view to the MLRadioGroupManager as groupView. With this setup the MLRadioGroupManager will act like a radio button group, so only one button can be selected at a time. Yes, I know it is a bit confusing, but you should take a look at the sample application's toolbar.
 
-##MLAlert
+## MLAlert
 It is an alert window provider. At the moment it provides just a Yes/No/Cancel possibility. You can use this component like this:
 ```objective-c
 MLAlertResponse res = [MLAlert showQuestion:@"Create new Something?" title:@"Unknown Something" withCancel:NO];
@@ -130,7 +130,7 @@ switch(res) {
 }
 ```
 
-##MLCalendarView
+## MLCalendarView
 
 Calendar component for OSX inspired by some free iOS calendar
 <p align="center">
@@ -140,13 +140,13 @@ Calendar component for OSX inspired by some free iOS calendar
 	</p>
 </p>
 
-###Description
+### Description
 
 MLCalendarView is a date selector component which is represented as a month calendar.
 
 The component uses the system Language & Region settings, so it will display the month and day names regarding to the system settings. Also it lays out the days according to the first day of week system setting.
 
-###Usage
+### Usage
 MLCalendarView is derived from NSViewController and can be used as any other view. 
 
 The component contains the following properties to change the default colors used by the calendar.
@@ -168,7 +168,7 @@ Also, there is a delegate for the calendar, which is used to send a message when
 - (void) didSelectDate:(NSDate*)selectedDate;
 @end
 ```
-#MLHoverButton
+# MLHoverButton
 It is derived from NSButton and draws itself as a filled circle with an image or text. The visuals can be specified by the following properties.
 ```objective-c
 @property (nonatomic, copy) NSColor* backgroundColor;
@@ -176,7 +176,7 @@ It is derived from NSButton and draws itself as a filled circle with an image or
 @property (nonatomic, copy) NSColor* foregroundColor;
 @property (nonatomic, copy) NSColor* hooveredForegroundColor;
 ```
-#MLHyperlink
+# MLHyperlink
 It looks and behaves similar to a hyperlink in a web browser. When the mouse hover over it will change the text color and underline the text.
 There is a
 ```objective-c
@@ -184,7 +184,7 @@ There is a
 ```
 property to specify the text color when hovered.
 
-#Sample Application
+# Sample Application
 The provided sample application is an imagined Budget app. It has 4 separate area:
 
 1. Settings panel
@@ -206,13 +206,13 @@ Added an MLHoverButton to the toolbar to demonstrate its look.
 
 Change the toolbar title to be a hyperlink. When clicked it will log out a message to the console.
 
-#Known issues
+# Known issues
 
 1. the window buttons on the toolbar behave strange. There are no images in them and they don't highlighted when the window is not selected, they just remain grayed out when the mouse hovered over.
 2. ~~MLComboField dropdown remains on screen sometimes (switch to another windows, for example)~~ - fixed.
 3. MLTextField text selection covers the bottom thin line.
 
-#License
+# License
 MIT
 
 
